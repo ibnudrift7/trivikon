@@ -1,0 +1,214 @@
+header.header.homepages{
+	// width: 100%;
+	// top: 0px;
+	// position: fixed !important; 
+}
+
+header.header{
+	background-color: #fff;
+	// min-height: 119px; height: 119px;
+	height: auto;
+	border-bottom: 1px solid #fff;
+
+	.top-headers{
+		.lgo-headers{
+			.main-logo{
+
+			}
+			.lines-nmiddle{
+				margin: 0; padding: 0;
+				display: inline-block;
+				vertical-align: middle;
+				background-color: #9b999a;
+				height: 68px; width: 1px;
+			}
+		}
+		span.ns_top{
+			padding-top: 0.2rem;
+			font-size: 10px;
+			font-weight: 400;
+			color: #373435;
+			text-transform: uppercase;
+			display: block;
+			padding-bottom: 0rem;
+			margin-bottom: 0.4rem;
+		}
+		.snc-brand_list{
+			ul{
+				margin: 0; padding: 0px;
+
+			}
+		}
+
+
+		.ns-right-headers{
+			.blosn-languagemenu,
+			.menu-block-top{
+				ul{
+					margin: 0;
+					li{
+						text-align: center;
+						a{
+							font-size: 16px; font-weight: 300; color: #373435;
+							line-height: 1;
+						}
+						margin: 0; padding: 0 8px;
+						vertical-align: middle;
+					}
+					li:hover,
+					li:focus,
+					li.active{
+						a{
+							color: #000; text-decoration: none;
+						}
+					}
+					li:last-child{
+						padding-right: 0;
+					}
+				}
+			}
+			.lines-vertic{
+				margin: 0; padding: 0;
+				display: inline-block;
+				vertical-align: middle;
+				background-color: #9b999a;
+				height: 44px; width: 1px;
+			}
+			.blosn-languagemenu{
+				ul{
+					li{
+						a{
+							color: #797979;
+						}
+						a::after {
+						    display: block;
+						    content: attr(title);
+						    font-weight: bold;
+						    height: 0;
+						    overflow: hidden;
+						    visibility: hidden;
+						}
+					}
+					li.active,
+					li:hover,
+					li:focus{
+						a{
+							color: #000; font-weight: 700;
+						}
+					}
+				}		
+			}
+		}
+		clear: both;
+	}
+
+	.container{
+		position: relative;
+		padding: 0px;
+	}
+	.blocks-bottom-menublack{
+		position: absolute;
+		bottom: -45px;
+		left: 0px; width: 100%;
+		background-color: #000; height: auto;
+		z-index: 350;
+		.left-block,
+		.back-blue{
+			min-height: 45px;
+			padding-top: 0.9rem !important;
+			padding-bottom: 0.9rem !important;
+		}
+		.left-block{
+			.d-inline-block.align-middle{
+				line-height: 1; 
+			}
+			.leftsn_titlesl{
+				span{
+					display: inline-block; vertical-align: middle;
+					font-size: 17px; font-weight: 300; color: #fff; line-height: 1;
+				}
+				color: #404040;
+			}
+			ul.menu-lefts{
+				li{
+					a{
+						font-size: 13px; font-weight: 500; color: #fff; line-height: 1;
+						text-transform: uppercase;
+					}
+					margin-right: 0.8rem;
+				}
+				li:hover,
+				li:focus,
+				li.active{
+					a{
+						text-decoration: none;
+						color: #E5E5E5;
+					}
+				}
+				margin: 0;
+			}
+			clear: both;
+		}
+		.back-blue{
+			background-color: #0092df;
+			color: #fff;
+			.inners-text{ 
+				text-align: center;
+				font-size: 17px; font-weight: 300; color: #fff; font-style: italic;
+				span{
+					font-weight: 300;
+					b,strong{
+						font-weight: 700;
+					}
+					small{
+						position: relative;
+						font-size: 75%;
+						top: -6px;
+					}
+					display: inline-block; line-height: 1;
+				}
+				span.rights_spn{
+					padding-left: 1rem;
+					position: relative;
+				}
+				span.rights_spn:before{
+					display: inline-block;
+					content: ""; position: absolute; top: -4px; left: -5px;
+					background-color: #40ade7; width: 1px; height: 29px;
+				}
+			}
+		}
+		clear: both;
+	}
+	.menu-headers{
+		padding-top: 1.2em;
+		ul{
+			list-style: none;
+			padding: 0;
+			li{
+				padding: 0 7.5px;
+				a{
+					font-size: 14px; font-weight: 700; color: #7f7f7f;
+				}
+			}
+			li:hover,
+			li:focus,
+			li.active{
+				a{
+					color: @red_dark;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	// border-bottom: 1px solid #ccc;
+	clear: both;
+}
+.logo-headers{
+	position: absolute;
+	top: -10px; z-index: 2;
+	left: 0px;
+	a{
+		max-width: 232px; display: block;
+	}
+}
