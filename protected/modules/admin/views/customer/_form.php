@@ -37,7 +37,7 @@
 					<?php endif ?>
 					
 
-					<?php echo $form->textFieldRow($model,'url_instagram',array('class'=>'span12')); ?>
+					<?php echo $form->textFieldRow($model,'telp_saudara',array('class'=>'span12')); ?>
 				</div>
 				<div class="span4">
 					<?php 
@@ -49,7 +49,7 @@
 					<?php echo $form->dropDownListRow($model,'province', $nods_provinc, array('class'=>'span12 pilih_provinsi', 'empty'=> '-- Pilih --')); ?>
 
 					<?php echo $form->textFieldRow($model,'postcode', array('class'=>'span12')); ?>
-					<?php echo $form->textFieldRow($model,'url_facebook', array('class'=>'span12')); ?>
+					<?php echo $form->textFieldRow($model,'jabatan', array('class'=>'span12')); ?>
 				</div>
 			</div>
 			<div class="divider10"></div>
@@ -62,26 +62,27 @@
 		        		'2'=>'Wanita',
 		        	)); ?>
 					<?php 
-					$models = KategoriUsaha::model()->findAll(); 
-					$data_bid = CHtml::listData($models, 'id', 'nama');    
-					echo $form->dropDownListRow($model, 'bidang_usaha', $data_bid, array('empty'=> '-- Choose --')); 
+					// $models = KategoriUsaha::model()->findAll(); 
+					// $data_bid = CHtml::listData($models, 'id', 'nama');    
+					// echo $form->dropDownListRow($model, 'bidang_usaha', $data_bid, array('empty'=> '-- Choose --')); 
 					?>
 					<?php 
-					$models2 = TbMitra::model()->findAll(); 
-					$data_mit = CHtml::listData($models2, 'id', 'nama_mitra');    
-					echo $form->dropDownListRow($model, 'mitra_id', $data_mit, array('empty'=> '-- Choose --')); 
+					// $models2 = TbMitra::model()->findAll(); 
+					// $data_mit = CHtml::listData($models2, 'id', 'nama_mitra');    
+					// echo $form->dropDownListRow($model, 'mitra_id', $data_mit, array('empty'=> '-- Choose --')); 
 					?>
-					<?php echo $form->textFieldRow($model,'tgl_join', array('class'=>'span12 datepicker2')); ?>
+					<?php // echo $form->textFieldRow($model,'tgl_join', array('class'=>'span12 datepicker2')); ?>
+					<?php echo $form->textFieldRow($model,'nama_perusahaan',array('class'=>'span12')); ?>
 				</div>
 				<div class="span4">
 					<?php echo $form->textFieldRow($model,'no_ktp',array('class'=>'span12')); ?>
-					<?php echo $form->textFieldRow($model,'nama_perusahaan',array('class'=>'span12')); ?>
 					<?php echo $form->textAreaRow($model,'alamat_perusahaan',array('class'=>'span12')); ?>
 				</div>
 				<div class="span4">
 		        	<?php echo $form->textFieldRow($model,'tanggal_lahir',array('class'=>'span12 datepicker')); ?>
-					<?php echo $form->textAreaRow($model,'sejarah_singkat',array('class'=>'span12')); ?>
-					<?php echo $form->textFieldRow($model,'referal',array('class'=>'span12')); ?>
+					<?php // echo $form->textAreaRow($model,'sejarah_singkat',array('class'=>'span12')); ?>
+					<?php // echo $form->textFieldRow($model,'referal',array('class'=>'span12')); ?>
+					<?php echo $form->textFieldRow($model,'no_ktp', array('class'=>'span12')); ?>
 				</div>
 			</div>
 
@@ -163,7 +164,7 @@
         		'0'=>'Tidak Aktif',
         	), array('class'=>'span12')); ?>
 
-        	<?php echo $form->textFieldRow($model,'gp_point',array('class'=>'span12','maxlength'=>5,'required'=>'required')); ?>
+        	<?php // echo $form->textFieldRow($model,'gp_point',array('class'=>'span12','maxlength'=>5,'required'=>'required')); ?>
 
             <div class="divider5"></div>
 			<div class="alert">

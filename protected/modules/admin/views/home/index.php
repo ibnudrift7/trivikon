@@ -3,7 +3,7 @@
     <div class="in">
         <div class="loginpanelinner">
             <div class="logo text-logo">
-                Salingtemu
+                Trivikon
             </div>
                 <?php /** @var BootActiveForm $form */
                     $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(

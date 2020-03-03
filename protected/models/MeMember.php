@@ -71,7 +71,7 @@ class MeMember extends CActiveRecord
 			array('hp', 'length', 'max'=>20),
 			array('hp', 'length', 'min'=>9),
 			array('email', 'email'),
-			array('address, pass2, passold, jenis_kelamin, tanggal_lahir, no_ktp, nama_perusahaan, sejarah_singkat, bidang_usaha, username, sistem_manajement, analisa_swot, mitra_id, url_instagram, url_facebook, session_token, foto_diri, foto_usaha, foto_logo, alamat_perusahaan, referal, tgl_join, gp_point, del_fotodiri, del_fotoperusahaan', 'safe'),
+			array('address, pass2, passold, jenis_kelamin, tanggal_lahir, no_ktp, nama_perusahaan, username, session_token, foto_diri, foto_ktp, tgl_masuk, jabatan, telp_saudara', 'safe'),
 
 			// array('image', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>FALSE, 'on'=>'insert', 'except'=>array('createTemp', 'copy')),
 			// array('image', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>TRUE, 'on'=>'update', 'except'=>array('createTemp', 'copy')),
@@ -110,18 +110,21 @@ class MeMember extends CActiveRecord
 			'aktivasi' => 'Aktivasi',
 			'aktif' => 'Active',
 			'image' => 'Image',
-			'hp' => 'Phone',
+			'hp' => 'Telp',
 			'address' => 'Address',
 			'city' => 'City',
 			'province' => 'State / province',
 			'postcode' => 'Zip Code',
 			'mitra_id' => 'Komunitas',
 			'session_token' => 'Session Token',
-			'referal' => 'Diajak oleh Member',
-			'gp_point' => 'GP Point',
+			'nama_perusahaan' => 'Nama Kontraktor',
+			'foto_diri' => 'Foto',
+			'no_ktp' => 'No KTP',
+			// 'referal' => 'Diajak oleh Member',
+			// 'gp_point' => 'GP Point',
 
-			'del_fotodiri'=>'Delete Foto Diri',
-			'del_fotoperusahaan'=>'Delete Foto Perusahaan',
+			// 'del_fotodiri'=>'Delete Foto Diri',
+			// 'del_fotoperusahaan'=>'Delete Foto Perusahaan',
 		);
 	}
 
@@ -154,10 +157,10 @@ class MeMember extends CActiveRecord
 		$criteria->compare('jenis_kelamin',$this->jenis_kelamin);
 		$criteria->compare('tanggal_lahir',$this->tanggal_lahir);
 		$criteria->compare('no_ktp',$this->no_ktp);
-		$criteria->compare('nama_perusahaan',$this->nama_perusahaan);
-		$criteria->compare('sejarah_singkat',$this->sejarah_singkat);
 		$criteria->compare('session_token',$this->session_token);
-		$criteria->compare('gp_point',$this->gp_point);
+		$criteria->compare('nama_perusahaan',$this->nama_perusahaan);
+		// $criteria->compare('sejarah_singkat',$this->sejarah_singkat);
+		// $criteria->compare('gp_point',$this->gp_point);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

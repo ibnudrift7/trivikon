@@ -1,13 +1,6 @@
 <?php
-/**
- * This is the template for generating a controller class file for CRUD feature.
- * The following variables are available in this template:
- * - $this: the BootCrudCode object
- */
-?>
-<?php echo "<?php\n"; ?>
 
-class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseControllerClass; ?>Admin
+class SubjectKepentinganController extends ControllerAdmin
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -51,20 +44,20 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	 */
 	public function actionCreate()
 	{
-		$model=new <?php echo $this->modelClass; ?>;
+		$model=new TugasKepentingan;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['<?php echo $this->modelClass; ?>']))
+		if(isset($_POST['TugasKepentingan']))
 		{
-			$model->attributes=$_POST['<?php echo $this->modelClass; ?>'];
+			$model->attributes=$_POST['TugasKepentingan'];
 			if($model->validate()){
 				$transaction=$model->dbConnection->beginTransaction();
 				try
 				{
 					$model->save();
-					Log::createLog("<?php echo $this->controllerClass; ?> Create $model->id");
+					Log::createLog("SubjectKepentinganController Create $model->id");
 					Yii::app()->user->setFlash('success','Data has been inserted');
 				    $transaction->commit();
 					$this->redirect(array('index'));
@@ -93,15 +86,15 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['<?php echo $this->modelClass; ?>']))
+		if(isset($_POST['TugasKepentingan']))
 		{
-			$model->attributes=$_POST['<?php echo $this->modelClass; ?>'];
+			$model->attributes=$_POST['TugasKepentingan'];
 			if($model->validate()){
 				$transaction=$model->dbConnection->beginTransaction();
 				try
 				{
 					$model->save();
-					Log::createLog("<?php echo $this->controllerClass; ?> Update $model->id");
+					Log::createLog("SubjectKepentinganController Update $model->id");
 					Yii::app()->user->setFlash('success','Data Edited');
 				    $transaction->commit();
 					$this->redirect(array('index'));
@@ -125,18 +118,17 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	 */
 	public function actionDelete($id)
 	{
-		// if(Yii::app()->request->isPostRequest)
-		// {
+		if(Yii::app()->request->isPostRequest)
+		{
 			// we only allow deletion via POST request
 			$this->loadModel($id)->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			// if(!isset($_GET['ajax']))
-				// $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
-				$this->redirect( array('index') );
-		// }
-		// else
-			// throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+			if(!isset($_GET['ajax']))
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+		}
+		else
+			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
 	/**
@@ -144,12 +136,12 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	 */
 	public function actionIndex()
 	{
-		$model=new <?php echo $this->modelClass; ?>('search');
+		$model=new TugasKepentingan('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['<?php echo $this->modelClass; ?>']))
-			$model->attributes=$_GET['<?php echo $this->modelClass; ?>'];
+		if(isset($_GET['TugasKepentingan']))
+			$model->attributes=$_GET['TugasKepentingan'];
 
-		$dataProvider=new CActiveDataProvider('<?php echo $this->modelClass; ?>');
+		$dataProvider=new CActiveDataProvider('TugasKepentingan');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 			'model'=>$model,
@@ -163,7 +155,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	 */
 	public function loadModel($id)
 	{
-		$model=<?php echo $this->modelClass; ?>::model()->findByPk($id);
+		$model=TugasKepentingan::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -175,7 +167,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='<?php echo $this->class2id($this->modelClass); ?>-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='tugas-kepentingan-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

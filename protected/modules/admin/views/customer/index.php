@@ -83,19 +83,11 @@ $this->menu=array(
 			'value'=>'$data->first_name." ".$data->last_name',
 		),
 		'nama_perusahaan',
-		array(
-			'header'=>'Bidang Usaha',
-			'type'=>'raw',
-			'value'=>'ucwords(KategoriUsaha::model()->findByPk($data->bidang_usaha)->nama)',
-		),
+		
 		// 'email',
 		// 'pass',
 		'hp',
-		array(
-			'header'=>'Komunitas',
-			'type'=>'raw',
-			'value'=>'ucwords(TbMitra::model()->findByPk($data->mitra_id)->nama_mitra)',
-		),
+		
 		// 'group_member_id',
 		// array(
 		// 	'name'=>'aktif',

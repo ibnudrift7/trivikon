@@ -9,7 +9,7 @@ Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
 require_once dirname(__FILE__).'/../../config.php';
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Salingtemu',
+	'name'=>'Trivikon',
 	'defaultController' => 'home/index',
 	
 	// 'theme'=>'', //yii bootstrap

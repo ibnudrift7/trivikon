@@ -4,7 +4,7 @@ $start_timeeeee = microtime(TRUE);
 // change the following paths if necessary
 //if($_SERVER['HTTP_HOST'] == 'localhost'){
 	//localhost
-	$yii=dirname(__FILE__).'/../../yii_13/framework/yii.php';
+	$yii=dirname(__FILE__).'/../yii/framework/yii.php';
 // }else{
 // 	//online
 // 	$yii=dirname(__FILE__).'/../../yii/framework/yii.php';

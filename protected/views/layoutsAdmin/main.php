@@ -46,8 +46,7 @@ $login_admin = $session['login'];
     <div class="header">
         <div class="logo">
             <a href="<?php echo CHtml::normalizeUrl(array('/admin/site/index')); ?>">
-                <!-- <img src="<?php echo Yii::app()->baseUrl; ?>/asset/backend/images/logo-markdesign-inside.png" alt="Cms" /> -->
-                Salingtemu
+                Trivikon
             </a>
         </div>
         <div class="headerinner">
