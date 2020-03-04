@@ -71,7 +71,7 @@ class MeMember extends CActiveRecord
 			array('hp', 'length', 'max'=>20),
 			array('hp', 'length', 'min'=>9),
 			array('email', 'email'),
-			array('address, pass2, passold, jenis_kelamin, tanggal_lahir, no_ktp, nama_perusahaan, username, session_token, foto_diri, foto_ktp, tgl_masuk, jabatan, telp_saudara, nick_name', 'safe'),
+			array('address, pass2, passold, jenis_kelamin, tanggal_lahir, no_ktp, nama_perusahaan, alamat_perusahaan, username, session_token, foto_diri, foto_ktp, tgl_masuk, jabatan, telp_saudara, nick_name', 'safe'),
 
 			// array('image', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>FALSE, 'on'=>'insert', 'except'=>array('createTemp', 'copy')),
 			// array('image', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>TRUE, 'on'=>'update', 'except'=>array('createTemp', 'copy')),
@@ -119,12 +119,13 @@ class MeMember extends CActiveRecord
 			'session_token' => 'Session Token',
 			'nama_perusahaan' => 'Nama Kontraktor',
 			'foto_diri' => 'Foto',
+			'foto_ktp' => 'Foto KTP',
 			'no_ktp' => 'No KTP',
 			// 'referal' => 'Diajak oleh Member',
 			// 'gp_point' => 'GP Point',
 
 			// 'del_fotodiri'=>'Delete Foto Diri',
-			// 'del_fotoperusahaan'=>'Delete Foto Perusahaan',
+			'del_fotoperusahaan'=>'Delete Foto KTP',
 		);
 	}
 

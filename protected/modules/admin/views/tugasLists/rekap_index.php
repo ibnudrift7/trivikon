@@ -5,8 +5,8 @@ $this->breadcrumbs=array(
 
 $this->pageHeader=array(
 	'icon'=>'fa fa-minus',
-	'title'=>'Rekap Tugas Item',
-	'subtitle'=>'Data Tugas Item',
+	'title'=>'Rekap Tugas',
+	'subtitle'=>'Rekap Data Tugas',
 );
 
 $this->menu=array(

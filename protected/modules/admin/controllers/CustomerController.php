@@ -53,9 +53,9 @@ class CustomerController extends ControllerAdmin
 		{
 			$model->attributes=$_POST['MeMember'];
 
-			$foto_usaha = CUploadedFile::getInstance($model,'foto_usaha');
-			if ($foto_usaha->name != '') {
-				$model->foto_usaha = substr(md5(time()),0,5).'-'.$foto_usaha->name;
+			$foto_diri = CUploadedFile::getInstance($model,'foto_diri');
+			if ($foto_diri->name != '') {
+				$model->foto_diri = substr(md5(time()),0,5).'-'.$foto_diri->name;
 			}
 
 			$foto_diri = CUploadedFile::getInstance($model,'foto_diri');
@@ -67,15 +67,15 @@ class CustomerController extends ControllerAdmin
 				$transaction=$model->dbConnection->beginTransaction();
 				try
 				{
-					if ($foto_usaha->name != '') {
+					if ($foto_diri->name != '') {
 						// process foto usaha
-						$orig_filen = Yii::getPathOfAlias('webroot').'/images/customer/original/'.$model->foto_usaha;
-						$foto_usaha->saveAs($orig_filen);
+						$orig_filen = Yii::getPathOfAlias('webroot').'/images/customer/original/'.$model->foto_diri;
+						$foto_diri->saveAs($orig_filen);
 						
 						$full_file = $orig_filen;
-						$full_thumb = Yii::getPathOfAlias('webroot').'/images/customer/'. 'thumb_'.$model->foto_usaha;
+						$full_thumb = Yii::getPathOfAlias('webroot').'/images/customer/'. 'thumb_'.$model->foto_diri;
 						$this->Thumbnail($full_file, $full_thumb, 256);
-						$model->foto_usaha = 'thumb_'.$model->foto_usaha;
+						$model->foto_diri = 'thumb_'.$model->foto_diri;
 					}
 
 					if ($foto_diri->name != '') {
@@ -92,7 +92,8 @@ class CustomerController extends ControllerAdmin
 					$model->pass2 = sha1($model->pass);
 					$model->pass = sha1($model->pass);
 					$model->session_token = sha1($model->first_name.'-'.$model->pass);
-
+					$model->tgl_masuk = date("Y-m-d H:i:s");
+					
 					$model->save();
 
 					Log::createLog("CustomerController Create $model->id");
@@ -139,19 +140,19 @@ class CustomerController extends ControllerAdmin
 		{
 			$pass = $model->pass;
 
-			$foto_usaha = $model->foto_usaha;//mengamankan nama file
+			$foto_diri = $model->foto_diri;//mengamankan nama file
 			$foto_diri = $model->foto_diri;//mengamankan nama file
 			$model->attributes=$_POST['MeMember'];
-			$model->foto_usaha = $foto_usaha;//mengembalikan nama file
+			$model->foto_diri = $foto_diri;//mengembalikan nama file
 			$model->foto_diri = $foto_diri;//mengembalikan nama file
 
 			if ($model->pass != '') {
 				$model->scenario = 'updatePass';
 			}
 			
-			$foto_usaha = CUploadedFile::getInstance($model,'foto_usaha');
-			if ($foto_usaha->name != '') {
-				$model->foto_usaha = substr(md5(time()),0,5).'-'.$foto_usaha->name;
+			$foto_diri = CUploadedFile::getInstance($model,'foto_diri');
+			if ($foto_diri->name != '') {
+				$model->foto_diri = substr(md5(time()),0,5).'-'.$foto_diri->name;
 			}
 
 			$foto_diri = CUploadedFile::getInstance($model,'foto_diri');
@@ -164,15 +165,15 @@ class CustomerController extends ControllerAdmin
 				try
 				{
 				
-					if ($foto_usaha->name != '') {
+					if ($foto_diri->name != '') {
 						// process foto usaha
-						$orig_filen = Yii::getPathOfAlias('webroot').'/images/customer/original/'.$model->foto_usaha;
-						$foto_usaha->saveAs($orig_filen);
+						$orig_filen = Yii::getPathOfAlias('webroot').'/images/customer/original/'.$model->foto_diri;
+						$foto_diri->saveAs($orig_filen);
 						
 						$full_file = $orig_filen;
-						$full_thumb = Yii::getPathOfAlias('webroot').'/images/customer/'. 'thumb_'.$model->foto_usaha;
+						$full_thumb = Yii::getPathOfAlias('webroot').'/images/customer/'. 'thumb_'.$model->foto_diri;
 						$this->Thumbnail($full_file, $full_thumb, 256);
-						$model->foto_usaha = 'thumb_'.$model->foto_usaha;
+						$model->foto_diri = 'thumb_'.$model->foto_diri;
 					}
 
 					if ($foto_diri->name != '') {
@@ -198,9 +199,9 @@ class CustomerController extends ControllerAdmin
 					}
 
 					if ($model->del_fotoperusahaan == "1") {
-						@unlink(Yii::getPathOfAlias('webroot').'/images/customer/'.$model->foto_usaha);
-						@unlink(Yii::getPathOfAlias('webroot').'/images/customer/original/'.$model->foto_usaha);
-						$model->foto_usaha = '';
+						@unlink(Yii::getPathOfAlias('webroot').'/images/customer/'.$model->foto_diri);
+						@unlink(Yii::getPathOfAlias('webroot').'/images/customer/original/'.$model->foto_diri);
+						$model->foto_diri = '';
 					}
 
 					$model->save();
@@ -333,8 +334,8 @@ class CustomerController extends ControllerAdmin
 				$n_paths = Yii::getPathOfAlias('webroot').'/images/customer/';
 				$this->Thumbnail($n_paths.$value->foto_diri, $n_paths.$value->foto_diri, 256);
 			}
-			if ($value->foto_usaha != '') {
-				$this->Thumbnail($n_paths.$value->foto_usaha, $n_paths.$value->foto_usaha, 256);
+			if ($value->foto_diri != '') {
+				$this->Thumbnail($n_paths.$value->foto_diri, $n_paths.$value->foto_diri, 256);
 			}
 		}
 	}

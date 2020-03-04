@@ -22,7 +22,7 @@ $this->menu=array(
     )); ?>
 
 <?php endif; ?>
-<h1>Total Tugas: <?php echo count( MeMember::model()->findAll() ); ?></h1>
+<h1>Total Tugas: <?php echo count( TugasLists::model()->findAll() ); ?></h1>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'tugas-lists-grid',
 	'dataProvider'=>$model->search(),

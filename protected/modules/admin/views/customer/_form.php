@@ -90,7 +90,7 @@
 		        	<?php echo $form->textFieldRow($model,'tanggal_lahir',array('class'=>'span12 datepicker')); ?>
 					<?php // echo $form->textAreaRow($model,'sejarah_singkat',array('class'=>'span12')); ?>
 					<?php // echo $form->textFieldRow($model,'referal',array('class'=>'span12')); ?>
-					<?php echo $form->textFieldRow($model,'no_ktp', array('class'=>'span12')); ?>
+					<?php // echo $form->textFieldRow($model,'no_ktp', array('class'=>'span12')); ?>
 				</div>
 			</div>
 
@@ -101,17 +101,17 @@
 				<div class="span4">
 					<?php echo $form->fileFieldRow($model,'foto_diri',array(
 					'hint'=>'<b>Note:</b> Image size is 450 x 450px.', 'style'=>"width: 100%")); ?>
-					<?php if ($model->scenario == 'update'): ?>
+					<?php if ($model->scenario == 'update' && $model->foto_diri != ''): ?>
 					<img style="width: 110px;" src="<?php echo Yii::app()->baseUrl . '/images/customer/'.$model->foto_diri; ?>"/>
 					<?php endif; ?>
 					<div class="clearfix"></div>
 					<?php // echo $form->checkBoxRow($model,'del_fotodiri'); ?>
 				</div>
 				<div class="span4">
-					<?php echo $form->fileFieldRow($model,'foto_usaha',array(
+					<?php echo $form->fileFieldRow($model,'foto_ktp',array(
 					'hint'=>'<b>Note:</b> Image size is 450 x 450px.', 'style'=>"width: 100%")); ?>
-					<?php if ($model->scenario == 'update'): ?>
-					<img style="width: 110px;" src="<?php echo Yii::app()->baseUrl . '/images/customer/'.$model->foto_usaha; ?>"/>
+					<?php if ($model->scenario == 'update' && $model->foto_ktp != ''): ?>
+					<img style="width: 110px;" src="<?php echo Yii::app()->baseUrl . '/images/customer/'.$model->foto_ktp; ?>"/>
 					<?php endif; ?>
 					<div class="clearfix"></div>
 					<?php echo $form->checkBoxRow($model,'del_fotoperusahaan'); ?>
