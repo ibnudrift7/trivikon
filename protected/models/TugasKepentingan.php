@@ -81,6 +81,8 @@ class TugasKepentingan extends CActiveRecord
 		$criteria->compare('kepentingan',$this->kepentingan,true);
 		$criteria->compare('nama_kepentingan',$this->nama_kepentingan,true);
 
+		$criteria->order = 't.id DESC';
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

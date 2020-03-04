@@ -1,6 +1,6 @@
 <?php
 
-class SubjectKepentinganController extends ControllerAdmin
+class TugasListsController extends ControllerAdmin
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -44,20 +44,23 @@ class SubjectKepentinganController extends ControllerAdmin
 	 */
 	public function actionCreate()
 	{
-		$model=new TugasKepentingan;
+		$model=new TugasLists;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['TugasKepentingan']))
+		if(isset($_POST['TugasLists']))
 		{
-			$model->attributes=$_POST['TugasKepentingan'];
+			$model->attributes=$_POST['TugasLists'];
 			if($model->validate()){
 				$transaction=$model->dbConnection->beginTransaction();
 				try
 				{
+					$model->date_input = date("Y-m-d H:i:s");
+
 					$model->save();
-					Log::createLog("SubjectKepentinganController Create $model->id");
+					
+					Log::createLog("TugasListsController Create $model->id");
 					Yii::app()->user->setFlash('success','Data has been inserted');
 				    $transaction->commit();
 					$this->redirect(array('index'));
@@ -86,15 +89,15 @@ class SubjectKepentinganController extends ControllerAdmin
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['TugasKepentingan']))
+		if(isset($_POST['TugasLists']))
 		{
-			$model->attributes=$_POST['TugasKepentingan'];
+			$model->attributes=$_POST['TugasLists'];
 			if($model->validate()){
 				$transaction=$model->dbConnection->beginTransaction();
 				try
 				{
 					$model->save();
-					Log::createLog("SubjectKepentinganController Update $model->id");
+					Log::createLog("TugasListsController Update $model->id");
 					Yii::app()->user->setFlash('success','Data Edited');
 				    $transaction->commit();
 					$this->redirect(array('index'));
@@ -125,10 +128,11 @@ class SubjectKepentinganController extends ControllerAdmin
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			// if(!isset($_GET['ajax']))
-				$this->redirect( array('index'));
+				// $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+				$this->redirect( array('index') );
 		// }
 		// else
-		// 	throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+			// throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
 	/**
@@ -136,13 +140,28 @@ class SubjectKepentinganController extends ControllerAdmin
 	 */
 	public function actionIndex()
 	{
-		$model=new TugasKepentingan('search');
+		$model=new TugasLists('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['TugasKepentingan']))
-			$model->attributes=$_GET['TugasKepentingan'];
+		if(isset($_GET['TugasLists']))
+			$model->attributes=$_GET['TugasLists'];
 
-		$dataProvider=new CActiveDataProvider('TugasKepentingan');
+		$dataProvider=new CActiveDataProvider('TugasLists');
 		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+			'model'=>$model,
+		));
+	}
+
+	public function actionRekap()
+	{
+		$model=new TugasLists('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['TugasLists']))
+			$model->attributes=$_GET['TugasLists'];
+
+		$dataProvider=new CActiveDataProvider('TugasLists');
+
+		$this->render('rekap_index',array(
 			'dataProvider'=>$dataProvider,
 			'model'=>$model,
 		));
@@ -155,7 +174,7 @@ class SubjectKepentinganController extends ControllerAdmin
 	 */
 	public function loadModel($id)
 	{
-		$model=TugasKepentingan::model()->findByPk($id);
+		$model=TugasLists::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -167,7 +186,7 @@ class SubjectKepentinganController extends ControllerAdmin
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='tugas-kepentingan-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='tugas-lists-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

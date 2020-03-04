@@ -18,6 +18,7 @@
 					<?php echo $form->textFieldRow($model,'first_name',array('class'=>'span12','maxlength'=>100)); ?>
 					<?php echo $form->textFieldRow($model,'last_name',array('class'=>'span12','maxlength'=>100)); ?>
 					<?php echo $form->textFieldRow($model,'hp',array('class'=>'span12','maxlength'=>20)); ?>
+					<?php echo $form->textFieldRow($model,'nick_name',array('class'=>'span12','maxlength'=>20)); ?>
 				</div>
 				<div class="span4">
 					<?php echo $form->textFieldRow($model,'address',array('class'=>'span12')); ?>
@@ -49,7 +50,14 @@
 					<?php echo $form->dropDownListRow($model,'province', $nods_provinc, array('class'=>'span12 pilih_provinsi', 'empty'=> '-- Pilih --')); ?>
 
 					<?php echo $form->textFieldRow($model,'postcode', array('class'=>'span12')); ?>
-					<?php echo $form->textFieldRow($model,'jabatan', array('class'=>'span12')); ?>
+					<?php 
+					$datan_jabatan = [
+										'pengawas'=>'Pengawas',
+										'direktur'=>'Direktur',
+										'pelaksana'=>'Pelaksana',
+									 ];
+					?>
+					<?php echo $form->dropDownListRow($model,'jabatan', $datan_jabatan,array('class'=>'span12', 'empty'=>'Pilih jabatan')); ?>
 				</div>
 			</div>
 			<div class="divider10"></div>

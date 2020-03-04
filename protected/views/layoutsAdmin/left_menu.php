@@ -9,14 +9,14 @@ $login_admin = $session['login'];
         
         <li class="dropdown"><a href="#"><span class="fa fa-folder"></span> <?php echo Tt::t('admin', 'Tugas Master') ?></a>
             <ul>
-                <li><a href="#">Semua Tugas</a></li>
-                <li><a href="#">Rekap Tugas</a></li>
+                <li><a href="<?php echo CHtml::normalizeUrl(array('/admin/tugasLists')); ?>">Semua Tugas</a></li>
+                <li><a href="<?php echo CHtml::normalizeUrl(array('/admin/tugasLists/rekap')); ?>">Rekap Tugas</a></li>
             </ul>
         </li> 
 
         <li class="dropdown"><a href="#"><span class="fa fa-folder"></span> <?php echo Tt::t('admin', 'Kepentingan Master') ?></a>
             <ul>
-                <li><a href="#">Subject Kepentingan</a></li>
+                <li><a href="<?php echo CHtml::normalizeUrl(array('/admin/subjectKepentingan')); ?>">Subject Kepentingan</a></li>
             </ul>
         </li> 
 

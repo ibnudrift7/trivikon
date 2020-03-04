@@ -55,7 +55,7 @@ $this->menu=array(
 	)); ?>
 
 <?php $this->endWidget(); ?>
-<h1>Member Total: <?php echo count( MeMember::model()->findAll() ); ?></h1>
+<h1>Total Member: <?php echo count( MeMember::model()->findAll() ); ?></h1>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'cs-customer-grid',
 	'dataProvider'=>$model->search(),
@@ -71,7 +71,7 @@ $this->menu=array(
                 * $this->grid->dataProvider->pagination->pageSize) + 1',
             ),
 		array(
-			'header'=>'Foto Diri',
+			'header'=>'Foto',
 			'type'=>'raw',
 			'value'=>'MeMember::model()->views_image($data->foto_diri)',
 		),
@@ -82,11 +82,17 @@ $this->menu=array(
 			'type'=>'raw',
 			'value'=>'$data->first_name." ".$data->last_name',
 		),
-		'nama_perusahaan',
-		
+		'jabatan',
+		'nick_name',
+		'hp',
+		'telp_saudara',
+		array(
+			'header'=>'Tgl Masuk', 
+			'type'=>'raw',
+			'value'=>'date("Y-m-d", strtotime($data->tgl_masuk))',
+		),
 		// 'email',
 		// 'pass',
-		'hp',
 		
 		// 'group_member_id',
 		// array(
