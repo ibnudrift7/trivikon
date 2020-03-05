@@ -40,26 +40,26 @@ class HomeController extends Controller
 	public function actionIndex()
 	{
 		// $criteria = new CDbCriteria;
-		// $criteria->with = array('description');
-		// $criteria->addCondition('active = "1"');
-		// $criteria->addCondition('topik_id = "public events"');
-		// $criteria->addCondition('description.language_id = :language_id');
-		// $criteria->params[':language_id'] = $this->languageID;
-		// $criteria->order = 't.date_input DESC';
-		// $criteria->limit = 4;
-		// $dataBlog = Blog::model()->findAll($criteria);
+			// $criteria->with = array('description');
+			// $criteria->addCondition('active = "1"');
+			// $criteria->addCondition('topik_id = "public events"');
+			// $criteria->addCondition('description.language_id = :language_id');
+			// $criteria->params[':language_id'] = $this->languageID;
+			// $criteria->order = 't.date_input DESC';
+			// $criteria->limit = 4;
+			// $dataBlog = Blog::model()->findAll($criteria);
 
-		// $criteria = new CDbCriteria;
-		// $criteria->with = array('description');
-		// $criteria->addCondition('active = "1"');
-		// $criteria->addCondition('type = "literasi"');
-		// $criteria->addCondition('description.language_id = :language_id');
-		// $criteria->params[':language_id'] = $this->languageID;
-		// $criteria->limit = 4;
-		// $dataLiterasi = Blog::model()->findAll($criteria);
+			// $criteria = new CDbCriteria;
+			// $criteria->with = array('description');
+			// $criteria->addCondition('active = "1"');
+			// $criteria->addCondition('type = "literasi"');
+			// $criteria->addCondition('description.language_id = :language_id');
+			// $criteria->params[':language_id'] = $this->languageID;
+			// $criteria->limit = 4;
+			// $dataLiterasi = Blog::model()->findAll($criteria);
 
-		$this->redirect('admin');
-		exit;
+			// $this->redirect('admin');
+			// exit;
 
 		$this->layout='//layouts/column1';
 		$this->render('index', array(
@@ -68,103 +68,12 @@ class HomeController extends Controller
 		));
 	}
 
-	public function actionAbout()
+	public function actionLogged()
 	{
 		$this->layout='//layouts/column2';
-		$this->pageTitle = 'About - '.$this->pageTitle;
+		$this->pageTitle = Yii::app()->name.' - '.$this->pageTitle;
 
-		$this->render('about', array(	
-		));
-	}
-
-	public function actionHeaders()
-	{
-		$this->layout='//layouts/column2';
-		$this->pageTitle = 'About - '.$this->pageTitle;
-
-		$this->render('headers', array(	
-		));
-	}
-
-	public function actionProcess()
-	{
-		$this->layout='//layouts/column2';
-		$this->pageTitle = 'Our Process - '.$this->pageTitle;
-		// $this->layout='//layouts/column1';
-
-		$this->render('process', array(	
-		));
-	}
-
-	public function actionProdRev()
-	{
-		$this->layout='//layouts/column2';
-		$this->pageTitle = 'Our ProdRev - '.$this->pageTitle;
-		// $this->layout='//layouts/column1';
-
-		$this->render('prodrev', array(	
-		));
-	}
-
-	public function actionInvestor()
-	{
-		$this->layout='//layouts/column2';
-		$this->pageTitle = 'Investor - '.$this->pageTitle;
-		
-
-		$this->render('investor', array(
-		'all_cat'=> $Categorys,
-		'model'=> $model,
-		));
-	}
-
-	public function actionProduct()
-	{
-		$this->layout='//layouts/column2';
-		$this->pageTitle = 'Product - '.$this->pageTitle;
-		// $this->layout='//layouts/column1';
-
-		$this->render('product', array(	
-		));
-	}
-	
-	public function actionProductind()
-	{
-		$this->layout='//layouts/column2';
-		$this->pageTitle = 'Productind - '.$this->pageTitle;
-		// $this->layout='//layouts/column1';
-
-		$this->render('productind', array(	
-		));
-	}
-
-	public function actionProduct_detail()
-	{
-		$this->layout='//layouts/column2';
-		$this->pageTitle = 'Product_detail - '.$this->pageTitle;
-		// $this->layout='//layouts/column1';
-
-		$this->render('product_detail', array(	
-		));
-	}
-	
-	public function actionProductind_detail()
-	{
-		$this->layout='//layouts/column2';
-		$this->pageTitle = 'Productind_detail - '.$this->pageTitle;
-		// $this->layout='//layouts/column1';
-
-		$this->render('productind_detail', array(	
-		));
-	}
-
-	public function actionNews_detail()
-	{
-		$this->layout='//layouts/column2';
-		$this->pageTitle = 'News_detail - '.$this->pageTitle;
-		// $this->layout='//layouts/column1';
-
-		$this->render('news_detail', array(	
+		$this->render('home_dashboard', array(	
 		));
 	}
 
@@ -331,83 +240,6 @@ class HomeController extends Controller
 			'category'=>$category,
 		));
 	}
-	public function actionJadwal()
-	{
-		$this->pageTitle = 'Jadwal - '.$this->pageTitle;
-		$this->layout='//layouts/column1';
-
-		$this->render('jadwal', array(	
-		));
-	}
-
-	public function actionProgram()
-	{
-		$criteria = new CDbCriteria;
-		$criteria->with = array('description');
-		$criteria->addCondition('t.parent_id = :parent_id');
-		$criteria->params[':parent_id'] = 0;
-		$criteria->addCondition('description.language_id = :language_id');
-		$criteria->params[':language_id'] = $this->languageID;
-		$criteria->addCondition('t.type = :type');
-		$criteria->params[':type'] = 'filterprogram';
-		$criteria->order = 'sort ASC';
-		$categories = PrdCategory::model()->findAll($criteria);
-
-		$this->pageTitle = 'Program - '.$this->pageTitle;
-		$this->layout='//layouts/column1';
-
-		$this->render('program', array(
-			'categories'=>$categories,
-		));
-	}
-
-	public function actionProgramdetail($id)
-	{
-		$criteria = new CDbCriteria;
-		$criteria->with = array('description');
-		$criteria->addCondition('active = "1"');
-		$criteria->addCondition('type = "program"');
-		$criteria->addCondition('description.language_id = :language_id');
-		$criteria->params[':language_id'] = $this->languageID;
-		$criteria->addCondition('t.id = :id');
-		$criteria->params[':id'] = $id;
-		$criteria->order = 'date_input DESC';
-		$detail = Blog::model()->find($criteria);
-		if($detail===null)
-			throw new CHttpException(404,'The requested page does not exist.');
-
-		$criteria = new CDbCriteria;
-		$criteria->with = array('description');
-		$criteria->addCondition('t.id = :id');
-		$criteria->params[':id'] = $detail->topik_id;
-		$criteria->addCondition('description.language_id = :language_id');
-		$criteria->params[':language_id'] = $this->languageID;
-		$criteria->addCondition('t.type = :type');
-		$criteria->params[':type'] = 'filterprogram';
-		$criteria->order = 'sort ASC';
-		$category = PrdCategory::model()->find($criteria);
-
-		$this->pageTitle = $detail->description->title.' - '.$this->pageTitle;
-		$this->layout='//layouts/column1';
-
-		$this->render('program_detail', array(
-			'detail'=>$detail,
-			'category'=>$category,
-		));
-	}
-
-	public function actionNetworking()
-	{
-		$this->pageTitle = 'Networking - '.$this->pageTitle;
-		$this->layout='//layouts/column1';
-
-		$criteria = new CDbCriteria;
-		$dataNetworking = Networking::model()->findAll($criteria);
-
-		$this->render('networking', array(
-			'dataNetworking'=>$dataNetworking,
-		));
-	}
 
 	public function actionBlog()
 	{
@@ -456,16 +288,6 @@ class HomeController extends Controller
 			'detail'=>$detail,
 		));
 	}
-
-	public function actionTiket()
-	{
-		$this->pageTitle = 'Tiket - '.$this->pageTitle;
-		$this->layout='//layouts/column1';
-
-		$this->render('tiket', array(	
-		));
-	}
-
 
 	public function actionHubungi()
 	{
