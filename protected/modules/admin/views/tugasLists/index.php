@@ -40,13 +40,18 @@ $this->menu=array(
 		array(
 			'header'=>'Tgl Input',
 			'type'=>'raw',
-			'value'=>'date("d-M-Y", strtotime($data-date_input))',
+			'value'=>'date("d M Y", strtotime($data->date_input))',
 		),
 		'prioritas',
 		'dari',
 		'kepada',
 		// 'subject_kepentingan',
-		'deskripsi',
+		// 'deskripsi',
+		array(
+			'header'=> 'Deskripsi',
+			'type'=> 'raw',
+			'value'=> 'substr($data->deskripsi, 0, 55)."..."',
+		),
 		'status',
 		'status_selesai',
 		// 'date_input',
@@ -54,7 +59,7 @@ $this->menu=array(
 		array(
 			'header'=>'Tgl Selesai',
 			'type'=>'raw',
-			'value'=>'date("d-M-Y", strtotime($data-date_finish))',
+			'value'=>'date("d M Y", strtotime($data->date_finish))',
 		),
 
 		array(

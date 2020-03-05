@@ -16,7 +16,7 @@ $this->menu=array(
 
 <?php // $this->widget('bootstrap.widgets.TbButtonGroup',array('buttons'=>$this->menu,)); ?>
 
-<h1>Total Tugas: <?php echo count( MeMember::model()->findAll() ); ?></h1>
+<h1>Total Tugas: <?php echo count( TugasLists::model()->findAll() ); ?></h1>
 
 <div id="tugas-lists-grid" class="grid-view">
     <table class="items table table-bordered customs_table">
@@ -87,53 +87,101 @@ $this->menu=array(
             <!-- <tr>
                 <td colspan="8" class="empty"><span class="empty">No results found.</span></td>
             </tr> -->
-            <?php for ($i=1; $i < 6; $i++) { ?>
-            <tr>
-            	<td><?php echo $i ?></td>
-            	<td>Iva Purnasih</td>
-            	<td>Direktur</td>
-            	<td>12</td>
+            <?php if (is_array($model) && count($model) <= 0): ?>
+                <tr>
+                    <td colspan="9" class="empty"><span class="empty">No results found.</span></td>
+                </tr>
+            <?php else: ?>
+                <?php foreach ($model as $key => $value): ?>
+                <?php 
+                $tugas_data = TugasLists::model()->findAll('t.member_id = :member_id', array(':member_id'=>$value->id));
+                ?>
+                <?php $urgent_{$key} = 0; ?>
+                <?php $penting_{$key} = 0; ?>
+                <?php $rutin_{$key} = 0; ?>
+                <?php $tugas_sel_{$key} = 0; ?>
+                <?php $tugas_bel_{$key} = 0; ?>
+                <?php $tugas_under_{$key} = 0; ?>
+                <?php $tugas_over_{$key} = 0; ?>
+                <?php foreach ($tugas_data as $ke => $val): ?>
+                    <?php if ($val->prioritas == 'urgent'): ?>
+                    <?php $urgent_{$key} = $urgent_{$key} + 1; ?>
+                    <?php endif ?>
 
-            	<td class="p-0">
-            		<table class="table table_subdata">
-            			<tbody>
-            				<td>4</td>
-            				<td>5</td>
-            				<td>3</td>
-            			</tbody>
-            		</table>
-            	</td>
+                    <?php if ($val->prioritas == 'penting'): ?>
+                    <?php $penting_{$key} = $penting_{$key} + 1; ?>
+                    <?php endif ?>
 
-            	<td class="p-0">
-            		<table class="table table_subdata">
-            			<tbody>
-            				<td>7</td>
-            				<td>5</td>
-            			</tbody>
-            		</table>
-            	</td>
+                    <?php if ($val->prioritas == 'rutin'): ?>
+                    <?php $rutin_{$key} = $rutin_{$key} + 1; ?>
+                    <?php endif ?>
 
-            	<td class="p-0">
-            		<table class="table table_subdata">
-            			<tbody>
-            				<td>7</td>
-            				<td>0</td>
-            			</tbody>
-            		</table>
-            	</td>
-            	<td class="p-0">
-            		<table class="table table_subdata">
-            			<tbody>
-            				<td>7</td>
-            				<td>0</td>
-            			</tbody>
-            		</table>
-            	</td>
-            	<td>
-            		&nbsp;
-            	</td>
-            </tr>
-            <?php } ?>
+                    <?php if ($val->status == 'selesai'): ?>
+                    <?php $tugas_sel_{$key} = $tugas_sel_{$key} + 1; ?>
+                    <?php endif ?>
+
+                    <?php if ($val->status == 'belum'): ?>
+                    <?php $tugas_bel_{$key} = $tugas_bel_{$key} + 1; ?>
+                    <?php endif ?>
+
+                    <?php if ($val->status_selesai == 'under'): ?>
+                    <?php $tugas_under_{$key} = $tugas_under_{$key} + 1; ?>
+                    <?php endif ?>
+
+                    <?php if ($val->status_selesai == 'over'): ?>
+                    <?php $tugas_over_{$key} = $tugas_over_{$key} + 1; ?>
+                    <?php endif ?>
+                <?php endforeach ?>
+
+                <tr>
+                	<td><?php echo $key + 1; ?></td>
+                	<td><?php echo $value->first_name.' '. $value->last_name ?></td>
+                	<td><?php echo $value->jabatan ?></td>
+                	<td><?php echo count($tugas_data); ?></td>
+
+                	<td class="p-0">
+                		<table class="table table_subdata">
+                			<tbody>
+                				<td><?php echo $urgent_{$key} ?></td>
+                				<td><?php echo $penting_{$key} ?></td>
+                				<td><?php echo $rutin_{$key} ?></td>
+                			</tbody>
+                		</table>
+                	</td>
+
+                	<td class="p-0">
+                		<table class="table table_subdata">
+                			<tbody>
+                				<td><?php echo $tugas_sel_{$key} ?></td>
+                				<td><?php echo $tugas_bel_{$key} ?></td>
+                			</tbody>
+                		</table>
+                	</td>
+
+                	<td class="p-0">
+                		<table class="table table_subdata">
+                			<tbody>
+                				<td><?php echo $tugas_under_{$key} ?></td>
+                                <td><?php echo $tugas_over_{$key} ?></td>
+                			</tbody>
+                		</table>
+                	</td>
+                	<td class="p-0">
+                		<table class="table table_subdata">
+                			<tbody>
+                				<td>0</td>
+                				<td>0</td>
+                			</tbody>
+                		</table>
+                	</td>
+                	<td>
+                		&nbsp;
+                	</td>
+                </tr>
+                <?php endforeach ?>
+
+            <?php endif ?>
+
         </tbody>
     </table>
 

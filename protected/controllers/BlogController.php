@@ -23,6 +23,8 @@ class BlogController extends Controller
 
 	public function actionIndex()
 	{
+		$this->layout='//layouts/column2';
+		
 		$criteria = new CDbCriteria;
 		$criteria->with = array('description');
 		$criteria->addCondition('active = "1"');
@@ -35,8 +37,6 @@ class BlogController extends Controller
 		        'pageSize'=>16,
 		    ),
 		));
-
-		$this->layout='//layouts/column2';
 
 		$this->pageTitle = 'News & Articles - '.$this->pageTitle;
 		$this->render('index', array(

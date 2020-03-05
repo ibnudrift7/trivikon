@@ -52,13 +52,21 @@ class TugasListsController extends ControllerAdmin
 		if(isset($_POST['TugasLists']))
 		{
 			$model->attributes=$_POST['TugasLists'];
+
 			if($model->validate()){
 				$transaction=$model->dbConnection->beginTransaction();
 				try
 				{
 					$model->date_input = date("Y-m-d H:i:s");
+					
+					// kepada
+					$id_members = $model->kepada;
+					$users_member = MeMember::model()->findByPk($model->kepada);
+					$model->kepada = $users_member->nick_name;
+					$model->member_id = $id_members;
+					$model->admin_id = Yii::app()->user->id;
 
-					$model->save();
+					$model->save(false);
 					
 					Log::createLog("TugasListsController Create $model->id");
 					Yii::app()->user->setFlash('success','Data has been inserted');
@@ -67,6 +75,8 @@ class TugasListsController extends ControllerAdmin
 				}
 				catch(Exception $ce)
 				{
+					var_dump($ce);
+					exit;
 				    $transaction->rollback();
 				}
 			}
@@ -154,15 +164,27 @@ class TugasListsController extends ControllerAdmin
 
 	public function actionRekap()
 	{
-		$model=new TugasLists('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['TugasLists']))
-			$model->attributes=$_GET['TugasLists'];
+		// $criteria = new CDbCriteria;
+		// $criteria->with = array('description');
+		// $criteria->addCondition('active = "1"');
+		// $criteria->addCondition('description.language_id = :language_id');
+		// $criteria->params[':language_id'] = $this->languageID;
+		// $criteria->order = 'date_input DESC';
 
-		$dataProvider=new CActiveDataProvider('TugasLists');
+		// $dataBlog = new CActiveDataProvider('Blog', array(
+		// 	'criteria'=>$criteria,
+		//     'pagination'=>array(
+		//         'pageSize'=>16,
+		//     ),
+		// ));
+
+		$criteria = new CDbCriteria;
+		$criteria->order = 't.id DESC';
+
+		$model = MeMember::model()->findAll($criteria);
 
 		$this->render('rekap_index',array(
-			'dataProvider'=>$dataProvider,
+			// 'dataProvider'=>$dataProvider,
 			'model'=>$model,
 		));
 	}

@@ -44,10 +44,16 @@
 	<?php // echo $form->textFieldRow($model,'subject_kepentingan',array('class'=>'span5')); ?>
 
 	<?php echo $form->textAreaRow($model,'deskripsi',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
+	
+	<?php if ($model->scenario == 'update'): ?>
+		<?php echo $form->dropDownListRow($model,'status', ['belum'=>'belum', 'selesai'=>'selesai'],array('class'=>'span5','maxlength'=>7)); ?>
 
-	<?php echo $form->dropDownListRow($model,'status', ['belum'=>'belum', 'selesai'=>'selesai'],array('class'=>'span5','maxlength'=>7)); ?>
+		<?php echo $form->dropDownListRow($model,'status_selesai', ['under'=>'under', 'over'=>'over'], array('class'=>'span5','maxlength'=>5)); ?>
+	<?php else: ?>
+		<?php echo $form->dropDownListRow($model,'status', ['belum'=>'belum', 'selesai'=>'selesai'],array('class'=>'span5', 'readonly'=>'readonly')); ?>
 
-	<?php echo $form->dropDownListRow($model,'status_selesai', ['under'=>'under', 'over'=>'over'], array('class'=>'span5','maxlength'=>5)); ?>
+		<?php echo $form->dropDownListRow($model,'status_selesai', ['under'=>'under', 'over'=>'over'], array('class'=>'span5', 'readonly'=>'readonly')); ?>
+	<?php endif ?>
 
 	<?php // echo $form->textFieldRow($model,'member_id',array('class'=>'span5')); ?>
 
@@ -55,7 +61,7 @@
 
 	<?php // echo $form->textFieldRow($model,'date_input',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'date_finish',array('class'=>'span5')); ?>
+	<?php echo $form->textFieldRow($model,'date_finish',array('class'=>'span5 datepicker2')); ?>
 
 	<?php // echo $form->textAreaRow($model,'data',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
 
