@@ -77,6 +77,36 @@ class HomeController extends Controller
 		));
 	}
 
+	public function actionSubject()
+	{
+		$this->layout='//layouts/column2';
+		$this->pageTitle = Yii::app()->name.' - '.$this->pageTitle;
+
+		$this->render('//subject/index', array(	
+		));	
+	}
+
+	public function actionSubject_list()
+	{
+		$this->layout='//layouts/column2';
+		$this->pageTitle = Yii::app()->name.' - '.$this->pageTitle;
+
+		$this->render('//subject/listing', array(	
+		));	
+	}
+
+	public function actionSubject_addtugas()
+	{
+		$this->layout='//layouts/column2';
+		$this->pageTitle = Yii::app()->name.' - '.$this->pageTitle;
+
+		$model=new TugasLists;
+
+		$this->render('//subject/add_tugas', array(	
+			'model' => $model,
+		));	
+	}	
+
 	public function actionMusik()
 	{
 

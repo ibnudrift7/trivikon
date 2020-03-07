@@ -3,7 +3,9 @@
 
 <?php echo $this->renderPartial('//layouts/_header', array()); ?>
 
+<main role="main">
 <?php echo $content ?>
+</main>
 
 <?php echo $this->renderPartial('//layouts/_footer', array()); ?>
 <?php $this->endContent(); ?>

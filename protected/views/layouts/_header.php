@@ -19,9 +19,7 @@
       <a href="#" class="navbar-brand d-flex align-items-center">
         <strong>TRIVIKON</strong>
       </a>
-      <!-- <button class="navbar-toggler" type="button"aria-expanded="false" aria-label="Toggle navigation"> -->
-        <span class="rights_tntop">Selamat datang, Member!</span>
-      <!-- </button> -->
+      <span class="rights_tntop">Selamat datang, Member &nbsp;|&nbsp; <a href="#">Logout</a></span>
     </div>
   </div>
       
