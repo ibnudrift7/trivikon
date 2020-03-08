@@ -11,7 +11,7 @@
 
           <div class="row outers_list_iconhome">
 
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <div class="card mb-4 box-shadow items">
                 <div class="n_icon">
                   <a href="#"><i class="fa fa-user-circle"></i></a>
@@ -21,7 +21,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <div class="card mb-4 box-shadow items">
                 <div class="n_icon">
                   <a href="<?php echo CHtml::normalizeUrl(array('/home/subject')); ?>"><i class="fa fa-folder"></i></a>
@@ -36,7 +36,7 @@
           </div>
 
           <div class="row outers_list_iconhome">
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <div class="card mb-4 box-shadow items">
                 <div class="n_icon">
                   <i class="fa fa-tags"></i>
@@ -46,7 +46,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <div class="card mb-4 box-shadow items">
                 <div class="n_icon">
                   <i class="fa fa-tags"></i>
@@ -56,7 +56,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <div class="card mb-4 box-shadow items">
                 <div class="n_icon">
                   <i class="fa fa-tags"></i>
@@ -66,7 +66,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <div class="card mb-4 box-shadow items">
                 <div class="n_icon">
                   <i class="fa fa-tags"></i>

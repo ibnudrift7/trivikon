@@ -85,7 +85,7 @@ class TugasLists extends CActiveRecord
 			'member_id' => 'Member',
 			'admin_id' => 'Admin',
 			'date_input' => 'Date Input',
-			'date_finish' => 'Date Finish',
+			'date_finish' => 'Berakhir Pada',
 			'data' => 'Data',
 		);
 	}

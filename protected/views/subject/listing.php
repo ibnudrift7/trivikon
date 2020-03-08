@@ -31,11 +31,10 @@
         
         <div class="row">
           <div class="col">
-            <a href="<?php echo CHtml::normalizeUrl(array('/home/subject_addtugas')); ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Add Tugas</a>
           </div>
           <div class="col">
             <div class="text-right">
-              <small><a href="#" onclick="window.history.back();" class="btn btn-link"><i class="fa fa-chevron-left"></i> BACK</a></small>
+              <small><a href="#" onclick="window.history.back();" class="btn btn-link btns_back"><i class="fa fa-chevron-left"></i> BACK</a></small>
             </div>
           </div>
         </div>

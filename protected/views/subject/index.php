@@ -25,7 +25,19 @@
   <section class="middle-content">
     <div class="prelatife container">
       <div class="inside">
-        
+
+        <div class="row">
+          <div class="col">
+            <a href="<?php echo CHtml::normalizeUrl(array('/tugasItem')); ?>" class="btn btn-primary"><i class="fa fa-minus"></i> List Tugas Anda</a>
+          </div>
+          <div class="col">
+            <div class="text-right">
+              <small><a href="#" onclick="window.history.back();" class="btn btn-link btns_back"><i class="fa fa-chevron-left"></i> BACK</a></small>
+            </div>
+          </div>
+        </div>
+        <div class="py-3"></div>
+
         <!-- start content -->
         <div class="table-responsive">
           <table class="table table_set">
@@ -42,7 +54,7 @@
               <?php for ($i=1; $i < 8; $i++) { ?>
               <tr>
                 <td>Proyek</td>
-                <td>Citraland Renov</td>
+                <td><a class="line_under" href="<?php echo CHtml::normalizeUrl(array('/home/subject_list')); ?>">Citraland Renov</a></td>
                 <td>8</td>
                 <td>5</td>
                 <td>3</td>
@@ -60,3 +72,12 @@
   <div class="py-4"></div>
 
 </section>
+
+
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+  $(document).ready( function () {
+      $('.table').DataTable();
+  } );
+</script>

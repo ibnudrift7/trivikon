@@ -16,7 +16,7 @@
 
   <div class="navbar navbar-dark bg-dark box-shadow">
     <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
+      <a href="<?php echo CHtml::normalizeUrl(array('/home')); ?>" class="navbar-brand d-flex align-items-center">
         <strong>TRIVIKON</strong>
       </a>
       <span class="rights_tntop">Selamat datang, Member &nbsp;|&nbsp; <a href="#">Logout</a></span>
