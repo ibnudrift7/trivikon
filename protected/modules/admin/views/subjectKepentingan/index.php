@@ -33,7 +33,12 @@ $this->menu=array(
 	'columns'=>array(
 		// 'id',
 		'kepentingan',
-		'nama_kepentingan',
+		// 'nama_kepentingan',
+		array(
+			'header'=>'Nama Kepentingan',
+			'type'=>'raw',
+			'value'=>'TugasKepentingan::model()->button_subData($data->id)',
+		),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 			'template'=>'{update}',

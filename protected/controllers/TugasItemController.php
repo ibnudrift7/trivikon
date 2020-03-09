@@ -56,7 +56,17 @@ class TugasItemController extends Controller
 				$transaction=$model->dbConnection->beginTransaction();
 				try
 				{
-					$model->save();
+					$model->date_input = date("Y-m-d H:i:s");
+					
+					// kepada
+					$id_members = $model->kepada;
+					$users_member = MeMember::model()->findByPk($model->kepada);
+					$model->kepada = $users_member->nick_name;
+					$model->member_id = $id_members;
+					$model->admin_id = Yii::app()->user->id;
+
+					$model->save(false);
+					
 					Log::createLog("TugasItemController Create $model->id");
 					Yii::app()->user->setFlash('success','Data has been inserted');
 				    $transaction->commit();

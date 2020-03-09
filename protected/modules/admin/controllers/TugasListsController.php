@@ -106,7 +106,9 @@ class TugasListsController extends ControllerAdmin
 				$transaction=$model->dbConnection->beginTransaction();
 				try
 				{
-					$model->save();
+					
+					$model->save(false);
+
 					Log::createLog("TugasListsController Update $model->id");
 					Yii::app()->user->setFlash('success','Data Edited');
 				    $transaction->commit();
@@ -155,10 +157,18 @@ class TugasListsController extends ControllerAdmin
 		if(isset($_GET['TugasLists']))
 			$model->attributes=$_GET['TugasLists'];
 
+		$mod_kepentingan = array();
+		if (isset($_GET['subject']) && $_GET['subject'] != null) {
+			$model->subject_kepentingan = intval($_GET['subject']);
+
+			$mod_kepentingan = TugasKepentingan::model()->findByPk( intval($_GET['subject']) );
+		}
+
 		$dataProvider=new CActiveDataProvider('TugasLists');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 			'model'=>$model,
+			'kepentingan'=> $mod_kepentingan,
 		));
 	}
 

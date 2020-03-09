@@ -87,4 +87,15 @@ class TugasKepentingan extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+	public function button_subData($kepentingan_id)
+	{
+		$str = '';
+		$name_kep = $this->findByPk($kepentingan_id)->nama_kepentingan;
+
+		$str .= '<a href="'. CHtml::normalizeUrl(array('/admin/tugasLists', 'subject'=> intval($kepentingan_id) )) .'">'.$name_kep.'</a>';
+
+		return $str;
+	}
+
 }

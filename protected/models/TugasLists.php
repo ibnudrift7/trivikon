@@ -115,6 +115,8 @@ class TugasLists extends CActiveRecord
 		$criteria->compare('date_finish',$this->date_finish,true);
 		$criteria->compare('data',$this->data,true);
 
+		$criteria->order = "t.date_input DESC";
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
