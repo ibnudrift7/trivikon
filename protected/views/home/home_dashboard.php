@@ -14,10 +14,10 @@
             <div class="col-md-3 col-6">
               <div class="card mb-4 box-shadow items">
                 <div class="n_icon">
-                  <a href="#"><i class="fa fa-user-circle"></i></a>
+                  <a href="<?php echo CHtml::normalizeUrl(array('/home/editProfile')); ?>"><i class="fa fa-user-circle"></i></a>
                 </div>
                 <div class="card-body">
-                  <a href="#"><p class="card-text">Edit Profile</p></a>
+                  <a href="<?php echo CHtml::normalizeUrl(array('/home/editProfile')); ?>"><p class="card-text">View Profile</p></a>
                 </div>
               </div>
             </div>

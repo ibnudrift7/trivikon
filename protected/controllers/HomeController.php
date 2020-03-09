@@ -77,6 +77,52 @@ class HomeController extends Controller
 		));
 	}
 
+	public function actionEditProfile()
+	{
+		$check_log = MeMember::model()->checkLogin();
+		if ($check_log ===  false) {
+			$this->redirect(array('index'));
+		}
+
+		$session = new CHttpSession;
+		$session->open();
+		$model = MeMember::model()->findByPk($session['login_member']['id']);
+		if(isset($_POST['MeMember'])) {
+			$pass = $model->pass;
+			$model->attributes = $_POST['MeMember'];
+			if ($_POST['MeMember']['passold'] != '') {
+				$model->scenario = 'updatePass';
+				$model->pass = sha1($model->pass);
+				$model->pass2 = sha1($model->pass2);
+			}else{
+				$model->scenario = 'update';
+				$model->pass = $pass;
+			}
+			if ($model->validate()) {
+				if ($_POST['MeMember']['passold'] != '') {
+					if (sha1($model->passold) != $pass) {
+						$model->addError('passold','Password lama tidak valid');
+					}
+				}
+				if(!$model->hasErrors())
+				{
+					$model->save();
+					$this->redirect(array());
+				}
+			}
+		}
+
+		$model->pass = '';
+		$model->pass2 = '';
+		$model->passold = '';
+
+		$this->layout='//layouts/column2';
+
+		$this->render('edit_profile', array(	
+			'model'=> $model,
+		));	
+	}
+
 	public function actionLogout()
 	{
 		$session = new CHttpSession;

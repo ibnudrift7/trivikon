@@ -90,23 +90,15 @@
     //     $('.t-backtop').hide();
     // });
 
-    // $(document).ready(function(){
-    //     $('.t-backtop').click(function (e) {
-    //            e.preventDefault();
-    //             $('html, body').animate({
-    //                 'scrollTop': $('body').offset().top
-    //             }, 1000);
-    //         });
+    $(document).ready(function(){
+        $('.t-backtop, .back_to_top').click(function (e) {
+               e.preventDefault();
+                $('html, body').animate({
+                    'scrollTop': $('body').offset().top
+                }, 1000);
+        });
 
-    //     var $win = $(window);
-    //      $win.scroll(function () {
-    //          if ($win.scrollTop() == 0)
-    //          $('.t-backtop').hide();
-    //          else if ($win.height() + $win.scrollTop() != $(document).height() || $win.height() + $win.scrollTop() > 500) {
-    //          $('.t-backtop').show();
-    //          }
-    //      });
-    // });  
+    });  
     </script>
 </body>
 </html>

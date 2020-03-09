@@ -19,7 +19,7 @@
       <a href="<?php echo CHtml::normalizeUrl(array('/home')); ?>" class="navbar-brand d-flex align-items-center">
         <strong>TRIVIKON</strong>
       </a>
-      <span class="rights_tntop">Selamat datang, Member &nbsp;|&nbsp; <a href="#">Logout</a></span>
+      <span class="rights_tntop">Selamat datang, <?php echo ucwords($login_member['first_name']) ?> &nbsp;|&nbsp; <a href="<?php echo CHtml::normalizeUrl(array('/home/logout')); ?>">Logout</a></span>
     </div>
   </div>
       
