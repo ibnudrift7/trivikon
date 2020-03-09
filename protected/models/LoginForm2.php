@@ -38,7 +38,7 @@ class LoginForm2 extends CFormModel
 	{
 		return array(
 			'rememberMe'=>'Remember me next time',
-			'username'=>'Email',
+			'username'=>'Username',
 		);
 	}
 
@@ -50,7 +50,7 @@ class LoginForm2 extends CFormModel
 	{
 		if(!$this->hasErrors())
 		{
-			$data = MeMember::model()->find('email = :email', array(':email'=>$this->username));
+			$data = MeMember::model()->find('t.username = :username', array(':username'=>$this->username));
 			if($data->pass != sha1($this->password))
 				$this->addError('password','Incorrect username or password.');
 		}

@@ -178,4 +178,20 @@ class MeMember extends CActiveRecord
 		return $str;
 	}
 
+	public function checkLogin()
+	{
+		$status_log = false;
+
+		$session = new CHttpSession;
+		$session->open();
+		if (isset($session['login_member'])) {
+			$model = MeMember::model()->findByPk($session['login_member']['id']);
+			if ( count($model) > 0) {
+				$status_log = true;
+			}
+		}
+
+		return $status_log;
+	}
+
 }

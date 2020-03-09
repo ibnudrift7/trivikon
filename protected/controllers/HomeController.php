@@ -39,42 +39,51 @@ class HomeController extends Controller
 
 	public function actionIndex()
 	{
-		// $criteria = new CDbCriteria;
-			// $criteria->with = array('description');
-			// $criteria->addCondition('active = "1"');
-			// $criteria->addCondition('topik_id = "public events"');
-			// $criteria->addCondition('description.language_id = :language_id');
-			// $criteria->params[':language_id'] = $this->languageID;
-			// $criteria->order = 't.date_input DESC';
-			// $criteria->limit = 4;
-			// $dataBlog = Blog::model()->findAll($criteria);
+		$session = new CHttpSession;
+		$session->open();
 
-			// $criteria = new CDbCriteria;
-			// $criteria->with = array('description');
-			// $criteria->addCondition('active = "1"');
-			// $criteria->addCondition('type = "literasi"');
-			// $criteria->addCondition('description.language_id = :language_id');
-			// $criteria->params[':language_id'] = $this->languageID;
-			// $criteria->limit = 4;
-			// $dataLiterasi = Blog::model()->findAll($criteria);
+		$modelLogin = new LoginForm2;
+		if(isset($_POST['LoginForm2']))
+		{
+			$modelLogin->attributes=$_POST['LoginForm2'];
+			// validate user input and redirect to the previous page if valid
+			if($modelLogin->validate()){
+				$data = MeMember::model()->find('t.username = :username', array(':username'=>$modelLogin->username));
+				$session['login_member'] = $data->attributes;
 
-			// $this->redirect('admin');
-			// exit;
+				$this->redirect(array('logged'));
+			}else{
+			    $this->redirect(array('index'));
+			}
+		}
 
 		$this->layout='//layouts/column1';
 		$this->render('index', array(
-			// 'dataBlog'=>$dataBlog,
-			// 'dataLiterasi'=>$dataLiterasi,
+			'modelLogin'=>$modelLogin,
 		));
 	}
 
 	public function actionLogged()
 	{
+		$check_log = MeMember::model()->checkLogin();
+		if ($check_log ===  false) {
+			$this->redirect(array('index'));
+		}
+
 		$this->layout='//layouts/column2';
 		$this->pageTitle = Yii::app()->name.' - '.$this->pageTitle;
 
 		$this->render('home_dashboard', array(	
 		));
+	}
+
+	public function actionLogout()
+	{
+		$session = new CHttpSession;
+		$session->open();
+		unset($session['login_member']);
+
+		$this->redirect(array('index'));
 	}
 
 	public function actionSubject()

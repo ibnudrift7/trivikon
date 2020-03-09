@@ -8,17 +8,27 @@
       <div class="main">
          <div class="col-md-6 col-sm-12">
             <div class="login-form">
-               <form>
+               <?php $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+                   'id'=>'login-form',
+                   // 'type'=>'horizontal',
+                   //'htmlOptions'=>array('class'=>'well'),
+                  'enableClientValidation'=>false,
+                  'clientOptions'=>array(
+                     'validateOnSubmit'=>false,
+                  ),
+               )); ?>
+                  <?php echo CHtml::errorSummary($modelLogin, '', '', array('class'=>'alert alert-danger')); ?>
                   <div class="form-group">
-                     <label>Username</label>
-                     <input type="text" class="form-control" placeholder="Username">
+                     <?php echo $form->labelEx($modelLogin, 'username', array('class'=>'')) ?>
+                     <?php echo $form->textField($modelLogin, 'username', array('class'=>'form-control', 'placeholder'=> 'Username')) ?>
                   </div>
                   <div class="form-group">
-                     <label>Password</label>
-                     <input type="password" class="form-control" placeholder="Password">
+                     <?php echo $form->labelEx($modelLogin, 'password', array('class'=>'')) ?>
+                     <?php echo $form->passwordField($modelLogin, 'password', array('class'=>'form-control', 'placeholder'=> 'Password')) ?>
                   </div>
-                  <button type="button" class="btn btn-black" onclick="window.open('<?php echo CHtml::normalizeUrl(array('/home/logged')); ?>', '_SELF');">Login</button>
-               </form>
+                  <button type="submit" class="btn btn-black">Login</button>
+               <?php $this->endWidget(); ?>
+
             </div>
          </div>
       </div>
