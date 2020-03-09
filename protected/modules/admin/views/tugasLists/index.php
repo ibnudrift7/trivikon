@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 $this->pageHeader=array(
 	'icon'=>'fa fa-minus',
 	'title'=>'Tugas Item',
-	'subtitle'=>'Data Tugas Item',
+	'subtitle'=> (isset($_GET['subject']))? 'Data Tugas Item > '. ucwords($kepentingan->nama_kepentingan) : 'Data Tugas Item',
 );
 
 $this->menu=array(
@@ -22,7 +22,12 @@ $this->menu=array(
     )); ?>
 
 <?php endif; ?>
-<h1>Total Tugas: <?php echo count( TugasLists::model()->findAll() ); ?></h1>
+<?php
+$criteria = new CDbCriteria;
+$criteria->addCondition('t.subject_kepentingan = :dns_t');
+$criteria->params[':dns_t'] = intval($_GET['subject']);
+?>
+<h1>Total Tugas: <?php echo count( TugasLists::model()->findAll($criteria) ); ?></h1>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'tugas-lists-grid',
 	'dataProvider'=>$model->search(),
@@ -74,9 +79,11 @@ $this->menu=array(
 		'admin_id',
 		'data',
 		*/
+
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
-			'template'=>'{update} &nbsp; {delete}',
+			// 'template'=>'{update} &nbsp; {delete}',
+			'template'=>'{update}',
 		),
 	),
 )); ?>

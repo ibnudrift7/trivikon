@@ -41,8 +41,8 @@ $this->menu=array(
 		),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
-			'template'=>'{update}',
-			// 'template'=>'{update} &nbsp; {delete}',
+			// 'template'=>'{update}',
+			'template'=>'{update} &nbsp; {delete}',
 		),
 	),
 )); ?>
