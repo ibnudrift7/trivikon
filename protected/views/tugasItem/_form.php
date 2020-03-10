@@ -91,9 +91,80 @@
 		)); ?>
 </div>
 </div>
+<?php $this->endWidget(); ?>
+
+
+<div class="widget">
+<h4 class="widgettitle">Komentar</h4>
+<div class="widgetcontent">
+	<?php 
+	$mod_komentar = Komentar::model()->findAll('t.post_id = :post_id ORDER BY t.id ASC', array(':post_id'=> $model->id));
+	?>
+	<?php if (count($mod_komentar) > 0): ?>
+		<ul class="list-unstyled comments_list">
+		  
+		  <?php foreach ($mod_komentar as $key => $value): ?>	  	
+		  <li class="media">
+		  	<?php $member_nm = MeMember::model()->findByPk($value->user_id)->nick_name ?>
+		    <div class="media-body">
+		      <h5 class="mt-0 mb-1"><?php echo $member_nm ?>  <small>- <?php echo $value->user_type ?></small></h5>
+		      <?php echo $value->konten; ?>
+		    </div>
+		  </li>
+		  <?php endforeach ?>
+
+		</ul>
+	<?php else: ?>
+		<h6>Komentar Kosong</h6>
+	<?php endif ?>
+	
+	<div class="py-1"></div>
+	<hr>
+	<div class="py-1"></div>
+	<h6><b>Add Komentar</b></h6>
+	<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+		'id'=>'komentar-form',
+	    // 'type'=>'horizontal',
+		'enableAjaxValidation'=>false,
+		'clientOptions'=>array(
+			'validateOnSubmit'=>false,
+		),
+		'htmlOptions' => array('enctype' => 'multipart/form-data'),
+	)); ?>
+
+	<?php echo $form->errorSummary($mod_komen); ?>
+	<?php if(Yii::app()->user->hasFlash('success_komen')): ?>
+	    <?php $this->widget('bootstrap.widgets.TbAlert', array(
+	        'alerts'=>array('success_komen'),
+	        'fade'=> false,
+	    )); ?>
+	<?php endif; ?>
+
+	<?php $mod_komen->post_id = $model->id; ?>
+	<?php echo $form->hiddenField($mod_komen,'post_id', array('class'=>'span5')); ?>
+
+	<?php $mod_komen->user_id = $model->member_id; ?>
+	<?php echo $form->hiddenField($mod_komen,'user_id', array('class'=>'span5')); ?>
+
+	<?php $mod_komen->user_type = 'pelaksana'; ?>
+	<?php echo $form->hiddenField($mod_komen,'user_type', array('class'=>'span5')); ?>
+	
+	<?php echo $form->textAreaRow($mod_komen,'konten',array('rows'=>2, 'class'=>'span8 form-control', 'required'=>'required')); ?>
+	<div class="py-2"></div>
+
+	<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType'=>'submit',
+			'type'=>'primary',
+			'label'=>'Save',
+		)); ?>
+
+	<?php $this->endWidget(); ?>
+
+	<div class="clear"></div>
+</div>
+
 <div class="alert">
   <button type="button" class="close" data-dismiss="alert">×</button>
   <strong>Warning!</strong> Fields with <span class="required">*</span> are required.
 </div>
 
-<?php $this->endWidget(); ?>

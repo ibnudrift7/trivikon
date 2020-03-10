@@ -19,4 +19,4 @@ $this->menu=array(
 ?>
 
 <?php $this->widget('bootstrap.widgets.TbButtonGroup',array('buttons'=>$this->menu,)); ?><br/>
-<?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form',array('model'=>$model, 'mod_komen'=> $mod_komen)); ?>

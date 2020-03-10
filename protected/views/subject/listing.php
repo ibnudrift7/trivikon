@@ -1,5 +1,7 @@
 <section class="outer_content_inside">
-
+  <?php 
+  $dn_kepentingan = TugasKepentingan::model()->findByPk($_GET['kepentingan_id']);
+  ?>
   <section class="top_section mb-5 py-5">
     <div class="prelatife container">
       <div class="inside">
@@ -7,14 +9,14 @@
           <div class="col-md-6">
             <h2 class="mb-0">TUGAS</h2>
             <div class="clear clearfix"></div>
-            <h5>(Nama Kepentingan)</h5>
+            <h5>(Kepentingan > <?php echo $dn_kepentingan->nama_kepentingan ?>)</h5>
           </div>
           <div class="col-md-6">
             <nav aria-label="breadcrumb" class="nbreadcrumb text-right">
               <ol class="breadcrumb m-0 text-right">
                 <li class="breadcrumb-item"><a href="<?php echo CHtml::normalizeUrl(array('/home/index')); ?>"><i class="fa fa-home"></i></a></li>
                 <li class="breadcrumb-item"><a href="#">Tugas</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Nama Kepentingan</li>
+                <li class="breadcrumb-item active" aria-current="page"><?php echo $dn_kepentingan->nama_kepentingan ?></li>
               </ol>
             </nav>
             <div class="clear clearfix"></div>
@@ -34,7 +36,7 @@
             <?php if (is_array($mod_listdata) && count($mod_listdata) > 0): ?>
             <a href="<?php echo CHtml::normalizeUrl(array('/tugasItem/index', 'kepentingan_id'=> $_GET['kepentingan_id'] )); ?>" class="btn btn-primary"><i class="fa fa-minus"></i> List Tugas Anda</a>
             &nbsp;&nbsp;&nbsp;
-            <a href="<?php echo CHtml::normalizeUrl(array('/tugasItemPemberi/index', 'kepentingan_id'=> $_GET['kepentingan_id'])); ?>" class="btn btn-primary"><i class="fa fa-minus"></i> List Tugas Pemberian</a>
+            <a href="<?php echo CHtml::normalizeUrl(array('/tugasItemPemberi/index', 'kepentingan_id'=> $_GET['kepentingan_id'])); ?>" class="btn btn-primary"><i class="fa fa-minus"></i> List Tugas Pemberi</a>
             <?php endif; ?>
           </div>
           <div class="col">

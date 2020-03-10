@@ -144,8 +144,38 @@ class TugasItemPemberiController extends Controller
 			}
 		}
 
+		$mod_komen = new Komentar;
+		if(isset($_POST['Komentar']))
+		{
+			$mod_komen->attributes=$_POST['Komentar'];
+			if($mod_komen->validate()){
+				$transaction=$mod_komen->dbConnection->beginTransaction();
+				try
+				{
+					$mod_komen->date_input = date("Y-m-d H:i:s");
+					$mod_komen->status = 1;
+					
+					// print_r($mod_komen->attributes);
+					// exit;
+
+					$mod_komen->save();
+
+					Log::createLog("Komentar Add Update $model->id");
+					Yii::app()->user->setFlash('success_komen','Comment has been added.');
+				    $transaction->commit();
+
+					$this->redirect(array('update', 'id'=> $model->id));
+				}
+				catch(Exception $ce)
+				{
+				    $transaction->rollback();
+				}
+			}
+		}
+
 		$this->render('update',array(
 			'model'=>$model,
+			'mod_komen'=>$mod_komen,
 		));
 	}
 

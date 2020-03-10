@@ -20,6 +20,7 @@ $this->menu=array(
 <?php if(Yii::app()->user->hasFlash('success')): ?>
     <?php $this->widget('bootstrap.widgets.TbAlert', array(
         'alerts'=>array('success'),
+        'fade'=> false,
     )); ?>
 <?php endif; ?>
 <h1>Tugas List</h1>
