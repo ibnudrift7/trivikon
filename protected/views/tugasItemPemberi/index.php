@@ -52,11 +52,11 @@ $this->menu=array(
 			'value'=> 'date("d-m-Y", strtotime($data->date_finish))',
 		),
 		
-		array(
-			'header'=>'Countdown',
-			'type'=>'raw',
-			'value'=>'TugasLists::get_coundDown($data->date_finish)',
-		),
+		// array(
+		// 	'header'=>'Countdown',
+		// 	'type'=>'raw',
+		// 	'value'=>'TugasLists::get_coundDown($data->date_finish)',
+		// ),
 
 		/*
 		'date_selesai_user',

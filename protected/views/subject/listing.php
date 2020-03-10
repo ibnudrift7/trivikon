@@ -53,7 +53,7 @@
             <thead>
               <tr>
                 <th>TUGAS</th>
-                <th>STATUS</th>
+                <th width="20%">STATUS</th>
               </tr>
             </thead>
             <tbody>
@@ -83,15 +83,30 @@
                 </td>
                 <td>
                   <div class="d-inline-block">
+                    <small>
                     <?php if ($value->date_selesai_user == '' || $value->date_selesai_user == NULL): ?>
                       <span class="date dt_selesai"><i class="fa fa-calendar"></i> <?php echo date("d - M - Y", strtotime($value->date_finish)); ?></span>
                     <?php else: ?>
                       <span class="date dt_selesai"><i class="fa fa-calendar"></i> <?php echo date("d - M - Y", strtotime($value->date_selesai_user)); ?></span>
                     <?php endif ?>
+                    </small>
                   </div>
                   <div class="d-inline-block px-2">|</div>
-                  <div class="d-inline-block">
-                    <span class="timer_countdown">1 Days 02:30:40</span>
+                  <div class="d-inline-block block_countdown">
+                    <strong>
+                    <?php 
+                    $time1 = time();
+                    $time2 = strtotime($value->date_finish);
+
+                    $res_22 = $time2 - $time1;
+                    $juml_echo =  round($res_22 / (60 * 60 * 24));
+                    ?>
+                    <?php if ($res_22 < 0): ?>
+                    <span><?php echo $juml_echo . ' hari'; ?></span>  
+                    <?php else: ?>
+                    <span class="timer_countdown" data-countdown="<?php echo date("Y/m/d", strtotime($value->date_finish)); ?>"></span>
+                    <?php endif ?>
+                    </strong>
                   </div>
                   <div class="clear clearfix"></div>
                   <span class="status_selesai"><b>Status:</b> <?php echo $value->status_selesai ?> / <?php echo $value->status ?></span>
@@ -122,3 +137,22 @@
       $('.table').DataTable();
   } );
 </script>
+
+
+<script src="<?php echo Yii::app()->baseUrl; ?>/bower_components/jquery.countdown/dist/jquery.countdown.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+      $('.block_countdown span.timer_countdown').each(function() {
+        
+        var $this = $(this), finalDate = $(this).attr('data-countdown');
+        $this.countdown(finalDate, function(event) {
+          $this.html(event.strftime('%D hari %H:%M:%S'));
+        });
+
+        $(this).on('finish.countdown', function(event){
+          console.log("teste");
+        });
+
+      });
+    });
+  </script>
