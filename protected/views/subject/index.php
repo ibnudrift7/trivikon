@@ -51,15 +51,15 @@
               </tr>
             </thead>
             <tbody>
-              <?php for ($i=1; $i < 8; $i++) { ?>
+              <?php foreach ($model as $key => $value): ?>
               <tr>
-                <td>Proyek</td>
-                <td><a class="line_under" href="<?php echo CHtml::normalizeUrl(array('/home/subject_list')); ?>">Citraland Renov</a></td>
-                <td>8</td>
-                <td>5</td>
-                <td>3</td>
+                <td><?php echo $value['kepentingan'] ?></td>
+                <td><a class="line_under" href="<?php echo CHtml::normalizeUrl(array('/home/subject_list', 'kepentingan_id'=> $value['id'])); ?>"><?php echo $value['nama_kepentingan'] ?></a></td>
+                <td><?php echo $value['total_tugas'] ?></td>
+                <td><?php echo $value['n_selesai'] ?></td>
+                <td><?php echo $value['n_belum'] ?></td>
               </tr>
-              <?php } ?>
+              <?php endforeach ?>
             </tbody>
           </table>
         </div>

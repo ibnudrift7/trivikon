@@ -137,7 +137,37 @@ class HomeController extends Controller
 		$this->layout='//layouts/column2';
 		$this->pageTitle = Yii::app()->name.' - '.$this->pageTitle;
 
+		$model = array();
+		$criteria = new CDbCriteria;
+		$criteria->order = 't.id DESC';
+		$data1 =  TugasKepentingan::model()->findAll($criteria);
+		foreach($data1 as $key => $value) {
+			$tugas_data = TugasLists::model()->findAll('t.subject_kepentingan = :subject_kepentingan', array(':subject_kepentingan'=>$value->id));
+			$n_total = count($tugas_data);
+			$n_selesai_{$key} = 0;
+			$n_belum_{$key} = 0;
+			foreach ($tugas_data as $ke => $val) {
+					if ($val->status == 'selesai'):
+                    $n_selesai_{$key} = $n_selesai_{$key} + 1;
+                    endif;
+
+                    if ($val->status == 'belum'):
+                    $n_belum_{$key} = $n_belum_{$key} + 1;
+                    endif;
+			}
+
+			$model[] = [
+						'id' => $value->id,
+						'kepentingan' => $value->kepentingan,
+						'nama_kepentingan' => $value->nama_kepentingan,
+						'total_tugas' => $n_total,
+						'n_selesai' => $n_selesai_{$key},
+						'n_belum' => $n_belum_{$key},
+						];
+		}
+
 		$this->render('//subject/index', array(	
+			'model'=> $model,
 		));	
 	}
 
