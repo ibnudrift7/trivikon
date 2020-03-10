@@ -87,3 +87,22 @@ $criteria->params[':dns_t'] = intval($_GET['subject']);
 		),
 	),
 )); ?>
+
+
+<script src="<?php echo Yii::app()->baseUrl; ?>/bower_components/jquery.countdown/dist/jquery.countdown.min.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+  $('span.countddown_ls').each(function() {
+    
+    var $this = $(this), finalDate = $(this).attr('data-countdown');
+    $this.countdown(finalDate, function(event) {
+      $this.html(event.strftime('%D hari %H:%M:%S'));
+    });
+
+    $(this).on('finish.countdown', function(event){
+      console.log("teste");
+    });
+
+  });
+});
+</script>

@@ -177,16 +177,29 @@ class TugasLists extends CActiveRecord
 
 	public static function get_coundDown($date_selesai='')
 	{
-		$year = intval( date("Y", $date_selesai) );
-		$month = intval( date("M", $date_selesai) );
-		$days = intval( date("d", $date_selesai) );
-
 		date_default_timezone_set('Asia/Jakarta');
-		$target = mktime(0, 0, 0, 4, 10, 2020) ; 
-		$today = time() ; 
-		$difference =($target-$today) ; 
-		$days =(int) ($difference/86400) ; 
-		$n_str = "Remaining $days days";
+
+		// $year = intval( date("Y", $date_selesai) );
+		// $month = intval( date("M", $date_selesai) );
+		// $days = intval( date("d", $date_selesai) );
+		// $target = mktime(0, 0, 0, 4, 10, 2020) ; 
+		// $today = time() ; 
+		// $difference =($target-$today) ; 
+		// $days =(int) ($difference/86400) ; 
+
+		$dn_selesai = date("Y/m/d", strtotime($date_selesai));
+
+		$time1 = time();
+        $time2 = strtotime($date_selesai);
+
+        $res_22 = $time2 - $time1;
+        $juml_echo =  round($res_22 / (60 * 60 * 24));
+
+        if ($res_22 < 0) {
+        	$n_str = '<span class="countddown_ls2">'. $juml_echo . ' hari' .'</span>';
+        } else {
+			$n_str = '<span class="countddown_ls" data-countdown="'.$dn_selesai.'"></span>';
+        }
 
 		return $n_str;
 	}
