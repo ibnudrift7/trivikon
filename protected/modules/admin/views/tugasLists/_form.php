@@ -16,15 +16,21 @@
 	
 	<?php 
 	// $dn_username = '';
-	$model->dari = 'Aditya, Direktur';
+	// $model->dari = 'Aditya, Direktur';
 	?>
+	
+	<?php if ($model->scenario == 'update'): ?>
+		<?php echo $form->textFieldRow($model,'dari', array('class'=>'span5','empty'=>'Pilih Member', 'readonly'=>'readonly')); ?>
+		<?php echo $form->textFieldRow($model,'kepada', array('class'=>'span5','empty'=>'Pilih Member', 'readonly'=>'readonly')); ?>
+	<?php else: ?>
+		<?php 
+		$models_user = MeMember::model()->findAll('t.aktif = :aktifs order by t.id DESC', array(':aktifs'=>1));
+		$members_dn = CHtml::listData($models_user, 'id', 'nick_name');
+		?>
+		<?php echo $form->dropDownListRow($model,'dari', $members_dn, array('class'=>'span5','empty'=>'Pilih Member', 'required'=>'required')); ?>
 
-	<?php echo $form->textFieldRow($model,'dari',array('class'=>'span5','readonly'=>'readonly')); ?>
-	<?php 
-	$models_user = MeMember::model()->findAll('t.aktif = :aktifs order by t.id DESC', array(':aktifs'=>1));
-	$members_dn = CHtml::listData($models_user, 'id', 'nick_name');
-	?>
-	<?php echo $form->dropDownListRow($model,'kepada', $members_dn, array('class'=>'span5','empty'=>'Pilih Member')); ?>
+		<?php echo $form->dropDownListRow($model,'kepada', $members_dn, array('class'=>'span5','empty'=>'Pilih Member', 'required'=>'required')); ?>
+	<?php endif ?>
 	
 	<?php 
 	$dn_priority = [
@@ -55,9 +61,9 @@
 		<?php echo $form->dropDownListRow($model,'status_selesai', ['under'=>'under', 'over'=>'over'], array('class'=>'span5', 'readonly'=>'readonly')); ?>
 	<?php endif ?>
 
-	<?php // echo $form->textFieldRow($model,'member_id',array('class'=>'span5')); ?>
-
-	<?php // echo $form->textFieldRow($model,'admin_id',array('class'=>'span5')); ?>
+	<?php echo $form->hiddenField($model,'member_id',array('class'=>'span5')); ?>
+	
+	<?php echo $form->hiddenField($model,'admin_id',array('class'=>'span5')); ?>
 
 	<?php // echo $form->textFieldRow($model,'date_input',array('class'=>'span5')); ?>
 

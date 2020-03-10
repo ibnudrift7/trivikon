@@ -40,9 +40,7 @@ class HomeController extends Controller
 	public function actionIndex()
 	{
 		$check_log = MeMember::model()->checkLogin();
-		if ($check_log ===  false) {
-			$this->redirect(array('index'));
-		}else{
+		if ($check_log ===  true) {
 			$this->redirect(array('logged'));
 		}
 
@@ -182,7 +180,6 @@ class HomeController extends Controller
 	{
 		$this->layout='//layouts/column2';
 		$this->pageTitle = Yii::app()->name.' - '.$this->pageTitle;
-
 
 		// report kepentingan tugas
 		$kep_id = intval($_GET['kepentingan_id']);

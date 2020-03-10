@@ -1,6 +1,6 @@
 <?php
 
-class TugasItemController extends Controller
+class TugasItemPemberiController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -108,13 +108,26 @@ class TugasItemController extends Controller
 				$transaction=$model->dbConnection->beginTransaction();
 				try
 				{
-					if ( intval($model->start_project) == 1 ) {
-						$model->lock_start = 1;
-						$model->date_start_user = date("Y-m-d H:i:s");
-					}
-					if ( intval($model->flex_selesai_pelaksana) == 1 ) {
-						$model->flex_selesai_pelaksana = 1;
-						$model->date_selesai_user = date("Y-m-d H:i:s");
+					if ( intval($model->flex_selesai_pemberi) == 1 ) {
+						$model->date_selesai_pemberi = date("Y-m-d H:i:s");
+
+						$model->status = 'selesai';
+						$model->lock_selesai = 1;
+
+						$date1 = date("Y-m-d", strtotime($model->date_finish));
+						$date2 = date("Y-m-d", strtotime($model->date_selesai_user));
+
+						$now_finish = strtotime($date1);
+						$your_date = strtotime($date2);
+						$datediff = $now_finish - $your_date;
+
+						$results_time = round($datediff / (60 * 60 * 24));
+
+						if ($results_time >= 0) {
+							$model->status_selesai = 'under';
+						}else{
+							$model->status_selesai = 'over';
+						}
 					}
 
 					$model->save(false);
@@ -171,7 +184,7 @@ class TugasItemController extends Controller
 		$session->open();
 		$user_id = MeMember::model()->findByPk($session['login_member']['id']);
 
-		$model->member_id = $user_id->id;
+		$model->admin_id = $user_id->id;
 		if (isset($_GET['kepentingan_id']) && $_GET['kepentingan_id'] != 0) {
 			$model->subject_kepentingan = intval($_GET['kepentingan_id']);
 		}

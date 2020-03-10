@@ -82,8 +82,8 @@ $criteria->params[':dns_t'] = intval($_GET['subject']);
 
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
-			// 'template'=>'{update} &nbsp; {delete}',
-			'template'=>'{update}',
+			'template'=>'{update} &nbsp; {delete}',
+			// 'template'=>'{update}',
 		),
 	),
 )); ?>

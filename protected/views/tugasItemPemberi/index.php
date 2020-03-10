@@ -7,7 +7,7 @@ $dn_kepentingan = TugasKepentingan::model()->findByPk($_GET['kepentingan_id']);
 
 $this->pageHeader=array(
 	'icon'=>'fa fa-minus',
-	'title'=>'Tugas List',
+	'title'=>'Pemberi Tugas List',
 	'subtitle'=>'Tugas Anda > Subject '. $dn_kepentingan->nama_kepentingan,
 );
 

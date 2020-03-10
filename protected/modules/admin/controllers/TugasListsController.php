@@ -59,12 +59,17 @@ class TugasListsController extends ControllerAdmin
 				{
 					$model->date_input = date("Y-m-d H:i:s");
 					
+					// dari
+					$id_from_member = $model->dari;
+					$users_dari = MeMember::model()->findByPk($model->dari);
+					$model->dari = $users_dari->nick_name;
+					$model->admin_id = $id_from_member;
+					
 					// kepada
 					$id_members = $model->kepada;
 					$users_member = MeMember::model()->findByPk($model->kepada);
 					$model->kepada = $users_member->nick_name;
 					$model->member_id = $id_members;
-					$model->admin_id = Yii::app()->user->id;
 
 					$model->save(false);
 					

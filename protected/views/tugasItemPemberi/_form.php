@@ -11,7 +11,7 @@
 <?php echo $form->errorSummary($model); ?>
 
 <div class="widget">
-<h4 class="widgettitle">Data Tugas Item</h4>
+<h4 class="widgettitle">Data Tugas Item - Pemberi</h4>
 <div class="widgetcontent">
 
 	<?php if ($model->scenario == 'update'): ?>
@@ -69,20 +69,22 @@
 	?>
 	<?php echo $form->textFieldRow($model, 'date_finish',array('class'=>'span5 datepicker2 form-control', 'readonly'=>'readonly')); ?>
 
-	<?php if ($model->scenario == 'update' && $model->lock_start == 0): ?>
-		<?php echo $form->dropDownListRow($model,'start_project', [1=>'YA', 0=>'Belum'],array('class'=>'span5 form-control', 'empty'=> 'Pilih')); ?>
+	<?php if ($model->scenario == 'update' || $model->lock_start == 1): ?>
+		<?php echo $form->textFieldRow($model, 'date_start_user',array('class'=>'span5 datepicker2 form-control', 'readonly'=>'readonly')); ?>
+
+		<?php echo $form->textFieldRow($model, 'date_selesai_user',array('class'=>'span5 datepicker2 form-control', 'readonly'=>'readonly')); ?>
+
+		<?php echo $form->dropDownListRow($model,'flex_selesai_pelaksana', [1=>'YA', 0=>'Belum'],array('class'=>'span5 form-control', 'readonly'=> 'readonly')); ?>
+		<?php echo $form->hiddenField($model,'flex_selesai_pelaksana',array('class'=>'span5')); ?>
+
+		<?php echo $form->dropDownListRow($model,'flex_selesai_pemberi', [1=>'YA', 0=>'Belum'],array('class'=>'span5 form-control', 'empty'=> 'Pilih')); ?>
 	<?php endif ?>
-	<?php if ($model->scenario == 'update' && $model->lock_start == 1): ?>
-		<?php echo $form->dropDownListRow($model,'flex_selesai_pelaksana', [1=>'YA', 0=>'Belum'],array('class'=>'span5 form-control', 'empty'=> 'Pilih')); ?>
-	<?php endif ?>
-	
-	<?php if ($model->scenario == 'update' && $model->lock_selesai == 0): ?>
+
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',
 			'label'=>$model->isNewRecord ? 'Add' : 'Save',
 		)); ?>
-	<?php endif; ?>
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			// 'buttonType'=>'submit',
 			// 'type'=>'info',

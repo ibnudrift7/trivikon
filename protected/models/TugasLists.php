@@ -20,6 +20,7 @@
  */
 class TugasLists extends CActiveRecord
 {
+	public $flex_page, $start_project;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -46,11 +47,11 @@ class TugasLists extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('subject_kepentingan, member_id, admin_id', 'numerical', 'integerOnly'=>true),
+			array('subject_kepentingan, member_id', 'numerical', 'integerOnly'=>true),
 			array('dari, kepada', 'length', 'max'=>225),
 			array('prioritas, status', 'length', 'max'=>7),
 			array('status_selesai', 'length', 'max'=>5),
-			array('deskripsi, date_input, date_finish, data, date_start_user, date_selesai_user', 'safe'),
+			array('deskripsi, date_input, date_finish, data, date_start_user, date_selesai_user, admin_id, date_selesai_pemberi, lock_selesai, lock_start, flex_selesai_pelaksana, flex_selesai_pemberi, start_project', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, dari, kepada, prioritas, subject_kepentingan, deskripsi, status, status_selesai, member_id, admin_id, date_input, date_finish, data', 'safe', 'on'=>'search'),
@@ -87,6 +88,13 @@ class TugasLists extends CActiveRecord
 			'date_input' => 'Date Input',
 			'date_finish' => 'Berakhir Pada',
 			'data' => 'Data',
+			'date_start_user' => 'Tanggal Mulai',
+			'lock_start' => 'Mulai Tugas',
+
+			'date_selesai_user' => 'Tanggal Member Selesai',
+
+			'flex_selesai_pelaksana' => 'Tugas Member Selesai',
+			'flex_selesai_pemberi' => 'ACC Tugas Selesai',
 		);
 	}
 
@@ -115,10 +123,55 @@ class TugasLists extends CActiveRecord
 		$criteria->compare('date_finish',$this->date_finish,true);
 		$criteria->compare('data',$this->data,true);
 
+		$criteria->compare('date_start_user',$this->date_start_user,true);
+		$criteria->compare('date_selesai_user',$this->date_selesai_user,true);
+		$criteria->compare('date_selesai_pemberi',$this->date_selesai_pemberi,true);
+		$criteria->compare('lock_selesai',$this->lock_selesai,true);
+		$criteria->compare('lock_start',$this->lock_start,true);
+		$criteria->compare('flex_selesai_pelaksana',$this->flex_selesai_pelaksana,true);
+		$criteria->compare('flex_selesai_pemberi',$this->flex_selesai_pemberi,true);
+
 		$criteria->order = "t.date_input DESC";
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+		));
+	}
+
+	public function search2()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id,true);
+		$criteria->compare('dari',$this->dari,true);
+		$criteria->compare('kepada',$this->kepada,true);
+		$criteria->compare('prioritas',$this->prioritas,true);
+		$criteria->compare('subject_kepentingan',$this->subject_kepentingan);
+		$criteria->compare('deskripsi',$this->deskripsi,true);
+		$criteria->compare('status',$this->status,true);
+		$criteria->compare('status_selesai',$this->status_selesai,true);
+		$criteria->compare('member_id',$this->member_id);
+		$criteria->compare('admin_id',$this->admin_id);
+		$criteria->compare('date_input',$this->date_input,true);
+		$criteria->compare('date_finish',$this->date_finish,true);
+		$criteria->compare('data',$this->data,true);
+
+		$criteria->compare('date_start_user',$this->date_start_user,true);
+		$criteria->compare('date_selesai_user',$this->date_selesai_user,true);
+		$criteria->compare('date_selesai_pemberi',$this->date_selesai_pemberi,true);
+		$criteria->compare('lock_selesai',$this->lock_selesai,true);
+		$criteria->compare('lock_start',$this->lock_start,true);
+		$criteria->compare('flex_selesai_pelaksana',$this->flex_selesai_pelaksana,true);
+		$criteria->compare('flex_selesai_pemberi',$this->flex_selesai_pemberi,true);
+
+		$criteria->order = "t.date_input DESC";
+
+		return new CActiveDataProvider($this, array(
+				'criteria'=>$criteria,
+				'pagination'=>false,
 		));
 	}
 

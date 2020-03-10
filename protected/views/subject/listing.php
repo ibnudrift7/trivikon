@@ -31,6 +31,11 @@
         
         <div class="row">
           <div class="col">
+            <?php if (is_array($mod_listdata) && count($mod_listdata) > 0): ?>
+            <a href="<?php echo CHtml::normalizeUrl(array('/tugasItem/index', 'kepentingan_id'=> $_GET['kepentingan_id'] )); ?>" class="btn btn-primary"><i class="fa fa-minus"></i> List Tugas Anda</a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="<?php echo CHtml::normalizeUrl(array('/tugasItemPemberi/index', 'kepentingan_id'=> $_GET['kepentingan_id'])); ?>" class="btn btn-primary"><i class="fa fa-minus"></i> List Tugas Pemberian</a>
+            <?php endif; ?>
           </div>
           <div class="col">
             <div class="text-right">

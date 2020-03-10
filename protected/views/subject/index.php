@@ -10,7 +10,7 @@
           <div class="col-md-6">
             <nav aria-label="breadcrumb" class="nbreadcrumb text-right">
               <ol class="breadcrumb m-0 text-right">
-                <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i></a></li>
+                <li class="breadcrumb-item"><a href="<?php echo CHtml::normalizeUrl(array('/home/index')); ?>"><i class="fa fa-home"></i></a></li>
                 <li class="breadcrumb-item active" aria-current="page">Subject Tugas</li>
               </ol>
             </nav>
@@ -28,7 +28,7 @@
 
         <div class="row">
           <div class="col">
-            <a href="<?php echo CHtml::normalizeUrl(array('/tugasItem')); ?>" class="btn btn-primary"><i class="fa fa-minus"></i> List Tugas Anda</a>
+            &nbsp;
           </div>
           <div class="col">
             <div class="text-right">
