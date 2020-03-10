@@ -80,11 +80,14 @@
 		<?php echo $form->dropDownListRow($model,'flex_selesai_pemberi', [1=>'YA', 0=>'Belum'],array('class'=>'span5 form-control', 'empty'=> 'Pilih')); ?>
 	<?php endif ?>
 
+	<?php if ($model->scenario == 'update' && $model->lock_selesai == 0): ?>
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',
 			'label'=>$model->isNewRecord ? 'Add' : 'Save',
 		)); ?>
+	<?php endif ?>
+
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			// 'buttonType'=>'submit',
 			// 'type'=>'info',
@@ -93,6 +96,34 @@
 		)); ?>
 </div>
 </div>
+
+<div class="widget">
+<h4 class="widgettitle">Komentar</h4>
+<div class="widgetcontent">
+	<?php 
+	$mod_komentar = Komentar::model()->findAll('t.post_id = :post_id ORDER BY t.id DESC', array(':post_id'=> $model->id));
+	?>
+	<?php if (count($mod_komentar) > 0): ?>
+		<ul class="list-unstyled">
+		  
+		  <?php foreach ($mod_komentar as $key => $value): ?>	  	
+		  <li class="media">
+		  	<?php $member_nm = MeMember::model()->findByPk($value->user_id)->nick_name ?>
+		    <div class="media-body">
+		      <h5 class="mt-0 mb-1"><?php echo $member_nm ?>  <small>- <?php echo $value->user_type ?></small></h5>
+		      <?php echo $value->konten; ?>
+		    </div>
+		  </li>
+		  <?php endforeach ?>
+
+		</ul>
+	<?php else: ?>
+		<h6>Komentar Kosong</h6>
+	<?php endif ?>
+	
+	<div class="clear"></div>
+</div>
+
 <div class="alert">
   <button type="button" class="close" data-dismiss="alert">×</button>
   <strong>Warning!</strong> Fields with <span class="required">*</span> are required.

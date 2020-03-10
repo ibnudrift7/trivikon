@@ -7,6 +7,7 @@
  * @property string $id
  * @property integer $user_id
  * @property string $user_type
+ * @property integer $post_id
  * @property string $konten
  * @property string $date_input
  * @property integer $status
@@ -39,12 +40,12 @@ class Komentar extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, status', 'numerical', 'integerOnly'=>true),
+			array('user_id, post_id, status', 'numerical', 'integerOnly'=>true),
 			array('user_type', 'length', 'max'=>225),
 			array('konten, date_input', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, user_id, user_type, konten, date_input, status', 'safe', 'on'=>'search'),
+			array('id, user_id, user_type, post_id, konten, date_input, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,6 +69,7 @@ class Komentar extends CActiveRecord
 			'id' => 'ID',
 			'user_id' => 'User',
 			'user_type' => 'User Type',
+			'post_id' => 'Post',
 			'konten' => 'Konten',
 			'date_input' => 'Date Input',
 			'status' => 'Status',
@@ -88,6 +90,7 @@ class Komentar extends CActiveRecord
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('user_type',$this->user_type,true);
+		$criteria->compare('post_id',$this->post_id);
 		$criteria->compare('konten',$this->konten,true);
 		$criteria->compare('date_input',$this->date_input,true);
 		$criteria->compare('status',$this->status);
