@@ -12,7 +12,7 @@
           <div class="col-md-6">
             <nav aria-label="breadcrumb" class="nbreadcrumb text-right">
               <ol class="breadcrumb m-0 text-right">
-                <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i></a></li>
+                <li class="breadcrumb-item"><a href="<?php echo CHtml::normalizeUrl(array('/home/index')); ?>"><i class="fa fa-home"></i></a></li>
                 <li class="breadcrumb-item"><a href="#">Tugas</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Nama Kepentingan</li>
               </ol>
@@ -40,6 +40,7 @@
         </div>
         <div class="py-3"></div>
         <!-- start content -->
+        <?php if (is_array($mod_listdata) && count($mod_listdata) > 0): ?>
         <div class="table-responsive">
           <table class="table table_set">
             <thead>
@@ -49,7 +50,8 @@
               </tr>
             </thead>
             <tbody>
-              <?php for ($i=1; $i < 7; $i++) { ?>
+
+              <?php foreach ($mod_listdata as $key => $value): ?>
               <tr>
                 <td>
                   <div class="d-inline-block picture mr-2 align-top">
@@ -58,36 +60,44 @@
                   <div class="d-inline-block align-top">
                     <div class="d-inline-block info_r">
                       <div class="d-inline-block">
-                        <p><span class="date"><i class="fa fa-calendar"></i> 15 - 03 - 2020</span> | <strong>URGENT</strong></p>
+                        <p><span class="date"><i class="fa fa-calendar"></i> <small><?php echo date("d - M - Y", strtotime($value->date_input)); ?></small></span> | <strong><?php echo strtoupper($value->prioritas) ?></strong></p>
                       </div>
                       <div class="d-inline-block px-2">|</div>
                       <div class="d-inline-block">
-                        <p class="to_name"><strong>Aditya Surya >> Meti Supriyanti</strong></p>
+                        <p class="to_name"><strong><?php echo $value->dari ?> >> <?php echo $value->kepada ?></strong></p>
                       </div>
                     </div>
                     <div class="clear clearfix"></div>
                     <div class="info_tugas">
-                      <p>Mintakan tanda tangan serah terima komplain Citraland Renov</p>
+                      <p><?php echo $value->deskripsi ?></p>
                     </div>
                   </div>
 
                 </td>
                 <td>
                   <div class="d-inline-block">
-                    <span class="date dt_selesai"><i class="fa fa-calendar"></i> 15 - 03 - 2020</span>
+                    <?php if ($value->date_selesai_user == '' || $value->date_selesai_user == NULL): ?>
+                      <span class="date dt_selesai"><i class="fa fa-calendar"></i> <?php echo date("d - M - Y", strtotime($value->date_finish)); ?></span>
+                    <?php else: ?>
+                      <span class="date dt_selesai"><i class="fa fa-calendar"></i> <?php echo date("d - M - Y", strtotime($value->date_selesai_user)); ?></span>
+                    <?php endif ?>
                   </div>
                   <div class="d-inline-block px-2">|</div>
                   <div class="d-inline-block">
                     <span class="timer_countdown">1 Days 02:30:40</span>
                   </div>
                   <div class="clear clearfix"></div>
-                  <span class="status_selesai"><b>Status:</b> Under / Belum</span>
+                  <span class="status_selesai"><b>Status:</b> <?php echo $value->status_selesai ?> / <?php echo $value->status ?></span>
                 </td>
               </tr>
-              <?php } ?>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>
+          
+          <?php else: ?>
+          <h5>Sorry, Data is Empty!</h5>
+          <?php endif ?>
         <!-- end content -->
 
       </div>
@@ -97,3 +107,11 @@
   <div class="py-4"></div>
 
 </section>
+
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+  $(document).ready( function () {
+      $('.table').DataTable();
+  } );
+</script>
