@@ -22,9 +22,9 @@
 		$models_user = MeMember::model()->findAll('t.aktif = :aktifs order by t.id DESC', array(':aktifs'=>1));
 		$members_dn = CHtml::listData($models_user, 'id', 'nick_name');
 		?>
-		<?php echo $form->dropDownListRow($model,'dari', $members_dn, array('class'=>'span5','empty'=>'Pilih Member', 'required'=>'required')); ?>
+		<?php echo $form->dropDownListRow($model,'dari', $members_dn, array('class'=>'span5 form-control','empty'=>'Pilih Member', 'required'=>'required')); ?>
 
-		<?php echo $form->dropDownListRow($model,'kepada', $members_dn, array('class'=>'span5','empty'=>'Pilih Member', 'required'=>'required')); ?>
+		<?php echo $form->dropDownListRow($model,'kepada', $members_dn, array('class'=>'span5 form-control','empty'=>'Pilih Member', 'required'=>'required')); ?>
 	<?php endif ?>
 	
 	<?php 
@@ -34,18 +34,24 @@
 					'rutin'=> strtoupper('rutin'),
 					];
 	?>
-	<?php echo $form->dropDownListRow($model,'prioritas', $dn_priority, array('class'=>'span5 form-control','maxlength'=>7, 'empty'=>'Pilih Prioritas', 'readonly'=>'readonly')); ?>
-	
 	<?php 
 	$models_kep = TugasKepentingan::model()->findAll();
 	$mod_kepen_list = CHtml::listData($models_kep, 'id', 'nama_kepentingan');
 	?>
-	<?php $subject_kep = $model->subject_kepentingan; ?>
-	<?php echo $form->dropDownListRow($model,'subject_kepentingan', $mod_kepen_list, array('class'=>'span5 form-control','maxlength'=>7, 'empty'=>'Pilih Kepentingan', 'disabled'=>'disabled')); ?>
-	<?php $model->subject_kepentingan = $subject_kep; ?>
-	<?php echo $form->hiddenField($model,'subject_kepentingan', array('class'=>'span5')); ?>
+
 	
-	<?php // echo $form->textFieldRow($model,'subject_kepentingan',array('class'=>'span5')); ?>
+	<?php if ($model->scenario == 'update'): ?>
+		<?php echo $form->dropDownListRow($model,'prioritas', $dn_priority, array('class'=>'span5 form-control','maxlength'=>7, 'empty'=>'Pilih Prioritas', 'readonly'=>'readonly')); ?>
+		<?php $subject_kep = $model->subject_kepentingan; ?>
+		<?php echo $form->dropDownListRow($model,'subject_kepentingan', $mod_kepen_list, array('class'=>'span5 form-control','maxlength'=>7, 'empty'=>'Pilih Kepentingan', 'disabled'=>'disabled')); ?>
+		<?php $model->subject_kepentingan = $subject_kep; ?>
+		<?php echo $form->hiddenField($model,'subject_kepentingan', array('class'=>'span5')); ?>
+		
+	<?php else: ?>
+		
+		<?php echo $form->dropDownListRow($model,'prioritas', $dn_priority, array('class'=>'span5 form-control','maxlength'=>7, 'empty'=>'Pilih Prioritas',)); ?>
+		<?php echo $form->dropDownListRow($model,'subject_kepentingan', $mod_kepen_list, array('class'=>'span5 form-control','maxlength'=>7, 'empty'=>'Pilih Kepentingan')); ?>
+	<?php endif ?>
 
 	<?php echo $form->textAreaRow($model,'deskripsi',array('rows'=>3, 'cols'=>50, 'class'=>'span8 form-control', 'readonly'=>'readonly')); ?>
 	
@@ -64,10 +70,14 @@
 
 	<?php // echo $form->textFieldRow($model,'date_input',array('class'=>'span5')); ?>
 	
-	<?php 
-	$model->date_finish = date( 'Y-m-d', strtotime($model->date_finish) );
-	?>
-	<?php echo $form->textFieldRow($model, 'date_finish',array('class'=>'span5 datepicker2 form-control', 'readonly'=>'readonly')); ?>
+	<?php if ($model->scenario == 'update'): ?>
+		<?php 	
+		$model->date_finish = date( 'Y-m-d', strtotime($model->date_finish) );
+		?>
+		<?php echo $form->textFieldRow($model, 'date_finish',array('class'=>'span5 datepicker2 form-control', 'readonly'=>'readonly')); ?>
+	<?php else: ?>
+		<?php echo $form->textFieldRow($model, 'date_finish',array('class'=>'span5 datepicker2 form-control')); ?>
+	<?php endif; ?>
 
 	<?php if ($model->scenario == 'update' || $model->lock_start == 1): ?>
 		<?php echo $form->textFieldRow($model, 'date_start_user',array('class'=>'span5 datepicker2 form-control', 'readonly'=>'readonly')); ?>
@@ -98,6 +108,7 @@
 </div>
 <?php $this->endWidget(); ?>
 
+<?php if ($model->scenario == 'update'): ?>
 <div class="widget">
 <h4 class="widgettitle">Komentar</h4>
 <div class="widgetcontent">
@@ -166,6 +177,7 @@
 
 	<div class="clear"></div>
 </div>
+<?php endif ?>
 
 <div class="alert">
   <button type="button" class="close" data-dismiss="alert">×</button>
