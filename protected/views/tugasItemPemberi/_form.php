@@ -50,7 +50,9 @@
 	<?php else: ?>
 		
 		<?php echo $form->dropDownListRow($model,'prioritas', $dn_priority, array('class'=>'span5 form-control','maxlength'=>7, 'empty'=>'Pilih Prioritas',)); ?>
-		<?php echo $form->dropDownListRow($model,'subject_kepentingan', $mod_kepen_list, array('class'=>'span5 form-control','maxlength'=>7, 'empty'=>'Pilih Kepentingan')); ?>
+		<?php // echo $form->dropDownListRow($model,'subject_kepentingan', $mod_kepen_list, array('class'=>'span5 form-control','maxlength'=>7, 'empty'=>'Pilih Kepentingan')); ?>
+		<?php $model->subject_kepentingan = $_GET['kepentingan_id']; ?>
+		<?php echo $form->hiddenField($model,'subject_kepentingan', array('class'=>'span5')); ?>
 	<?php endif ?>
 
 	<?php if ($model->scenario == 'update'): ?>
@@ -94,7 +96,7 @@
 		<?php echo $form->dropDownListRow($model,'flex_selesai_pemberi', [1=>'YA', 0=>'Belum'],array('class'=>'span5 form-control', 'empty'=> 'Pilih')); ?>
 	<?php endif ?>
 
-	<?php if ($model->scenario == 'update' && $model->lock_selesai == 0): ?>
+	<?php if ($model->scenario == 'update' && $model->lock_selesai != 1): ?>
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',
@@ -102,12 +104,20 @@
 		)); ?>
 	<?php endif ?>
 
+	<?php if ($model->scenario != 'update'): ?>
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
-			// 'buttonType'=>'submit',
-			// 'type'=>'info',
-			'url'=>CHtml::normalizeUrl(array('index', 'kepentingan_id'=> $model->subject_kepentingan)),
-			'label'=>'Batal',
+			'buttonType'=>'submit',
+			'type'=>'primary',
+			'label'=>$model->isNewRecord ? 'Add' : 'Save',
 		)); ?>
+	<?php endif ?>
+
+	<?php $this->widget('bootstrap.widgets.TbButton', array(
+		// 'buttonType'=>'submit',
+		// 'type'=>'info',
+		'url'=>CHtml::normalizeUrl(array('index', 'kepentingan_id'=> $model->subject_kepentingan)),
+		'label'=>'Batal',
+	)); ?>
 </div>
 </div>
 <?php $this->endWidget(); ?>
