@@ -30,12 +30,12 @@ $this->menu=array(
                 	<table class="table table_sub">
                 		<thead>
                 		<tr>
-                			<th colspan="3">Jumlah Prioritas</th>
+                			<th colspan="3">Prioritas</th>
                 		</tr>
                 		<tr class="border_t">
-                			<th>URGENT</th>
-                			<th>PENTING</th>
-                			<th>RUTIN</th>
+                			<th>U</th>
+                			<th>P</th>
+                			<th>R</th>
                 		</tr>
                 		</thead>
                 	</table>
@@ -44,11 +44,11 @@ $this->menu=array(
                 	<table class="table table_sub">
                 		<thead>
                 		<tr>
-                			<th colspan="2">Jumlah Tugas</th>
+                			<th colspan="2">Tugas</th>
                 		</tr>
                 		<tr class="border_t">
-                			<th>SELESAI</th>
-                			<th>BELUM</th>
+                			<th>S</th>
+                			<th>B</th>
                 		</tr>
                 		</thead>
                 	</table>
@@ -57,11 +57,11 @@ $this->menu=array(
                 	<table class="table table_sub">
                 		<thead>
                 		<tr>
-                			<th colspan="2">Jumlah Deadline</th>
+                			<th colspan="2">Deadline</th>
                 		</tr>
                 		<tr class="border_t">
-                			<th>UNDER</th>
-                			<th>OVER</th>
+                			<th>U</th>
+                			<th>O</th>
                 		</tr>
                 		</thead>
                 	</table>
@@ -70,7 +70,7 @@ $this->menu=array(
                 	<table class="table table_sub">
                 		<thead>
                 		<tr>
-                			<th colspan="2">Penilaian Kinerja</th>
+                			<th colspan="2">Kinerja</th>
                 		</tr>
                 		<tr class="border_t">
                 			<th>BAIK</th>
@@ -132,13 +132,13 @@ $this->menu=array(
                     <?php $tugas_over_{$key} = $tugas_over_{$key} + 1; ?>
                     <?php endif ?>
                 <?php endforeach ?>
-
+                <?php 
+                ?>
                 <tr>
                 	<td><?php echo $key + 1; ?></td>
                 	<td><?php echo $value->first_name.' '. $value->last_name ?></td>
                 	<td><?php echo $value->jabatan ?></td>
                 	<td><?php echo count($tugas_data); ?></td>
-
                 	<td class="p-0">
                 		<table class="table table_subdata">
                 			<tbody>
@@ -166,11 +166,14 @@ $this->menu=array(
                 			</tbody>
                 		</table>
                 	</td>
+                    <?php 
+                    $nilai_kinerja = ( $tugas_sel_{$key} / count($tugas_data)) * 100;
+                    ?>
                 	<td class="p-0">
                 		<table class="table table_subdata">
                 			<tbody>
-                				<td>0</td>
-                				<td>0</td>
+                				<td><?php echo ( round($nilai_kinerja) > 59 ) ? '1' : '0' ?></td>
+                				<td><?php echo ( round($nilai_kinerja) < 59 ) ? '1' : '0' ?></td>
                 			</tbody>
                 		</table>
                 	</td>
