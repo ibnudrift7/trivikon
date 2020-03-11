@@ -55,4 +55,17 @@
 </main>
 
 <?php echo $this->renderPartial('//layouts/_footer', array()); ?>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.theme.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+        $('.datepicker2').datepicker({ 
+            dateFormat: 'yy-mm-dd',
+            // changeYear: true,
+            // changeMonth: true,
+        });
+  })
+</script>
 <?php $this->endContent(); ?>

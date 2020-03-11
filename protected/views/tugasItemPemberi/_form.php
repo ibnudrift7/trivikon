@@ -53,7 +53,11 @@
 		<?php echo $form->dropDownListRow($model,'subject_kepentingan', $mod_kepen_list, array('class'=>'span5 form-control','maxlength'=>7, 'empty'=>'Pilih Kepentingan')); ?>
 	<?php endif ?>
 
+	<?php if ($model->scenario == 'update'): ?>
 	<?php echo $form->textAreaRow($model,'deskripsi',array('rows'=>3, 'cols'=>50, 'class'=>'span8 form-control', 'readonly'=>'readonly')); ?>
+	<?php else: ?>
+		<?php echo $form->textAreaRow($model,'deskripsi',array('rows'=>3, 'cols'=>50, 'class'=>'span8 form-control',)); ?>
+	<?php endif ?>
 	
 	<?php $save_status = $model->status; ?>
 	<?php echo $form->dropDownListRow($model,'status', ['belum'=>'belum', 'selesai'=>'selesai'],array('class'=>'span5 form-control', 'disabled'=>'disabled')); ?>
