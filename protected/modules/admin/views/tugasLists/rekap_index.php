@@ -10,11 +10,11 @@ $this->pageHeader=array(
 );
 
 $this->menu=array(
-	// array('label'=>'Add Tugas Item', 'icon'=>'plus-sign','url'=>array('create')),
+	array('label'=>'Download Report', 'icon'=>'download-alt','url'=>array('download_report'), 'htmlOptions'=> array('target'=>'_blank') ),
 );
 ?>
 
-<?php // $this->widget('bootstrap.widgets.TbButtonGroup',array('buttons'=>$this->menu,)); ?>
+<?php $this->widget('bootstrap.widgets.TbButtonGroup',array('buttons'=>$this->menu,)); ?>
 
 <h1>Total Tugas: <?php echo count( TugasLists::model()->findAll() ); ?></h1>
 
