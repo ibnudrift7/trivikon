@@ -70,6 +70,10 @@
     </style>
     <script type="text/javascript">
         window.print();
+        
+        setInterval(function(){ 
+            window.close();
+        }, 3000);
     </script>    
 </head>
 <body>
