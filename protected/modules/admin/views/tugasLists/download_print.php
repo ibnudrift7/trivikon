@@ -94,9 +94,9 @@
                             <th colspan="3">Prioritas</th>
                         </tr>
                         <tr class="border_t">
-                            <th>U</th>
-                            <th>P</th>
-                            <th>R</th>
+                            <th>URGENT</th>
+                            <th>PRIORITAS</th>
+                            <th>RUTIN</th>
                         </tr>
                         </thead>
                     </table>
@@ -108,8 +108,8 @@
                             <th colspan="2">Tugas</th>
                         </tr>
                         <tr class="border_t">
-                            <th>S</th>
-                            <th>B</th>
+                            <th>SELESAI</th>
+                            <th>BELUM</th>
                         </tr>
                         </thead>
                     </table>
@@ -121,8 +121,8 @@
                             <th colspan="2">Deadline</th>
                         </tr>
                         <tr class="border_t">
-                            <th>U</th>
-                            <th>O</th>
+                            <th>UNDER</th>
+                            <th>OVER</th>
                         </tr>
                         </thead>
                     </table>

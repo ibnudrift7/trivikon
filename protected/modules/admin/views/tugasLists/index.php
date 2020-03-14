@@ -11,6 +11,7 @@ $this->pageHeader=array(
 
 $this->menu=array(
 	array('label'=>'Add Tugas Item', 'icon'=>'plus-sign','url'=>array('create')),
+	array('label'=>'Print Data', 'icon'=>'download-alt','url'=>array('download2', 'subject'=> $_GET['subject'])),
 );
 ?>
 

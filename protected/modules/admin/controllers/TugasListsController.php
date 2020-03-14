@@ -220,6 +220,22 @@ class TugasListsController extends ControllerAdmin
 		exit;
 	}
 
+	public function actionDownload2()
+	{
+		// Page detail
+		$criteria = new CDbCriteria;
+		$criteria->order = 't.id DESC';
+		$criteria->condition = 'subject_kepentingan = '. intval($_GET['subject']);
+		$model = TugasLists::model()->findAll($criteria);
+
+		$body_print = $this->renderPartial('download_print2',array(
+			'model'=>$model,
+		), TRUE);
+		
+		echo $body_print;
+		exit;
+	}
+
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
