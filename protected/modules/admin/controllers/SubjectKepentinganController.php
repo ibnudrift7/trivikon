@@ -121,7 +121,10 @@ class SubjectKepentinganController extends ControllerAdmin
 		// if(Yii::app()->request->isPostRequest)
 		// {
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+			$parents = $this->loadModel($id);
+			TugasLists::model()->deleteAll('t.subject_kepentingan = :subhect_id', array(':subhect_id'=>$parents->id));
+			$parents->delete();
+
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			// if(!isset($_GET['ajax']))

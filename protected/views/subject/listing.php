@@ -62,12 +62,24 @@
               <tr>
                 <td>
                   <div class="d-inline-block picture mr-2 align-top">
-                    <img src="https://placehold.it/60x60" alt="" class="img img-fluid img-rounded">
+                    <img src="https://placehold.it/50x50" alt="" class="img img-fluid img-rounded">
                   </div>
                   <div class="d-inline-block align-top">
+                    <?php 
+                    $color_prioritas = '';
+                    if ($value->prioritas == 'urgent') {
+                      $color_prioritas = 'red';
+                    }  elseif ($value->prioritas == 'penting') {
+                      $color_prioritas = 'yellow';
+                    } else {
+                      $color_prioritas = 'green';
+                    }
+                    
+                    ?>
                     <div class="d-inline-block info_r">
                       <div class="d-inline-block">
-                        <p><span class="date"><i class="fa fa-calendar"></i> <small><?php echo date("d - M - Y", strtotime($value->date_input)); ?></small></span> | <strong><?php echo strtoupper($value->prioritas) ?></strong></p>
+                        <p><span class="date"><i class="fa fa-calendar"></i> <small><?php echo date("d - M - Y", strtotime($value->date_input)); ?></small></span> | 
+                          <strong class="<?php echo $color_prioritas ?>"><?php echo strtoupper($value->prioritas) ?></strong></p>
                       </div>
                       <div class="d-inline-block px-2">|</div>
                       <div class="d-inline-block">
@@ -109,7 +121,11 @@
                     </strong>
                   </div>
                   <div class="clear clearfix"></div>
-                  <span class="status_selesai"><b>Status:</b> <?php echo $value->status_selesai ?> / <?php echo $value->status ?></span>
+                  <?php if ($value->status_selesai == 'over'): ?>
+                  <span class="status_selesai red"><b>Status:</b> <?php echo $value->status_selesai ?> / <?php echo $value->status ?></span>  
+                  <?php else: ?>
+                  <span class="status_selesai green"><b>Status:</b> <?php echo $value->status_selesai ?> / <?php echo $value->status ?></span>
+                  <?php endif ?>
                 </td>
               </tr>
               <?php endforeach; ?>

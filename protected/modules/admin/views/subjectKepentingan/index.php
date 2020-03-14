@@ -37,12 +37,22 @@ $this->menu=array(
 		array(
 			'header'=>'Nama Kepentingan',
 			'type'=>'raw',
-			'value'=>'TugasKepentingan::model()->button_subData($data->id)',
+			// 'value'=>'TugasKepentingan::model()->button_subData($data->id)',
+			'value'=>'$data->nama_kepentingan',
 		),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 			// 'template'=>'{update}',
-			'template'=>'{update} &nbsp; {delete}',
+			'template'=>'{update} &nbsp; {delete} &nbsp; {view_data}',
+			'buttons'=>array
+					    (
+					        'view_data' => array
+					        (
+					            'label'=>'<i class="fa fa-arrow-right">',
+					            'url'=>'Yii::app()->createUrl("/admin/tugasLists/index", array("subject"=>$data->id))',
+					            'options'=> array( 'title'=> 'View List Data'),
+					        ),
+					    ),
 		),
 	),
 )); ?>

@@ -70,10 +70,29 @@
 	<?php echo $form->textFieldRow($model, 'date_finish',array('class'=>'span5 datepicker2 form-control', 'readonly'=>'readonly')); ?>
 
 	<?php if ($model->scenario == 'update' && $model->lock_start == 0): ?>
-		<?php echo $form->dropDownListRow($model,'start_project', [1=>'YA', 0=>'Belum'],array('class'=>'span5 form-control', 'empty'=> 'Pilih')); ?>
+		<?php // echo $form->dropDownListRow($model,'start_project', [1=>'YA', 0=>'Belum'],array('class'=>'span5 form-control', 'empty'=> 'Pilih')); ?>
+		<div class="control-group ">
+		    <label class="control-label" for="TugasLists_start_project">Start Project</label>
+		    <div class="controls">
+		    	<button type="button" class="btn btn-success" id="trigger_btn" data-id="1">START</button>
+		        <?php echo $form->hiddenField($model,'start_project', array('class'=>'span5')); ?>
+		    </div>
+		</div>
 	<?php endif ?>
+
 	<?php if ($model->scenario == 'update' && $model->lock_start == 1): ?>
-		<?php echo $form->dropDownListRow($model,'flex_selesai_pelaksana', [1=>'YA', 0=>'Belum'],array('class'=>'span5 form-control', 'empty'=> 'Pilih')); ?>
+		<?php // echo $form->dropDownListRow($model,'flex_selesai_pelaksana', [1=>'YA', 0=>'Belum'],array('class'=>'span5 form-control', 'empty'=> 'Pilih')); ?>
+		<div class="control-group ">
+		    <label class="control-label" for="TugasLists_flex_selesai_pelaksana">Start Project</label>
+		    <div class="controls">
+		    	<?php if (intval($model->flex_selesai_pelaksana) == 1): ?>
+		    	<button type="button" class="btn btn-primary" id="trigger_btn2" data-id="1">SELESAI</button>	
+		    	<?php else: ?>
+		    	<button type="button" class="btn btn-success" id="trigger_btn2" data-id="1">SELESAI</button>
+		    	<?php endif ?>
+		        <?php echo $form->hiddenField($model,'flex_selesai_pelaksana', array('class'=>'span5')); ?>
+		    </div>
+		</div>
 	<?php endif ?>
 	
 	<?php if ($model->scenario == 'update' && $model->lock_selesai == 0): ?>
@@ -168,3 +187,34 @@
   <strong>Warning!</strong> Fields with <span class="required">*</span> are required.
 </div>
 
+<script type="text/javascript">
+	$(function(){
+		
+		$('button#trigger_btn.btn').on('click', function(){
+			if ($(this).hasClass('check')) {
+				$(this).removeClass('check')
+				$(this).removeClass('btn-primary').addClass('btn-success');
+				$('#TugasLists_flex_selesai_pemberi').val(0);
+			}else{
+				$(this).removeClass('btn-success').addClass('btn-primary');
+				$(this).addClass('check');
+				$('#TugasLists_flex_selesai_pemberi').val(1);
+			}
+			return;
+		});
+
+		$('button#trigger_btn2.btn').on('click', function(){
+			if ($(this).hasClass('check')) {
+				$(this).removeClass('check')
+				$(this).removeClass('btn-primary').addClass('btn-success');
+				$('#TugasLists_flex_flex_selesai_pelaksana').val(0);
+			}else{
+				$(this).removeClass('btn-success').addClass('btn-primary');
+				$(this).addClass('check');
+				$('#TugasLists_flex_flex_selesai_pelaksana').val(1);
+			}
+			return;
+		});
+
+	});
+</script>

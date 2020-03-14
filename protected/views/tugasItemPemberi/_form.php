@@ -62,7 +62,7 @@
 	<?php endif ?>
 	
 	<?php $save_status = $model->status; ?>
-	<?php echo $form->dropDownListRow($model,'status', ['belum'=>'belum', 'selesai'=>'selesai'],array('class'=>'span5 form-control', 'disabled'=>'disabled')); ?>
+	<?php // echo $form->dropDownListRow($model,'status', ['belum'=>'belum', 'selesai'=>'selesai'],array('class'=>'span5 form-control', 'disabled'=>'disabled')); ?>
 	<?php $model->status = $save_status; ?>
 	<?php echo $form->hiddenField($model,'status', array('class'=>'span5')); ?>
 
@@ -93,8 +93,22 @@
 		<?php echo $form->dropDownListRow($model,'flex_selesai_pelaksana', [1=>'YA', 0=>'Belum'],array('class'=>'span5 form-control', 'readonly'=> 'readonly')); ?>
 		<?php echo $form->hiddenField($model,'flex_selesai_pelaksana',array('class'=>'span5')); ?>
 
-		<?php echo $form->dropDownListRow($model,'flex_selesai_pemberi', [1=>'YA', 0=>'Belum'],array('class'=>'span5 form-control', 'empty'=> 'Pilih')); ?>
-	<?php endif ?>
+		<?php // echo $form->dropDownListRow($model,'flex_selesai_pemberi', [1=>'YA', 0=>'Belum'],array('class'=>'span5 form-control', 'empty'=> 'Pilih')); ?>
+
+		<div class="control-group ">
+		    <label class="control-label" for="TugasLists_flex_selesai_pemberi">ACC Tugas Selesai</label>
+		    <div class="controls">
+		    	<?php if ($model->scenario == 'update' && intval($model->flex_selesai_pemberi) == 1): ?>
+		    	<button type="button" class="btn btn-primary" id="trigger_btn" data-id="1">SELESAI</button>	
+		    	<?php else: ?>
+		    	<button type="button" class="btn btn-success" id="trigger_btn" data-id="1">SELESAI</button>
+		    	<?php endif ?>
+		        <?php echo $form->hiddenField($model,'flex_selesai_pemberi',array('class'=>'span5')); ?>
+		    </div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="py-2"></div>
+		<?php endif ?>
 
 	<?php if ($model->scenario == 'update' && $model->lock_selesai != 1): ?>
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
@@ -197,3 +211,23 @@
   <button type="button" class="close" data-dismiss="alert">×</button>
   <strong>Warning!</strong> Fields with <span class="required">*</span> are required.
 </div>
+
+
+<script type="text/javascript">
+	$(function(){
+		
+		$('button#trigger_btn.btn').on('click', function(){
+			if ($(this).hasClass('check')) {
+				$(this).removeClass('check')
+				$(this).removeClass('btn-primary').addClass('btn-success');
+				$('#TugasLists_flex_selesai_pemberi').val(0);
+			}else{
+				$(this).removeClass('btn-success').addClass('btn-primary');
+				$(this).addClass('check');
+				$('#TugasLists_flex_selesai_pemberi').val(1);
+			}
+			return;
+		});
+
+	});
+</script>
