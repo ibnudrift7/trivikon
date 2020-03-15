@@ -137,6 +137,8 @@
           <h5>Sorry, Data is Empty!</h5>
           <?php endif ?>
         <!-- end content -->
+        <div class="py-3"></div>
+        <a href="<?php echo CHtml::normalizeUrl(array('tugasItemPemberi/create', 'kepentingan_id'=> $_GET['kepentingan_id'])); ?>" class="btn btn-primary"><i class="fa fa-plus"></i> &nbsp;Tambah Tugas</a>
 
       </div>
     </div>
