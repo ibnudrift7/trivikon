@@ -24,6 +24,7 @@ $this->menu=array(
     )); ?>
 <?php endif; ?>
 <h1>Tugas List</h1>
+<div class="table-responsive">
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'tugas-lists-grid',
 	'dataProvider'=>$model->search2(),
@@ -72,12 +73,17 @@ $this->menu=array(
 		),
 	),
 )); ?>
-
+</div>
 
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 <script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
-	$(document).ready( function () {
-	    $('.table').DataTable();
-	} );
+	$(document).ready(function (){
+	    
+	    $('.table').DataTable({
+    		"paging": false,
+    		"responsive": true
+    	});
+
+	});
 </script>

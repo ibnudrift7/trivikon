@@ -151,9 +151,14 @@
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 <script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
-  $(document).ready( function () {
-      $('.table').DataTable();
-  } );
+  $(document).ready(function (){
+      
+      $('.table').DataTable({
+        "paging": false,
+        "responsive": true
+      });
+
+  });
 </script>
 
 
