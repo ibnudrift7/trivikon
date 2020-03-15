@@ -53,7 +53,7 @@
             <thead>
               <tr>
                 <th>TUGAS</th>
-                <th width="20%">STATUS</th>
+                <th>STATUS</th>
               </tr>
             </thead>
             <tbody>
