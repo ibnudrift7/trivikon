@@ -194,11 +194,11 @@
 			if ($(this).hasClass('check')) {
 				$(this).removeClass('check')
 				$(this).removeClass('btn-primary').addClass('btn-success');
-				$('#TugasLists_flex_selesai_pemberi').val(0);
+				$('#TugasLists_start_project').val(0);
 			}else{
 				$(this).removeClass('btn-success').addClass('btn-primary');
 				$(this).addClass('check');
-				$('#TugasLists_flex_selesai_pemberi').val(1);
+				$('#TugasLists_start_project').val(1);
 			}
 			return;
 		});
@@ -207,11 +207,11 @@
 			if ($(this).hasClass('check')) {
 				$(this).removeClass('check')
 				$(this).removeClass('btn-primary').addClass('btn-success');
-				$('#TugasLists_flex_flex_selesai_pelaksana').val(0);
+				$('#TugasLists_flex_selesai_pelaksana').val(0);
 			}else{
 				$(this).removeClass('btn-success').addClass('btn-primary');
 				$(this).addClass('check');
-				$('#TugasLists_flex_flex_selesai_pelaksana').val(1);
+				$('#TugasLists_flex_selesai_pelaksana').val(1);
 			}
 			return;
 		});
