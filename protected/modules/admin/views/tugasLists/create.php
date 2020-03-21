@@ -11,7 +11,7 @@ $this->pageHeader=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Tugas Item', 'icon'=>'th-list','url'=>array('index')),
+	array('label'=>'List Tugas Item', 'icon'=>'th-list','url'=>array('index', 'subject'=> $_GET['subject'])),
 );
 ?>
 

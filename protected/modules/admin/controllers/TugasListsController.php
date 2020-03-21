@@ -76,7 +76,7 @@ class TugasListsController extends ControllerAdmin
 					Log::createLog("TugasListsController Create $model->id");
 					Yii::app()->user->setFlash('success','Data has been inserted');
 				    $transaction->commit();
-					$this->redirect(array('index'));
+					$this->redirect(array('index', 'subject'=> $model->subject_kepentingan));
 				}
 				catch(Exception $ce)
 				{
@@ -117,7 +117,7 @@ class TugasListsController extends ControllerAdmin
 					Log::createLog("TugasListsController Update $model->id");
 					Yii::app()->user->setFlash('success','Data Edited');
 				    $transaction->commit();
-					$this->redirect(array('index'));
+					$this->redirect(array('index', 'subject'=> $model->subject_kepentingan));
 				}
 				catch(Exception $ce)
 				{
@@ -141,12 +141,14 @@ class TugasListsController extends ControllerAdmin
 		// if(Yii::app()->request->isPostRequest)
 		// {
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+			$data_par = $this->loadModel($id);
+			$nm_subject = $data_par->subject_kepentingan;
+			$data_par->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			// if(!isset($_GET['ajax']))
 				// $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
-				$this->redirect( array('index') );
+				$this->redirect( array('index', 'subject'=> $nm_subject) );
 		// }
 		// else
 			// throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');

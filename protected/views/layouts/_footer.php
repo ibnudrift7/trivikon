@@ -9,3 +9,19 @@
     <p class="copyrights">develop by shauqina partner with jaya mas.</p>
   </div>
 </footer>
+
+<script type="text/javascript">
+	$(function(){
+		
+		var letak_text = $('.dataTables_wrapper .dataTables_info');
+		var ncols = $(letak_text).text();
+		var res = ncols.split(" ");
+		var lengths_arr = parseInt(res.length) - 2;
+
+		console.log(res[lengths_arr]);
+		
+		$(letak_text).html('Total: '+ res[lengths_arr] + ' Data');
+
+		return false;
+	});
+</script>

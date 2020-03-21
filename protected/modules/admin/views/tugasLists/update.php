@@ -12,8 +12,8 @@ $this->pageHeader=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Tugas Item', 'icon'=>'th-list','url'=>array('index')),
-	array('label'=>'Add Tugas Item', 'icon'=>'plus-sign','url'=>array('create')),
+	array('label'=>'List Tugas Item', 'icon'=>'th-list','url'=>array('index', 'subject'=> $model->subject_kepentingan)),
+	array('label'=>'Add Tugas Item', 'icon'=>'plus-sign','url'=>array('create', 'subject'=> $model->subject_kepentingan)),
 	// array('label'=>'View Tugas Item', 'icon'=>'pencil','url'=>array('view','id'=>$model->id)),
 );
 ?>
