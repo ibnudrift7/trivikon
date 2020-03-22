@@ -35,7 +35,7 @@
       <div class="inside">
         
         <div class="row">
-          <div class="col-9">
+          <div class="col-7">
             <?php if (is_array($mod_listdata) && count($mod_listdata) > 0): ?>
             <?php /*<a href="<?php echo CHtml::normalizeUrl(array('/tugasItem/index', 'kepentingan_id'=> $_GET['kepentingan_id'] )); ?>" class="btn btn-primary"><i class="fa fa-minus"></i> List Tugas Anda</a>
             &nbsp;&nbsp;&nbsp;
@@ -44,9 +44,12 @@
             <a href="<?php echo CHtml::normalizeUrl(array('tugasItemPemberi/create', 'kepentingan_id'=> $_GET['kepentingan_id'])); ?>" class="btn btn-primary"><i class="fa fa-plus"></i> &nbsp;Tambah Tugas</a>
             <?php endif; ?>
           </div>
-          <div class="col-3">
+          <div class="col-5">
             <div class="text-right">
-              <small><a href="#" onclick="window.history.back();" class="btn btn-link btns_back"><i class="fa fa-chevron-left"></i> BACK</a></small>
+               <small>
+                <a href="#" onclick="window.history.back();" class="btn btn-link btns_back"><i class="fa fa-chevron-left"></i> BACK</a>
+                <a href="<?php echo CHtml::normalizeUrl(array('/')); ?>" class="btn btn-link btns_back"><i class="fa fa-home"></i></a>
+              </small>
             </div>
           </div>
         </div>
