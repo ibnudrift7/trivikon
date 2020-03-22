@@ -201,6 +201,8 @@ class HomeController extends Controller
 		->order(array('t.date_input desc'))
 	    ->queryAll();
 
+	    // echo "<pre>"; print_r($data_model); exit;
+
 		$this->render('//subject/listing', array(	
 			'mod_listdata' => $data_model,
 		));	

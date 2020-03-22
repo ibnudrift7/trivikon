@@ -92,7 +92,7 @@
                         <?php endif ?>
 
                         <?php if (intval($value['lock_selesai']) == 1): ?>
-                        <div class="alert alert-success"><small>TUGAS DONE</small></div>
+                        <div class="fold_info"><small>TUGAS DONE</small></div>
                         <?php endif ?>
                       </div>
 
@@ -196,7 +196,8 @@
       
       $('.table').DataTable({
         "paging": false,
-        "responsive": true
+        "responsive": true,
+        "ordering": false
       });
 
   });
