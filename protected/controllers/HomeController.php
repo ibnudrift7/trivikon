@@ -180,14 +180,79 @@ class HomeController extends Controller
 	{
 		$this->layout='//layouts/column2';
 		$this->pageTitle = Yii::app()->name.' - '.$this->pageTitle;
-
-		// report kepentingan tugas
+		
 		$kep_id = intval($_GET['kepentingan_id']);
-		$mod_listdata = TugasLists::model()->findAll('t.subject_kepentingan = :kept_id ORDER BY t.id DESC', array(':kept_id' => $kep_id));
+
+		$session = new CHttpSession;
+		$session->open();
+		$model_user = MeMember::model()->findByPk($session['login_member']['id']);
+
+
+		$data_model = Yii::app()->db->createCommand()
+	    ->select('t.*')
+	    ->from('tb_tugas_lists t')
+	    ->where('(t.subject_kepentingan=:subj) and (t.member_id=:member_id or t.admin_id=:admin_id)', 
+		    		array( 
+		    			':subj' => $kep_id,
+		    			':member_id' => $model_user->id,
+		    			':admin_id' => $model_user->id,
+		    			 )
+		    		)
+		->order(array('t.date_input desc'))
+	    ->queryAll();
 
 		$this->render('//subject/listing', array(	
-			'mod_listdata' => $mod_listdata,
+			'mod_listdata' => $data_model,
 		));	
+	}
+
+	public function actionSubject_update()
+	{
+		if (isset($_GET['data_id']) && $_GET['data_id'] != '') {
+			$id_data = intval($_GET['data_id']);
+			$model = TugasLists::model()->findByPk($id_data);
+
+			// selesai pemberi
+			if (isset($_GET['flex_selesai_pemberi']) && $_GET['flex_selesai_pemberi'] == 1) {
+				$model->flex_selesai_pemberi = 1;
+				$model->date_selesai_pemberi = date("Y-m-d H:i:s");
+
+				$model->status = 'selesai';
+				$model->lock_selesai = 1;
+
+				$date1 = date("Y-m-d", strtotime($model->date_finish));
+				$date2 = date("Y-m-d", strtotime($model->date_selesai_user));
+
+				$now_finish = strtotime($date1);
+				$your_date = strtotime($date2);
+				$datediff = $now_finish - $your_date;
+
+				$results_time = round($datediff / (60 * 60 * 24));
+
+				if ($results_time >= 0) {
+					$model->status_selesai = 'under';
+				}else{
+					$model->status_selesai = 'over';
+				}
+				$model->save(false);	
+			}
+
+			if (isset($_GET['lock_start']) && $_GET['lock_start'] == 1) {
+				$model->lock_start = 1;
+				$model->date_start_user = date("Y-m-d H:i:s");
+				$model->save(false);	
+			}
+
+			if (isset($_GET['flex_selesai_pelaksana']) && $_GET['flex_selesai_pelaksana'] == 1) {
+				$model->flex_selesai_pelaksana = 1;
+				$model->date_selesai_user = date("Y-m-d H:i:s");
+				$model->save(false);
+			}
+
+			Yii::app()->user->setFlash('success','Data Edited');
+
+			$this->redirect(array('subject_list', 'kepentingan_id'=> $model->subject_kepentingan));
+		}
 	}
 
 	public function actionSubject_addtugas()

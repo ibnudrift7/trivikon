@@ -75,7 +75,7 @@ class TugasItemPemberiController extends Controller
 					Log::createLog("TugasItemController Create $model->id");
 					Yii::app()->user->setFlash('success','Data has been inserted');
 				    $transaction->commit();
-					$this->redirect(array('index'));
+					$this->redirect(array('//home/subject_list', 'kepentingan_id'=> $model->subject_kepentingan));
 				}
 				catch(Exception $ce)
 				{
@@ -135,7 +135,7 @@ class TugasItemPemberiController extends Controller
 					Log::createLog("TugasItemController Update $model->id");
 					Yii::app()->user->setFlash('success','Data Edited');
 				    $transaction->commit();
-					$this->redirect(array('index', 'kepentingan_id'=> $model->subject_kepentingan));
+					$this->redirect(array('//home/subject_list', 'kepentingan_id'=> $model->subject_kepentingan));
 				}
 				catch(Exception $ce)
 				{
