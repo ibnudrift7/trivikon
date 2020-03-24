@@ -18,13 +18,16 @@
 	<?php echo $form->textFieldRow($model,'nama',array('class'=>'span5','maxlength'=>100)); ?>
 	
 	<?php if ($model->scenario != 'update'): ?>
-	<?php echo $form->passwordFieldRow($model,'pass',array('class'=>'span5','maxlength'=>100)); ?>
+		<?php echo $form->passwordFieldRow($model,'pass',array('class'=>'span5','maxlength'=>100)); ?>
+	<?php else: ?>
+		<?php echo $form->passwordFieldRow($model,'pass',array('class'=>'span5','maxlength'=>100, 'hint'=>'*) Isikan kolom password bila ingin mengupdate')); ?>
 	<?php endif ?>
-
-	<?php echo $form->dropDownListRow($model, 'type', array(
-		'root'=>'Root',
-		'blogger'=>'Blogger',
-	)); ?>
+	
+	<?php if ($model->scenario != 'update'): ?>
+		<?php echo $form->dropDownListRow($model, 'type', array(
+			'root'=>'Root',
+		)); ?>
+	<?php endif ?>
 
 	<?php echo $form->dropDownListRow($model, 'aktif', array(
 		'1'=>'Active',

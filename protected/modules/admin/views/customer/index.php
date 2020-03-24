@@ -29,16 +29,10 @@ $this->menu=array(
 )); ?>
 	<div class="row-fluid">
 		<div class="span3">
-			<?php echo $form->textFieldRow($model,'nama_perusahaan',array('class'=>'span12','maxlength'=>200, 'placeholder'=>'Search by Perusahaan')); ?>
-		</div>
-		<div class="span3">
 			<?php echo $form->textFieldRow($model,'email',array('class'=>'span12','maxlength'=>200, 'placeholder'=>'Search by email')); ?>
 		</div>
 		<div class="span3">
 			<?php echo $form->textFieldRow($model,'first_name',array('class'=>'span12','maxlength'=>200, 'placeholder'=>'Search by first name')); ?>
-		</div>
-		<div class="span3">
-			<?php echo $form->textFieldRow($model,'last_name',array('class'=>'span12','maxlength'=>200, 'placeholder'=>'Search by last name')); ?>
 		</div>
 	</div>
 

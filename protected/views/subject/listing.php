@@ -36,13 +36,13 @@
         
         <div class="row">
           <div class="col-7">
-            <?php if (is_array($mod_listdata) && count($mod_listdata) > 0): ?>
+            <?php // if (is_array($mod_listdata) && count($mod_listdata) > 0): ?>
             <?php /*<a href="<?php echo CHtml::normalizeUrl(array('/tugasItem/index', 'kepentingan_id'=> $_GET['kepentingan_id'] )); ?>" class="btn btn-primary"><i class="fa fa-minus"></i> List Tugas Anda</a>
             &nbsp;&nbsp;&nbsp;
             <a href="<?php echo CHtml::normalizeUrl(array('/tugasItemPemberi/index', 'kepentingan_id'=> $_GET['kepentingan_id'])); ?>" class="btn btn-primary"><i class="fa fa-minus"></i> List Tugas Pemberi</a>
             */ ?>
             <a href="<?php echo CHtml::normalizeUrl(array('tugasItemPemberi/create', 'kepentingan_id'=> $_GET['kepentingan_id'])); ?>" class="btn btn-primary"><i class="fa fa-plus"></i> &nbsp;Tambah Tugas</a>
-            <?php endif; ?>
+            <?php // endif; ?>
           </div>
           <div class="col-5">
             <div class="text-right">
@@ -81,7 +81,7 @@
                     <img src="https://placehold.it/50x50" alt="" class="img img-fluid img-rounded">
 
                       <div class="d-inline-block ncheck_tombol" data-str="check_tombol" data-id="<?php echo $value['id'] ?>">
-                        <?php if ($model_user->id == $value['admin_id'] && intval($value['lock_selesai']) == 0): ?>
+                        <?php if ($model_user->id == $value['admin_id'] && intval($value['lock_selesai']) == 0 && intval($value['lock_start']) == 1): ?>
                           <a href="<?php echo CHtml::normalizeUrl(array('/home/subject_update', 'data_id'=> $value['id'], 'flex_selesai_pemberi'=> 1)); ?>" class="btn btn-small btn-default">SELESAI ACC</a>
                         <?php endif ?>
 

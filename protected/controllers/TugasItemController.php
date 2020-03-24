@@ -148,8 +148,8 @@ class TugasItemController extends Controller
 
 					$mod_komen->save();
 
-					Log::createLog("Komentar Add Update $model->id");
-					Yii::app()->user->setFlash('success_komen','Comment has been added.');
+					Log::createLog("Komentar Add Update $model->id"); 
+					Yii::app()->user->setFlash('success','Comment has been added.');
 				    $transaction->commit();
 
 					// $this->redirect(array('update', 'id'=> $model->id));

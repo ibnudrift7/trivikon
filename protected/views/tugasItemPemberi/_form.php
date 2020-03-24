@@ -1,4 +1,9 @@
-<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+<?php 
+// $session = new CHttpSession;
+// $session->open();
+// $model_user = MeMember::model()->findByPk($session['login_member']['id']);
+
+$form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'tugas-lists-form',
     'type'=>'horizontal',
 	'enableAjaxValidation'=>false,

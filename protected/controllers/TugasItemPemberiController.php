@@ -58,6 +58,10 @@ class TugasItemPemberiController extends Controller
 				{
 					$model->date_input = date("Y-m-d H:i:s");
 					
+					// $session = new CHttpSession;
+					// $session->open();
+					// $model->dari = MeMember::model()->findByPk($session['login_member']['id'])->id;
+
 					// dari
 					$id_from_member = $model->dari;
 					$users_dari = MeMember::model()->findByPk($model->dari);
@@ -70,6 +74,8 @@ class TugasItemPemberiController extends Controller
 					$model->kepada = $users_member->nick_name;
 					$model->member_id = $id_members;
 
+					// echo "<pre>"; print_r($model->attributes); exit;
+					
 					$model->save(false);
 					
 					Log::createLog("TugasItemController Create $model->id");
