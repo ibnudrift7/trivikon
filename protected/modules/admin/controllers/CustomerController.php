@@ -58,9 +58,9 @@ class CustomerController extends ControllerAdmin
 				$model->foto_diri = substr(md5(time()),0,5).'-'.$foto_diri->name;
 			}
 
-			$foto_diri = CUploadedFile::getInstance($model,'foto_diri');
-			if ($foto_diri->name != '') {
-				$model->foto_diri = substr(md5(time()),0,5).'-'.$foto_diri->name;
+			$foto_ktp = CUploadedFile::getInstance($model,'foto_ktp');
+			if ($foto_ktp->name != '') {
+				$model->foto_ktp = substr(md5(time()),0,5).'-'.$foto_ktp->name;
 			}
 
 			if($model->validate()){
@@ -78,15 +78,15 @@ class CustomerController extends ControllerAdmin
 						$model->foto_diri = 'thumb_'.$model->foto_diri;
 					}
 
-					if ($foto_diri->name != '') {
+					if ($foto_ktp->name != '') {
 						// process foto diri
-						$orig_filen2 = Yii::getPathOfAlias('webroot').'/images/customer/original/'.$model->foto_diri;
-						$foto_diri->saveAs($orig_filen2);
+						$orig_filen2 = Yii::getPathOfAlias('webroot').'/images/customer/original/'.$model->foto_ktp;
+						$foto_ktp->saveAs($orig_filen2);
 						
 						$full_file2 = $orig_filen2;
-						$full_thumb2 = Yii::getPathOfAlias('webroot').'/images/customer/'. 'thumb_'.$model->foto_diri;
+						$full_thumb2 = Yii::getPathOfAlias('webroot').'/images/customer/'. 'thumb_'.$model->foto_ktp;
 						$this->Thumbnail($full_file2, $full_thumb2, 256);
-						$model->foto_diri = 'thumb_'.$model->foto_diri;
+						$model->foto_ktp = 'thumb_'.$model->foto_ktp;
 					}
 
 					$model->pass2 = sha1($model->pass);

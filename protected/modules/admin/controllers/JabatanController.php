@@ -56,6 +56,12 @@ class JabatanController extends ControllerAdmin
 				$transaction=$model->dbConnection->beginTransaction();
 				try
 				{
+					
+					$find_nama = Jabatan::model()->find('t.nama = :nama', array(':nama'=>$model->nama));
+					if (count($find_nama) > 0) {
+						$model->addError('nama', 'Nama harus unique, tidak boleh sama!');
+					}
+
 					$model->save();
 					Log::createLog("JabatanController Create $model->id");
 					Yii::app()->user->setFlash('success','Data has been inserted');

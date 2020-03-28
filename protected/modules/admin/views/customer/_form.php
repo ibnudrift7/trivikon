@@ -22,7 +22,18 @@
 				</div>
 				<div class="span4">
 					<?php echo $form->textFieldRow($model,'address',array('class'=>'span12')); ?>
+										<?php 
+					$provinsi = TbProvinsi::model()->findAll();
+					foreach ($provinsi as $key => $value) {
+						$nods_provinc[$value->provinsi] = $value->provinsi;
+					}
+					?>
+					<?php echo $form->dropDownListRow($model,'province', $nods_provinc, array('class'=>'span12 pilih_provinsi', 'empty'=> '-- Pilih --')); ?>
 					
+
+					<?php echo $form->textFieldRow($model,'telp_saudara',array('class'=>'span12')); ?>
+				</div>
+				<div class="span4">
 					<?php if ($model->scenario == 'update'): ?>
 						<?php 
 						$data_prov = TbProvinsi::model()->find('provinsi = :provs', array(':provs'=> $model->province));
@@ -37,18 +48,6 @@
 					<?php echo $form->dropDownListRow($model,'city', array(), array('class'=>'span12 pilih_kota', 'empty'=> '-- Pilih --')); ?>	
 					<?php endif ?>
 					
-
-					<?php echo $form->textFieldRow($model,'telp_saudara',array('class'=>'span12')); ?>
-				</div>
-				<div class="span4">
-					<?php 
-					$provinsi = TbProvinsi::model()->findAll();
-					foreach ($provinsi as $key => $value) {
-						$nods_provinc[$value->provinsi] = $value->provinsi;
-					}
-					?>
-					<?php echo $form->dropDownListRow($model,'province', $nods_provinc, array('class'=>'span12 pilih_provinsi', 'empty'=> '-- Pilih --')); ?>
-
 					<?php echo $form->textFieldRow($model,'postcode', array('class'=>'span12')); ?>
 					<?php 
 					// $datan_jabatan = [
