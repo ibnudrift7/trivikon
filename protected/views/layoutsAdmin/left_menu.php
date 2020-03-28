@@ -32,6 +32,8 @@ $login_admin = $session['login'];
                 <li><a href="<?php echo CHtml::normalizeUrl(array('/admin/customer/index')); ?>">Member List Overview</a></li>
             </ul>
         </li> 
+
+        <li><a href="<?php echo CHtml::normalizeUrl(array('/admin/jabatan/index')); ?>"><span class="fa fa-folder"></span> <?php echo Tt::t('admin', 'Jabatan Overview') ?></a></li> 
         
 
         <?php /*

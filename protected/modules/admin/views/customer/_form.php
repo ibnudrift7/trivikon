@@ -51,11 +51,14 @@
 
 					<?php echo $form->textFieldRow($model,'postcode', array('class'=>'span12')); ?>
 					<?php 
-					$datan_jabatan = [
-										'pengawas'=>'Pengawas',
-										'direktur'=>'Direktur',
-										'pelaksana'=>'Pelaksana',
-									 ];
+					// $datan_jabatan = [
+					// 					'pengawas'=>'Pengawas',
+					// 					'direktur'=>'Direktur',
+					// 					'pelaksana'=>'Pelaksana',
+					// 				 ];
+
+					$model_jabatan = Jabatan::model()->findAll(); 
+					$datan_jabatan = CHtml::listData($model_jabatan, 'id', 'nama');    
 					?>
 					<?php echo $form->dropDownListRow($model,'jabatan', $datan_jabatan,array('class'=>'span12', 'empty'=>'Pilih jabatan')); ?>
 				</div>
