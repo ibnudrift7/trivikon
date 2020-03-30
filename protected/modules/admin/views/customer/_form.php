@@ -57,7 +57,7 @@
 					// 				 ];
 
 					$model_jabatan = Jabatan::model()->findAll(); 
-					$datan_jabatan = CHtml::listData($model_jabatan, 'id', 'nama');    
+					$datan_jabatan = CHtml::listData($model_jabatan, 'nama', 'nama');    
 					?>
 					<?php echo $form->dropDownListRow($model,'jabatan', $datan_jabatan,array('class'=>'span12', 'empty'=>'Pilih jabatan')); ?>
 				</div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 28 Mar 2020 pada 17.11
+-- Waktu pembuatan: 30 Mar 2020 pada 10.36
 -- Versi server: 5.7.26-log
 -- Versi PHP: 7.3.6
 
@@ -666,7 +666,127 @@ INSERT INTO `log` (`id`, `username`, `activity`, `time`) VALUES
 (29, 'ibnudrift@gmail.com', 'Login: ibnudrift@gmail.com', '2020-03-28 07:27:28'),
 (30, 'ibnudrift@gmail.com', 'CustomerController Update 2', '2020-03-28 07:28:18'),
 (31, 'ibnudrift@gmail.com', 'CustomerController Update 2', '2020-03-28 07:32:12'),
-(32, 'ibnudrift@gmail.com', 'CustomerController Update 2', '2020-03-28 07:32:59');
+(32, 'ibnudrift@gmail.com', 'CustomerController Update 2', '2020-03-28 07:32:59'),
+(33, 'ibnudrift@gmail.com', 'Login: ibnudrift@gmail.com', '2020-03-28 10:34:15'),
+(34, 'ibnudrift@gmail.com', 'JabatanController Create 4', '2020-03-28 10:35:39'),
+(35, 'Ibnudrift@gmail.com', 'Login: Ibnudrift@gmail.com', '2020-03-28 11:04:44'),
+(36, 'Ibnudrift@gmail.com', 'JabatanController Create 5', '2020-03-28 11:06:43'),
+(37, 'Ibnudrift@gmail.com', 'JabatanController Create 6', '2020-03-28 11:06:52'),
+(38, 'Ibnudrift@gmail.com', 'CustomerController Create 4', '2020-03-28 11:11:41'),
+(39, 'Ibnudrift@gmail.com', 'CustomerController Update 4', '2020-03-28 11:14:01'),
+(40, 'ibnudrift@gmail.com', 'Login: ibnudrift@gmail.com', '2020-03-28 11:14:07'),
+(41, 'ibnudrift@gmail.com', 'CustomerController Update 2', '2020-03-28 11:15:47'),
+(42, 'Ibnudrift@gmail.com', 'CustomerController Update 1', '2020-03-28 11:16:09'),
+(43, 'Ibnudrift@gmail.com', 'CustomerController Create 5', '2020-03-28 11:19:26'),
+(44, 'Ibnudrift@gmail.com', 'CustomerController Create 6', '2020-03-28 11:24:11'),
+(45, 'Ibnudrift@gmail.com', 'Login: Ibnudrift@gmail.com', '2020-03-28 11:33:49'),
+(46, 'Ibnudrift@gmail.com', 'JabatanController Create 7', '2020-03-28 11:38:47'),
+(47, 'Ibnudrift@gmail.com', 'SubjectKepentinganController Create 2', '2020-03-28 11:41:53'),
+(48, 'Ibnudrift@gmail.com', 'TugasListsController Create 3', '2020-03-28 11:43:42'),
+(49, 'Ibnudrift@gmail.com', 'TugasListsController Create 4', '2020-03-28 11:44:32'),
+(50, 'Ibnudrift@gmail.com', 'GroupController Create 43', '2020-03-28 11:49:40'),
+(51, 'ibnudrift@gmail.com', 'Login: ibnudrift@gmail.com', '2020-03-28 11:53:45'),
+(52, 'Ibnudrift@gmail.com', 'TugasItemController Create 5', '2020-03-28 12:06:37'),
+(53, 'adityas87@yahoo.com', 'Login: adityas87@yahoo.com', '2020-03-29 06:26:36'),
+(54, 'adityas87@yahoo.com', 'CustomerController Update 3', '2020-03-29 06:28:22'),
+(55, 'Guest', 'TugasItemController Create 6', '2020-03-29 06:29:53'),
+(56, 'Guest', 'TugasItemController Create 7', '2020-03-29 06:30:06'),
+(57, 'Guest', 'TugasItemController Create 8', '2020-03-29 06:30:43'),
+(58, 'Guest', 'TugasItemController Create 9', '2020-03-29 06:35:07'),
+(59, 'adityas87@yahoo.com', 'CustomerController Update 3', '2020-03-29 06:37:23'),
+(60, 'adityas87@yahoo.com', 'CustomerController Update 3', '2020-03-29 06:38:20'),
+(61, 'adityas87@yahoo.com', 'CustomerController Update 3', '2020-03-29 06:38:36'),
+(62, 'adityas87@yahoo.com', 'JabatanController Create 10', '2020-03-29 06:39:21'),
+(63, 'adityas87@yahoo.com', 'CustomerController Update 3', '2020-03-29 06:40:04'),
+(64, 'adityas87@yahoo.com', 'SubjectKepentinganController Create 3', '2020-03-29 06:42:31'),
+(65, 'Guest', 'TugasItemController Create 10', '2020-03-29 06:43:28'),
+(66, 'ibnudrift@gmail.com', 'Login: ibnudrift@gmail.com', '2020-03-29 06:50:36'),
+(67, 'Guest', 'TugasItemController Create 11', '2020-03-29 06:51:25'),
+(68, 'Ibnudrift@gmail.com', 'Login: Ibnudrift@gmail.com', '2020-03-29 06:52:11'),
+(69, 'adityas87@yahoo.com', 'CustomerController Create 7', '2020-03-29 06:54:29'),
+(70, 'Ibnudrift@gmail.com', 'Login: Ibnudrift@gmail.com', '2020-03-29 06:55:07'),
+(71, 'adityas87@yahoo.com', 'CustomerController Update 7', '2020-03-29 06:57:20'),
+(72, 'adityas87@yahoo.com', 'CustomerController Update 7', '2020-03-29 07:02:51'),
+(73, 'adityas87@yahoo.com', 'JabatanController Create 11', '2020-03-29 07:04:05'),
+(74, 'adityas87@yahoo.com', 'JabatanController Create 12', '2020-03-29 07:04:25'),
+(75, 'adityas87@yahoo.com', 'CustomerController Update 7', '2020-03-29 07:04:45'),
+(76, 'ibnudrift@gmail.com', 'Login: ibnudrift@gmail.com', '2020-03-29 07:05:02'),
+(77, 'Ibnudrift@gmail.com', 'CustomerController Update 4', '2020-03-29 07:05:12'),
+(78, 'Ibnudrift@gmail.com', 'CustomerController Update 6', '2020-03-29 07:05:29'),
+(79, 'adityas87@yahoo.com', 'SubjectKepentinganController Update 3', '2020-03-29 07:06:45'),
+(80, 'ibnudrift@gmail.com', 'Login: ibnudrift@gmail.com', '2020-03-29 07:07:01'),
+(81, 'Ibnudrift@gmail.com', 'CustomerController Update 5', '2020-03-29 07:07:07'),
+(82, 'ibnudrift@gmail.com', 'Login: ibnudrift@gmail.com', '2020-03-29 07:07:15'),
+(83, 'adityas87@yahoo.com', 'CustomerController Update 3', '2020-03-29 07:07:42'),
+(84, 'ibnudrift@gmail.com', 'CustomerController Update 3', '2020-03-29 07:08:09'),
+(85, 'adityas87@yahoo.com', 'CustomerController Update 7', '2020-03-29 07:08:41'),
+(86, 'adityas87@yahoo.com', 'CustomerController Create 8', '2020-03-29 07:14:41'),
+(87, 'adityas87@yahoo.com', 'CustomerController Update 7', '2020-03-29 07:15:10'),
+(88, 'adityas87@yahoo.com', 'CustomerController Update 7', '2020-03-29 07:15:29'),
+(89, 'adityas87@yahoo.com', 'CustomerController Update 8', '2020-03-29 07:15:57'),
+(90, 'adityas87@yahoo.com', 'CustomerController Update 8', '2020-03-29 07:17:09'),
+(91, 'Guest', 'TugasItemController Update 10', '2020-03-29 07:18:46'),
+(92, 'Guest', 'TugasItemController Update 10', '2020-03-29 07:22:37'),
+(93, 'Guest', 'TugasItemController Update 10', '2020-03-29 07:25:13'),
+(94, 'Guest', 'TugasItemController Update 4', '2020-03-29 07:27:29'),
+(95, 'Guest', 'TugasItemController Create 12', '2020-03-29 07:27:43'),
+(96, 'adityas87@yahoo.com', 'CustomerController Update 3', '2020-03-29 07:37:10'),
+(97, 'ibnudrift@gmail.com', 'Login: ibnudrift@gmail.com', '2020-03-29 07:39:51'),
+(98, 'ibnudrift@gmail.com', 'CustomerController Update 1', '2020-03-29 07:40:19'),
+(99, 'ibnudrift@gmail.com', 'CustomerController Update 2', '2020-03-29 07:40:22'),
+(100, 'Guest', 'TugasItemController Update 11', '2020-03-29 07:41:02'),
+(101, 'Guest', 'Komentar Add Update 3', '2020-03-29 07:44:15'),
+(102, 'ibnudrift@gmail.com', 'Login: ibnudrift@gmail.com', '2020-03-29 07:50:16'),
+(103, 'Guest', 'TugasItemController Create 13', '2020-03-29 07:53:29'),
+(104, 'adityas87@yahoo.com', 'CustomerController Create 9', '2020-03-29 07:58:05'),
+(105, 'adityas87@yahoo.com', 'CustomerController Update 9', '2020-03-29 08:01:30'),
+(106, 'Guest', 'TugasItemController Create 14', '2020-03-29 08:02:32'),
+(107, 'ibnudrift@gmail.com', 'Login: ibnudrift@gmail.com', '2020-03-29 08:03:18'),
+(108, 'Guest', 'TugasItemController Create 15', '2020-03-29 08:03:39'),
+(109, 'Guest', 'TugasItemController Create 16', '2020-03-29 08:04:07'),
+(110, 'ibnudrift@gmail.com', 'CustomerController Update 2', '2020-03-29 08:04:31'),
+(111, 'adityas87@yahoo.com', 'CustomerController Update 9', '2020-03-29 08:05:02'),
+(112, 'adityas87@yahoo.com', 'CustomerController Update 9', '2020-03-29 08:05:37'),
+(113, 'Ibnudrift@gmail.com', 'Login: Ibnudrift@gmail.com', '2020-03-29 08:07:44'),
+(114, 'Ibnudrift@gmail.com', 'CustomerController Update 9', '2020-03-29 08:08:41'),
+(115, 'Ibnudrift@gmail.com', 'TugasItemController Create 17', '2020-03-29 08:09:59'),
+(116, 'Guest', 'TugasItemController Create 18', '2020-03-29 08:18:15'),
+(117, 'Ibnudrift@gmail.com', 'Login: Ibnudrift@gmail.com', '2020-03-29 08:18:32'),
+(118, 'Guest', 'TugasItemController Create 19', '2020-03-29 08:23:37'),
+(119, 'Guest', 'TugasItemController Create 20', '2020-03-29 09:02:29'),
+(120, 'Guest', 'TugasItemController Create 21', '2020-03-29 09:07:13'),
+(121, 'Guest', 'TugasItemController Create 22', '2020-03-29 09:07:45'),
+(122, 'Guest', 'TugasItemController Create 23', '2020-03-29 09:08:52'),
+(123, 'Guest', 'TugasItemController Create 24', '2020-03-29 09:11:54'),
+(124, 'Guest', 'TugasItemController Update 24', '2020-03-29 09:12:15'),
+(125, 'Guest', 'TugasItemController Create 25', '2020-03-29 09:13:12'),
+(126, 'Guest', 'TugasItemController Create 26', '2020-03-29 09:13:28'),
+(127, 'Guest', 'TugasItemController Create 27', '2020-03-29 09:21:51'),
+(128, 'Guest', 'TugasItemController Create 28', '2020-03-29 09:24:20'),
+(129, 'Guest', 'TugasItemController Create 29', '2020-03-29 09:28:51'),
+(130, 'Guest', 'TugasItemController Create 30', '2020-03-29 09:37:51'),
+(131, 'Guest', 'TugasItemController Create 31', '2020-03-29 09:39:44'),
+(132, 'Guest', 'TugasItemController Create 32', '2020-03-29 09:46:59'),
+(133, 'Guest', 'TugasItemController Create 33', '2020-03-29 09:54:47'),
+(134, 'Guest', 'TugasItemController Create 34', '2020-03-29 09:54:56'),
+(135, 'Guest', 'TugasItemController Create 35', '2020-03-29 09:59:15'),
+(136, 'Guest', 'TugasItemController Create 36', '2020-03-29 10:10:50'),
+(137, 'adityas87@yahoo.com', 'Login: adityas87@yahoo.com', '2020-03-29 11:33:51'),
+(138, 'adityas87@yahoo.com', 'CustomerController Update 3', '2020-03-29 11:42:44'),
+(139, 'ibnudrift@gmail.com', 'Login: ibnudrift@gmail.com', '2020-03-29 11:44:56'),
+(140, 'adityas87@yahoo.com', 'SubjectKepentinganController Create 4', '2020-03-29 11:50:36'),
+(141, 'adityas87@yahoo.com', 'SubjectKepentinganController Update 3', '2020-03-29 11:50:51'),
+(142, 'adityas87@yahoo.com', 'SubjectKepentinganController Create 5', '2020-03-29 11:52:43'),
+(143, 'Guest', 'TugasItemController Create 37', '2020-03-29 11:56:42'),
+(144, 'Guest', 'TugasItemController Create 38', '2020-03-29 11:57:56'),
+(145, 'adityas87@yahoo.com', 'SubjectKepentinganController Create 6', '2020-03-29 12:04:52'),
+(146, 'adityas87@yahoo.com', 'CustomerController Create 10', '2020-03-29 12:42:30'),
+(147, 'Guest', 'TugasItemController Create 39', '2020-03-29 12:43:34'),
+(148, 'adityas87@yahoo.com', 'CustomerController Update 10', '2020-03-29 12:46:55'),
+(149, 'Guest', 'TugasItemController Create 40', '2020-03-29 13:53:35'),
+(150, 'Guest', 'TugasItemController Create 41', '2020-03-29 23:26:52'),
+(151, 'Guest', 'TugasItemController Create 42', '2020-03-29 23:28:15'),
+(152, 'Guest', 'TugasItemController Create 43', '2020-03-30 01:58:40');
 
 -- --------------------------------------------------------
 
@@ -709,9 +829,13 @@ CREATE TABLE `me_member` (
 --
 
 INSERT INTO `me_member` (`id`, `email`, `first_name`, `last_name`, `username`, `pass`, `session_token`, `login_terakhir`, `aktivasi`, `aktif`, `image`, `hp`, `address`, `city`, `province`, `postcode`, `jenis_kelamin`, `tanggal_lahir`, `no_ktp`, `nama_perusahaan`, `alamat_perusahaan`, `jabatan`, `telp_saudara`, `tgl_masuk`, `foto_diri`, `foto_ktp`, `nick_name`) VALUES
-(1, 'fotocopysurabaya12@gmail.com', 'mukhlis', 'sin', 'mlsn', '7c4a8d09ca3762af61e59520943dc26494f8941b', '75650ad86a16249e49e5911be5e6a2f231be8d57', '2020-03-24 11:53:10', 0, 1, '', '081458465768', 'jl. perum gca rm', 'Surabaya', 'Jawa Timur', '60218', '1', '1978-12-22', 2147483647, 'na', 'asdfasdfdsfadf', 'direktur', '6235634634', '2020-03-24', '', '', 'mlsn'),
-(2, 'ibnudrift@gmail.com', 'Ibnu', 'Fajar', 'ibnudrift', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'f62030e618d8105cf067cb2b85438a6dc660cfdd', '2020-03-24 11:53:54', 0, 1, '', '083854560095', 'jl. sawo 1a / 2 kel. bringin, kec. sambikerep, 60218', 'Surabaya', 'Jawa Timur', '60218', '1', '1978-12-12', 2147483647, 'na', 'asdfasdfsdf', 'pelaksana', '6235634634', '2020-03-24', 'thumb_9dc3f-150x150.png', '', 'ibnudrift'),
-(3, '', 'Aditya Surya', '', 'Aditya Surya', 'ee081cc416b2b5ef822044bdfb8406233bd19872', '25dafbf8d4a7597c4509b1f0ff11030f67eed4d6', '2020-03-28 06:56:31', 0, 1, '', '', '', '', '', '', '1', '0000-00-00', NULL, '', '', '', '', '2020-03-28', 'thumb_thumb_1e760-Aditya.jpg', '', '');
+(1, 'fotocopysurabaya12@gmail.com', 'mukhlis', 'sin', 'mlsn', '7c4a8d09ca3762af61e59520943dc26494f8941b', '75650ad86a16249e49e5911be5e6a2f231be8d57', '2020-03-24 11:53:10', 0, 1, '', '081458465768', 'jl. perum gca rm', 'Surabaya', 'Jawa Timur', '60218', '1', '1978-12-22', 2147483647, 'na', 'asdfasdfdsfadf', 'FINANCE', '6235634634', '2020-03-24', 'thumb_4b128-IMG_20200325_180008.jpg', '', 'mlsn'),
+(2, 'ibnudrift@gmail.com', 'Ibnu', 'Fajar', 'ibnudrift', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'f62030e618d8105cf067cb2b85438a6dc660cfdd', '2020-03-24 11:53:54', 0, 1, '', '083854560095', 'jl. sawo 1a / 2 kel. bringin, kec. sambikerep, 60218', 'Surabaya', 'Jawa Timur', '60218', '1', '1978-12-12', 2147483647, 'na', 'asdfasdfsdf', 'OPERATIONAL', '6235634634', '2020-03-24', 'thumb_eea54-WhatsApp Image 2020-03-28 at 18.12.50.jpeg', 'thumb_ee3cc-150x150 (1).png', 'ibnudrift'),
+(3, '', 'Aditya Surya', '', 'Adit', '9a1bf5d026fa65a0c612b70a687d60c792318afa', '25dafbf8d4a7597c4509b1f0ff11030f67eed4d6', '2020-03-28 06:56:31', 0, 1, '', '081358009800', '', 'Surabaya', 'Jawa Timur', '', '1', '1987-06-05', NULL, '', '', 'DIREKTUR', '', '2020-03-28', 'thumb_f9ab5-Aditya.jpg', '', 'Adit'),
+(10, '', 'Elisabeth', '', 'Ibeth', '2832629909553eaeb974c29f386b2ccbc6780ac9', 'dca36dea7e6ebfedda79be4725dc0b23159027ff', '2020-03-29 12:42:30', 0, 1, '', '0812324226163', '', 'Surabaya', 'Jawa Timur', '', '2', '1987-04-06', NULL, '', '', 'FINANCE', '', '2020-03-29', 'thumb_551de-Elisabeth.jpg', '', 'Ibeth'),
+(7, '', 'Meti Supriyanti', '', 'Meti', '7eb48e31c1e8546c34e820c18e5ab12b853394f1', 'd1b7fa284de91b440e1dab46fa738bbe5a8fdd3f', '2020-03-29 06:54:29', 0, 1, '', '089693897890', '', '', 'Jawa Timur', '', '2', '0000-00-00', NULL, '', '', 'FINANCE', '', '2020-03-29', 'thumb_c81c1-METI.jpg', '', 'Meti'),
+(9, '', 'TEST program', '', 'test', 'b444ac06613fc8d63795be9ad0beaf55011936ac', '3f2089618baf68e106a07dae5120b16d449476b8', '2020-03-29 07:58:05', 0, 1, '', '081351919880', '', 'Surabaya', 'Jawa Timur', '', '1', '0000-00-00', NULL, '', '', 'DIREKTUR', '', '2020-03-29', 'thumb_04164-fotoku.jpg', '', 'test'),
+(8, '', 'Ita Purnamasari', '', 'Ita', 'eeff62d6220fc90b1e7b56732aa258dd1e01c910', 'e71643c8fa04c4d23d3908454c11a636e7cd6c81', '2020-03-29 07:14:41', 0, 1, '', '081216665991', '', 'Surabaya', 'Jawa Timur', '', '2', '0000-00-00', NULL, '', '', 'OPERATIONAL', '', '2020-03-29', 'thumb_4fa3a-ITA.jpg', '', 'Ita');
 
 -- --------------------------------------------------------
 
@@ -856,6 +980,28 @@ INSERT INTO `tb_group` (`id`, `group`, `aktif`, `akses`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_jabatan`
+--
+
+CREATE TABLE `tb_jabatan` (
+  `id` bigint(20) NOT NULL,
+  `nama` varchar(225) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_jabatan`
+--
+
+INSERT INTO `tb_jabatan` (`id`, `nama`) VALUES
+(10, 'DIREKTUR'),
+(11, 'FINANCE'),
+(12, 'OPERATIONAL'),
+(5, 'Sopir'),
+(4, 'Tukang');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_komentar`
 --
 
@@ -874,7 +1020,8 @@ CREATE TABLE `tb_komentar` (
 --
 
 INSERT INTO `tb_komentar` (`id`, `user_id`, `user_type`, `post_id`, `konten`, `date_input`, `status`) VALUES
-(1, 2, 'pelaksana', 2, 'oke saya kerjakan', '2020-03-24 19:16:14', 1);
+(1, 2, 'pelaksana', 2, 'oke saya kerjakan', '2020-03-24 19:16:14', 1),
+(2, 6, 'manager', 3, 'Test satu', '2020-03-29 14:44:15', 1);
 
 -- --------------------------------------------------------
 
@@ -1538,7 +1685,9 @@ CREATE TABLE `tb_tugas_kepentingan` (
 --
 
 INSERT INTO `tb_tugas_kepentingan` (`id`, `kepentingan`, `nama_kepentingan`) VALUES
-(1, 'nwp', 'Citraland Northwest Park');
+(4, 'TRIVIKON', 'PROYEK CITRALAND'),
+(5, 'KEDAI LEZMANA', 'PERSIAPAN PEMBUKAAN'),
+(6, 'TRIVIKON', 'KANTOR');
 
 -- --------------------------------------------------------
 
@@ -1574,8 +1723,13 @@ CREATE TABLE `tb_tugas_lists` (
 --
 
 INSERT INTO `tb_tugas_lists` (`id`, `dari`, `kepada`, `prioritas`, `subject_kepentingan`, `deskripsi`, `status`, `status_selesai`, `member_id`, `admin_id`, `date_input`, `date_finish`, `data`, `date_start_user`, `date_selesai_user`, `date_selesai_pemberi`, `lock_selesai`, `lock_start`, `flex_selesai_pelaksana`, `flex_selesai_pemberi`) VALUES
-(1, 'mlsn', 'ibnudrift', 'penting', 1, 'benahi lampu pju, nwp', 'selesai', 'under', 2, '1', '2020-03-24 19:08:52', '2020-03-31 00:00:00', NULL, '2020-03-24 19:10:43', '2020-03-24 19:11:51', '2020-03-24 19:12:20', 1, 1, 1, 1),
-(2, 'mlsn', 'ibnudrift', 'urgent', 1, 'Benahi jalan aspal rusak, Bukit palma', 'selesai', 'under', 2, '1', '2020-03-24 19:15:32', '2020-04-10 00:00:00', NULL, '2020-03-24 19:16:01', '2020-03-24 19:16:27', '2020-03-24 19:16:50', 1, 1, 1, 1);
+(37, 'Adit', 'Meti', 'rutin', 5, 'Buat laporan keuangan', '', NULL, 7, '3', '2020-03-29 18:56:42', '2020-04-01 00:00:00', NULL, '2020-03-29 18:59:37', NULL, NULL, 0, 1, 0, 0),
+(38, 'Adit', 'Ita', 'urgent', 5, 'Print banner untuk menu', '', NULL, 8, '3', '2020-03-29 18:57:56', '2020-03-30 00:00:00', NULL, '2020-03-29 18:58:49', NULL, NULL, 0, 1, 0, 0),
+(39, 'Adit', 'Ibeth', 'penting', 5, 'Test masakan kedai', '', NULL, 10, '3', '2020-03-29 19:43:34', '2020-04-06 00:00:00', NULL, '2020-03-29 20:52:40', NULL, NULL, 0, 1, 0, 0),
+(40, 'Adit', 'Adit', 'rutin', 5, 'Followup suk Nanang ', '', NULL, 3, '3', '2020-03-29 20:53:35', '2020-03-31 00:00:00', NULL, '2020-03-29 20:53:42', NULL, NULL, 0, 1, 0, 0),
+(41, 'Meti', 'Adit', 'penting', 5, 'Desainkan banner menu untuk kedai', '', NULL, 3, '7', '2020-03-30 06:26:52', '2020-04-02 00:00:00', NULL, NULL, NULL, NULL, 0, 0, 0, 0),
+(42, 'Meti', 'Ibeth', 'penting', 5, 'Memberi kritik terhadap setiap masakan', '', NULL, 10, '7', '2020-03-30 06:28:15', '2020-04-04 00:00:00', NULL, NULL, NULL, NULL, 0, 0, 0, 0),
+(43, 'Adit', 'test', 'rutin', 5, 'bikin kopi', '', NULL, 9, '3', '2020-03-30 08:58:40', '2020-03-27 00:00:00', NULL, '2020-03-30 08:59:15', NULL, NULL, 0, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1606,7 +1760,8 @@ CREATE TABLE `tb_user` (
 INSERT INTO `tb_user` (`id`, `email`, `nama`, `pass`, `type`, `group_id`, `login_terakhir`, `aktivasi`, `aktif`, `user_input`, `tanggal_input`, `initial`, `image`) VALUES
 (1, 'ibnudrift@gmail.com', 'Ibnu Fajar', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'root', 0, '2019-08-31 14:31:15', 0, 1, '', '2014-02-10 03:17:36', 'ibnu', ''),
 (41, 'rizalchamanin@gmail.com', 'chamanin', 'f58cf5e7e10f195e21b553096d092c763ed18b0e', 'root', 0, '2020-03-23 03:59:14', 0, 1, '', '0000-00-00 00:00:00', '', ''),
-(42, 'adityas87@yahoo.com', 'Aditya Surya', '67945a7a780464b301afd902f86856a43add6cec', 'root', 0, '2020-03-28 06:50:54', 0, 1, '', '0000-00-00 00:00:00', '', '');
+(42, 'adityas87@yahoo.com', 'Aditya Surya', '67945a7a780464b301afd902f86856a43add6cec', 'root', 0, '2020-03-28 06:50:54', 0, 1, '', '0000-00-00 00:00:00', '', ''),
+(43, 'chamanin', 'cm', 'f58cf5e7e10f195e21b553096d092c763ed18b0e', 'root', 0, '2020-03-28 11:49:40', 0, 1, '', '0000-00-00 00:00:00', '', '');
 
 -- --------------------------------------------------------
 
@@ -1700,10 +1855,10 @@ INSERT INTO `tt_text` (`id`, `category`, `message`) VALUES
 (73, 'admin', 'TUGAS'),
 (74, 'admin', 'Kepentingan Master'),
 (75, 'admin', 'Member Master'),
-(76, 'admin', 'Tugas Master');
+(76, 'admin', 'Tugas Master'),
+(77, 'admin', 'Jabatan Overview');
 
 -- --------------------------------------------------------
-
 --
 -- Struktur untuk view `view_blog`
 --
@@ -1791,6 +1946,13 @@ ALTER TABLE `setting_description`
 --
 ALTER TABLE `tb_group`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `tb_jabatan`
+--
+ALTER TABLE `tb_jabatan`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nama` (`nama`);
 
 --
 -- Indeks untuk tabel `tb_komentar`
@@ -1891,13 +2053,13 @@ ALTER TABLE `language`
 -- AUTO_INCREMENT untuk tabel `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
 -- AUTO_INCREMENT untuk tabel `me_member`
 --
 ALTER TABLE `me_member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `pg_blog`
@@ -1930,10 +2092,16 @@ ALTER TABLE `tb_group`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_jabatan`
+--
+ALTER TABLE `tb_jabatan`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_komentar`
 --
 ALTER TABLE `tb_komentar`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_kota`
@@ -1969,25 +2137,25 @@ ALTER TABLE `tb_provinsi`
 -- AUTO_INCREMENT untuk tabel `tb_tugas_kepentingan`
 --
 ALTER TABLE `tb_tugas_kepentingan`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_tugas_lists`
 --
 ALTER TABLE `tb_tugas_lists`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT untuk tabel `tt_text`
 --
 ALTER TABLE `tt_text`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

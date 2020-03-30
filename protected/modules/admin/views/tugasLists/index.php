@@ -58,8 +58,13 @@ $criteria->params[':dns_t'] = intval($_GET['subject']);
 			'type'=> 'raw',
 			'value'=> 'substr($data->deskripsi, 0, 55)."..."',
 		),
-		'status',
-		'status_selesai',
+		// 'status',
+		// 'status_selesai',
+		array(
+			'header'=> 'Status', 
+			'type'=> 'raw', 
+			'value'=> '$data->status."--".$data->status_selesai',
+		),
 		// 'date_input',
 		// 'date_finish',
 		array(
@@ -80,14 +85,14 @@ $criteria->params[':dns_t'] = intval($_GET['subject']);
 		'admin_id',
 		'data',
 		*/
-
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 			'template'=>'{update} &nbsp; {delete}',
 			// 'template'=>'{update}',
 		),
 	),
-)); ?>
+)); 
+?>
 
 
 <script src="<?php echo Yii::app()->baseUrl; ?>/bower_components/jquery.countdown/dist/jquery.countdown.min.js"></script>

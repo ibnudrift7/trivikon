@@ -147,7 +147,7 @@ class HomeController extends Controller
 		$criteria->order = 't.id DESC';
 		$data1 =  TugasKepentingan::model()->findAll($criteria);
 		foreach($data1 as $key => $value) {
-			$tugas_data = TugasLists::model()->findAll('t.subject_kepentingan = :subject_kepentingan', array(':subject_kepentingan'=>$value->id));
+			$tugas_data = TugasLists::model()->findAll('t.subject_kepentingan = :subject_kepentingan order by t.id DESC', array(':subject_kepentingan'=>$value->id));
 			$n_total = count($tugas_data);
 			$n_selesai_{$key} = 0;
 			$n_belum_{$key} = 0;
@@ -220,7 +220,9 @@ class HomeController extends Controller
 				$model->date_selesai_pemberi = date("Y-m-d H:i:s");
 
 				$model->status = 'selesai';
-				$model->lock_selesai = 1;
+				$model->lock_selesai = 1; 
+				
+				$model->date_selesai_user =  date("Y-m-d H:i:s");
 
 				$date1 = date("Y-m-d", strtotime($model->date_finish));
 				$date2 = date("Y-m-d", strtotime($model->date_selesai_user));

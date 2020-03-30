@@ -78,8 +78,6 @@ class Jabatan extends CActiveRecord
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('nama',$this->nama,true);
 
-		$criteria->order = 't.id DESC';
-
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

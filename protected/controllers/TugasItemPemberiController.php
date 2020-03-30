@@ -120,6 +120,8 @@ class TugasItemPemberiController extends Controller
 						$model->status = 'selesai';
 						$model->lock_selesai = 1;
 
+						$model->date_selesai_user =  date("Y-m-d H:i:s"); 
+						
 						$date1 = date("Y-m-d", strtotime($model->date_finish));
 						$date2 = date("Y-m-d", strtotime($model->date_selesai_user));
 

@@ -79,7 +79,7 @@
 <body>
     
 <h4>Total Tugas: <?php echo count( $model ); ?></h4>
-<table class="items table table-bordered">
+<table class="items table table-bordered customs_table" border="1" cellpadding="3">
     <thead>
         <tr>
             <th id="tugas-lists-grid_c0">No</th>
@@ -95,7 +95,7 @@
     </thead>
     <tbody>
         <?php if (is_array($model) && count($model) > 0): ?>
-            <?php foreach ($variable as $key => $value): ?>
+            <?php foreach ($model as $key => $value): ?>
             <tr class="odd">
                 <td><?php echo $key + 1 ?></td>
                 <td><?php echo date("d M Y", strtotime($value->date_input)) ?></td>

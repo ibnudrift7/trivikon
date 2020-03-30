@@ -34,7 +34,7 @@
             <div class="text-right">
               <small>
                 <a href="#" onclick="window.history.back();" class="btn btn-link btns_back"><i class="fa fa-chevron-left"></i> BACK</a>
-                <a href="<?php echo CHtml::normalizeUrl(array('/')); ?>" class="btn btn-link btns_back"><i class="fa fa-home"></i></a>
+                <a href="<?php echo CHtml::normalizeUrl(array('/home/index')); ?>" class="btn btn-link btns_back"><i class="fa fa-home"></i></a>
               </small>
             </div>
           </div>
@@ -84,7 +84,8 @@
       
       $('.table').DataTable({
         "paging": false,
-        "responsive": true
+        "responsive": true,
+        "ordering": false
       });
 
   });

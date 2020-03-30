@@ -48,7 +48,7 @@
             <div class="text-right">
                <small>
                 <a href="#" onclick="window.history.back();" class="btn btn-link btns_back"><i class="fa fa-chevron-left"></i> BACK</a>
-                <a href="<?php echo CHtml::normalizeUrl(array('/')); ?>" class="btn btn-link btns_back"><i class="fa fa-home"></i></a>
+                <a href="<?php echo CHtml::normalizeUrl(array('/home/index')); ?>" class="btn btn-link btns_back"><i class="fa fa-home"></i></a>
               </small>
             </div>
           </div>
@@ -78,17 +78,24 @@
               <tr>
                 <td>
                   <div class="d-inline-block picture mr-2 align-top">
-                    <img src="https://placehold.it/50x50" alt="" class="img img-fluid img-rounded">
+                    <?php 
+                    $foto_penerima = MeMember::model()->findByPk($value['member_id']); 
+                    ?>
+                    <?php if ($foto_penerima->foto_diri != ''): ?>
+                    <img src="<?php echo Yii::app()->baseUrl.'/images/customer/'. $foto_penerima->foto_diri ?>" alt="<?php echo 'data-id '. $foto_penerima->id ?>" class="img img-fluid img-rounded" style="max-width: 50px;">  
+                    <?php else: ?>
+                    <img src="https://placehold.it/50x50" alt="<?php echo 'data-id '. $foto_penerima->id ?>" class="img img-fluid img-rounded" style="max-width: 50px;">
+                    <?php endif ?>
 
                       <div class="d-inline-block ncheck_tombol" data-str="check_tombol" data-id="<?php echo $value['id'] ?>">
                         <?php if ($model_user->id == $value['admin_id'] && intval($value['lock_selesai']) == 0 && intval($value['lock_start']) == 1): ?>
                           <a href="<?php echo CHtml::normalizeUrl(array('/home/subject_update', 'data_id'=> $value['id'], 'flex_selesai_pemberi'=> 1)); ?>" class="btn btn-small btn-default">SELESAI ACC</a>
                         <?php endif ?>
 
-                        <?php if ($model_user->id == $value['member_id']): ?>
-                          <?php if (intval($value['lock_start']) == 1 && intval($value['lock_selesai']) == 0): ?>
-                          <a href="<?php echo CHtml::normalizeUrl(array('/home/subject_update', 'data_id'=> $value['id'], 'flex_selesai_pelaksana'=> 1)); ?>" class="btn btn-small btn-default">SELESAI TUGAS</a>  
-                          <?php endif ?>
+                        <?php if ($model_user->id == $value['member_id']): ?> 
+                          <?php /*if (intval($value['lock_start']) == 1 && intval($value['lock_selesai']) == 0): ?>
+                          <a href="<?php echo CHtml::normalizeUrl(array('/home/subject_update', 'data_id'=> $value['id'], 'flex_selesai_pelaksana'=> 1)); ?>" class="btn btn-small btn-default">SELESAI TUGAS</a>
+                          <?php endif;*/ ?>
                           <?php if (intval($value['lock_start']) == 0): ?>
                           <a href="<?php echo CHtml::normalizeUrl(array('/home/subject_update', 'data_id'=> $value['id'], 'lock_start'=> 1)); ?>" class="btn btn-small btn-default">START</a>
                           <?php endif ?>
@@ -124,13 +131,13 @@
                     <div class="clear clearfix"></div>
                     <div class="info_tugas">
                       <p><?php echo $value['deskripsi'] ?></p>
-                      <div class="views_detail">
+                      <div class="views_detail"> 
                         <small>
-                          <?php if ($value['admin_id'] == $model_user->id): ?>
-                          <a href="<?php echo CHtml::normalizeUrl(array('tugasItemPemberi/update', 'id'=> $value['id'])); ?>" class=""><i class="fa fa-chevron-right"></i> &nbsp; View Data</a>
+                          <?php if ($value['admin_id'] == $model_user->id): ?> 
+                          <a href="<?php echo CHtml::normalizeUrl(array('tugasItemPemberi/update', 'id'=> $value['id'])); ?>" class=""><i class="fa fa-chevron-right"></i> &nbsp; View Data Pemberi</a>
                           <?php endif ?>
                           <?php if ($value['member_id'] == $model_user->id): ?>
-                           <a href="<?php echo CHtml::normalizeUrl(array('tugasItem/update', 'id'=> $value['id'])); ?>" class=""><i class="fa fa-chevron-right"></i> &nbsp; View Data</a>
+                           <a href="<?php echo CHtml::normalizeUrl(array('tugasItem/update', 'id'=> $value['id'])); ?>" class=""><i class="fa fa-chevron-right"></i> &nbsp; View Data Penerima</a>
                           <?php endif ?>
                         </small>
                       </div>
@@ -150,20 +157,27 @@
                   </div>
                   <div class="d-inline-block px-2">|</div>
                   <div class="d-inline-block block_countdown">
-                    <strong>
-                    <?php 
-                    $time1 = time();
-                    $time2 = strtotime($value['date_finish']);
+                    <?php if (intval($value['lock_start'])  == 1): ?>
+                      <strong> 
+                      <?php 
+                      // $time1 = time();
+                      $time1 = strtotime($value['date_start_user']);
+                      $time2 = strtotime($value['date_finish']);
 
-                    $res_22 = $time2 - $time1;
-                    $juml_echo =  round($res_22 / (60 * 60 * 24));
-                    ?>
-                    <?php if ($res_22 < 0): ?>
-                    <span><?php echo $juml_echo . ' hari'; ?></span>  
-                    <?php else: ?>
-                    <span class="timer_countdown" data-countdown="<?php echo date("Y/m/d", strtotime($value['date_finish'])); ?>"></span>
+                      $res_22 = $time2 - $time1;
+                      $juml_echo =  round($res_22 / (60 * 60 * 24));
+                      ?>
+                      <?php if ($res_22 < 0): ?>
+                      <span><?php echo $juml_echo . ' hari'; ?></span>  
+                      <?php else: ?> 
+
+                        <?php if (intval($value['lock_start']) == 1 && intval($value['lock_selesai']) != 1): ?> 
+                        <span class="timer_countdown" data-countdown="<?php echo date("Y/m/d", strtotime($value['date_finish'])); ?>"></span>
+                        <?php endif ?>
+
+                      <?php endif ?>
+                      </strong>
                     <?php endif ?>
-                    </strong>
                   </div>
                   <div class="clear clearfix"></div>
                   <?php if ($value['status_selesai'] == 'over'): ?>
@@ -209,18 +223,20 @@
 
 <script src="<?php echo Yii::app()->baseUrl; ?>/bower_components/jquery.countdown/dist/jquery.countdown.min.js"></script>
 <script type="text/javascript">
-    $(function(){
-      $('.block_countdown span.timer_countdown').each(function() {
-        
-        var $this = $(this), finalDate = $(this).attr('data-countdown');
-        $this.countdown(finalDate, function(event) {
-          $this.html(event.strftime('%D hari %H:%M:%S'));
-        });
-
-        $(this).on('finish.countdown', function(event){
-          console.log("teste");
-        });
-
+  $(function(){
+    $('.block_countdown span.timer_countdown').each(function() {
+      
+      var $this = $(this), finalDate = $(this).attr('data-countdown');
+      $this.countdown(finalDate, function(event) {
+        $this.html(event.strftime('%D hari %H:%M:%S'));
       });
+
+      $(this).on('finish.countdown', function(event){
+        console.log("teste");
+      });
+
     });
-  </script>
+
+    // $('table.table td img.img.img-rounded').hide();
+  });
+</script>

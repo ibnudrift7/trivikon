@@ -228,7 +228,7 @@ class TugasListsController extends ControllerAdmin
 		$criteria = new CDbCriteria;
 		$criteria->order = 't.id DESC';
 		$criteria->condition = 'subject_kepentingan = '. intval($_GET['subject']);
-		$model = TugasLists::model()->findAll($criteria);
+		$model = TugasLists::model()->findAll($criteria); 
 
 		$body_print = $this->renderPartial('download_print2',array(
 			'model'=>$model,

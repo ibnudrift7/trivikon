@@ -14,6 +14,7 @@ $this->pageHeader=array(
 $this->menu=array(
 	array('label'=>'Back', 'icon'=>'','url'=>array('/home/subject_list', 'kepentingan_id'=> $_GET['kepentingan_id'])),
 	array('label'=>'Tambah Tugas', 'icon'=>'plus-sign','url'=>array('create', 'kepentingan_id'=> $_GET['kepentingan_id'])),
+	array('label'=>'Home', 'icon'=>'','url'=>array('/home/index')),
 );
 ?>
 

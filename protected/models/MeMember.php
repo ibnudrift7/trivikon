@@ -161,7 +161,8 @@ class MeMember extends CActiveRecord
 		$criteria->compare('session_token',$this->session_token);
 		$criteria->compare('nama_perusahaan',$this->nama_perusahaan);
 		// $criteria->compare('sejarah_singkat',$this->sejarah_singkat);
-		// $criteria->compare('gp_point',$this->gp_point);
+		// $criteria->compare('gp_point',$this->gp_point); 
+		$criteria->order = 't.id DESC';
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

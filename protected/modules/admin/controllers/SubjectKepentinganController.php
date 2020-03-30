@@ -122,7 +122,7 @@ class SubjectKepentinganController extends ControllerAdmin
 		// {
 			// we only allow deletion via POST request
 			$parents = $this->loadModel($id);
-			TugasLists::model()->deleteAll('t.subject_kepentingan = :subhect_id', array(':subhect_id'=>$parents->id));
+			TugasLists::model()->deleteAll('subject_kepentingan = :subhect_id', array(':subhect_id'=>$id));
 			$parents->delete();
 
 
